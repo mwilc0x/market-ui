@@ -12,46 +12,6 @@ const GET_NFT = gql`
       description
       owner {
         address
-        associatedTokenAccountAddress
-      }
-      attributes {
-        traitType
-        value
-      }
-      creators {
-        address
-      }
-      offers {
-        address
-        tradeState
-        price
-        buyer
-        createdAt
-        auctionHouse
-      }
-      activities {
-        address
-        metadata
-        auctionHouse
-        price
-        createdAt
-        wallets
-        activityType
-      }
-      listings {
-        address
-        auctionHouse
-        bookkeeper
-        seller
-        metadata
-        purchaseReceipt
-        price
-        tokenSize
-        bump
-        tradeState
-        tradeStateBump
-        createdAt
-        canceledAt
       }
     }
   }
@@ -89,6 +49,7 @@ export default function FindByCreatorSearch({ address }) {
                 description: nft.description,
                 mint: nft.mintAddress,
                 image: nft.image,
+                owner: nft.owner.address,
               }))}
               filename={"mints.csv"}
               className="inline bg-amber-400 hover:bg-amber-500 text-white px-4 py-3 text-md leading-4 rounded-lg"
@@ -121,6 +82,19 @@ export default function FindByCreatorSearch({ address }) {
                     {nft.name}
                   </td>
                   <td className="py-4 px-6 text-sm">{nft.description}</td>
+                  <td className="py-4 px-6 text-sm">
+                    <span className="mr-2">owner</span>
+                    <a
+                      href={`https://solscan.io/account/${nft.owner.address}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      title="Owner Address"
+                      className="bg-gray-100 p-1 hover:bg-gray-200"
+                    >
+                      {nft.owner.address.substr(0, 4)}...
+                      {nft.owner.address.slice(-4)}
+                    </a>
+                  </td>
                 </tr>
               ))}
             </tbody>
