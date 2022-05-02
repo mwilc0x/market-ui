@@ -18,22 +18,24 @@ export default function GridView({ nfts }) {
         {nfts.map((nft, index) => (
           <div
             key={index}
-            className="mb-10 p-2 rounded-lg shadow-[0_12px_40px_0px_rgba(0,0,0,0.06)] text-gray-500 border-gray-100 dark:border-gray-900 border-0 border-separate [border-spacing:0_0.5rem] hover:shadow-[0_12px_40px_0px_rgba(0,0,0,0.18)]"
+            className="mb-10 p-2 rounded-lg shadow-[0_12px_40px_0px_rgba(0,0,0,0.06)] text-gray-500 border-gray-100 dark:border-gray-900 border-0 border-separate [border-spacing:0_0.5rem] hover:shadow-[0_12px_40px_0px_rgba(0,0,0,0.18)] dark:bg-zinc-800 dark:text-gray-100"
           >
             <img
               src={nft.image}
               className="object-center object-cover rounded-lg"
             />
-            <p className="font-semibold text-gray-700">{nft.name}</p>
-            <p className="mt-1">{nft.description}</p>
+            <p className="font-semibold text-gray-700 dark:text-gray-300">
+              {nft.name}
+            </p>
+            <p className="mt-1 dark:text-gray-400">{nft.description}</p>
             <div className="mt-4">
-              <span className="mr-2">owner</span>
+              <span className="mr-2 dark:text-gray-300">owner</span>
               <a
                 href={`https://solscan.io/account/${nft.owner.address}`}
                 target="_blank"
                 rel="noreferrer"
                 title="Owner Address"
-                className="bg-gray-100 p-1 hover:bg-gray-200"
+                className="bg-gray-100 p-1 hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300"
               >
                 {nft.owner.address.substr(0, 4)}...
                 {nft.owner.address.slice(-4)}

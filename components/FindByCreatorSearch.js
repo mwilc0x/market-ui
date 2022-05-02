@@ -50,27 +50,33 @@ export default function FindByCreatorSearch({ address }) {
       {error && <p className="text-gray-300 text-sm">{error.message}</p>}
       {data && data.nfts && data.nfts.length === 0 && <p>0 results</p>}
       {data && data.nfts && data.nfts.length > 0 && (
-        <div className="mt-20 pt-6 border-t-2 border-gray-100">
-          <h1 className="text-lg font-bold text-gray-600 mb-4">Results</h1>
+        <div className="mt-20 pt-6 border-t-2 border-gray-100 dark:border-gray-700">
+          <h1 className="text-lg font-bold text-gray-600 mb-4 dark:text-gray-200">
+            Results
+          </h1>
           <div className="float-left">
             <div
-              className={`inline rounded-lg p-2 border border-gray-300 hover:bg-gray-100 align-middle ${
-                display === "list" ? "bg-gray-100" : "bg-gray-200"
+              className={`inline rounded-lg p-2 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 align-middle ${
+                display === "list"
+                  ? "bg-gray-100 dark:bg-gray-700"
+                  : "bg-gray-200 dark:bg-gray-800"
               }`}
             >
               <ViewListIcon
-                className="h-6 w-6 inline cursor-pointer"
+                className="h-6 w-6 inline cursor-pointer -mt-0.5"
                 aria-hidden="true"
                 onClick={() => setDisplay("list")}
               />
             </div>
             <div
-              className={`inline rounded-lg p-2 border border-gray-300 hover:bg-gray-100 align-middle ml-2 ${
-                display === "grid" ? "bg-gray-100" : "bg-gray-200"
+              className={`inline rounded-lg p-2 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 align-middle ml-2 ${
+                display === "grid"
+                  ? "bg-gray-100 dark:bg-gray-700"
+                  : "bg-gray-200 dark:bg-gray-800"
               }`}
             >
               <ViewGridIcon
-                className="h-6 w-6 inline cursor-pointer"
+                className="h-6 w-6 inline cursor-pointer -mt-0.5"
                 aria-hidden="true"
                 onClick={() => setDisplay("grid")}
               />
@@ -86,7 +92,7 @@ export default function FindByCreatorSearch({ address }) {
                 owner: nft.owner.address,
               }))}
               filename={"mints.csv"}
-              className="inline bg-amber-400 hover:bg-amber-500 text-white px-4 py-3 text-md leading-4 rounded-lg"
+              className="inline bg-amber-400 hover:bg-amber-500 dark:bg-amber-500 dark:hover:bg-amber-600 text-white px-4 py-3 text-md leading-4 rounded-lg"
             >
               <DocumentDownloadIcon
                 className="h-6 w-6 inline cursor-pointer mr-1 align-middle -mt-1"
@@ -96,7 +102,7 @@ export default function FindByCreatorSearch({ address }) {
             </CSVLink>
             <a
               onClick={downloadJson}
-              className="inline bg-amber-400 hover:bg-amber-500 text-white px-4 py-3 text-md leading-4 rounded-lg ml-2 cursor-pointer"
+              className="inline bg-amber-400 hover:bg-amber-500 dark:bg-amber-500 dark:hover:bg-amber-600 text-white px-4 py-3 text-md leading-4 rounded-lg ml-2 cursor-pointer"
             >
               <DocumentDownloadIcon
                 className="h-6 w-6 inline cursor-pointer mr-1 align-middle -mt-1"
