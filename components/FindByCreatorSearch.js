@@ -1,5 +1,13 @@
+import React, { useState } from "react";
 import { gql, useQuery } from "@apollo/client";
-import { CSVLink, CSVDownload } from "react-csv";
+import { CSVLink } from "react-csv";
+import ListView from "/components/ListView";
+import GridView from "/components/GridView";
+import {
+  ViewListIcon,
+  ViewGridIcon,
+  DocumentDownloadIcon,
+} from "@heroicons/react/outline";
 
 const GET_NFT = gql`
   query GetNft($address: [PublicKey!]) {
@@ -18,6 +26,8 @@ const GET_NFT = gql`
 `;
 
 export default function FindByCreatorSearch({ address }) {
+  const [display, setDisplay] = useState("list");
+
   const { data, loading, error } = useQuery(GET_NFT, {
     variables: {
       address: address,
@@ -41,7 +51,31 @@ export default function FindByCreatorSearch({ address }) {
       {data && data.nfts && data.nfts.length === 0 && <p>0 results</p>}
       {data && data.nfts && data.nfts.length > 0 && (
         <div className="mt-20 pt-6 border-t-2 border-gray-100">
-          <h1 className="text-lg font-bold text-gray-600">Results</h1>
+          <h1 className="text-lg font-bold text-gray-600 mb-4">Results</h1>
+          <div className="float-left">
+            <div
+              className={`inline rounded-lg p-2 border border-gray-300 hover:bg-gray-100 align-middle ${
+                display === "list" ? "bg-gray-100" : "bg-gray-200"
+              }`}
+            >
+              <ViewListIcon
+                className="h-6 w-6 inline cursor-pointer"
+                aria-hidden="true"
+                onClick={() => setDisplay("list")}
+              />
+            </div>
+            <div
+              className={`inline rounded-lg p-2 border border-gray-300 hover:bg-gray-100 align-middle ml-2 ${
+                display === "grid" ? "bg-gray-100" : "bg-gray-200"
+              }`}
+            >
+              <ViewGridIcon
+                className="h-6 w-6 inline cursor-pointer"
+                aria-hidden="true"
+                onClick={() => setDisplay("grid")}
+              />
+            </div>
+          </div>
           <div className="float-right">
             <CSVLink
               data={data.nfts.map((nft) => ({
@@ -54,51 +88,28 @@ export default function FindByCreatorSearch({ address }) {
               filename={"mints.csv"}
               className="inline bg-amber-400 hover:bg-amber-500 text-white px-4 py-3 text-md leading-4 rounded-lg"
             >
+              <DocumentDownloadIcon
+                className="h-6 w-6 inline cursor-pointer mr-1 align-middle -mt-1"
+                aria-hidden="true"
+              />
               Details CSV
             </CSVLink>
             <a
               onClick={downloadJson}
               className="inline bg-amber-400 hover:bg-amber-500 text-white px-4 py-3 text-md leading-4 rounded-lg ml-2 cursor-pointer"
             >
+              <DocumentDownloadIcon
+                className="h-6 w-6 inline cursor-pointer mr-1 align-middle -mt-1"
+                aria-hidden="true"
+              />
               Mint List JSON
             </a>
           </div>
-          <table className="clear-both mt-10 relative h-full min-w-full rounded-lg border-gray-100 dark:border-gray-900 border-0 border-separate [border-spacing:0_0.5rem]">
-            <tbody>
-              {data.nfts.map((nft, index) => (
-                <tr
-                  key={index}
-                  className="bg-transparent h-full lg:hover:shadow-[0_12px_40px_0px_rgba(0,0,0,0.18)] rounded-xl shadow-[0_12px_40px_0px_rgba(0,0,0,0.06)] text-gray-500 ng-star-inserted"
-                >
-                  <td className="py-4 px-6">
-                    <div className="w-[50px] h-[50px] overflow-hidden rounded-lg">
-                      <img
-                        src={nft.image}
-                        className="object-center object-cover rounded-lg min-w-[50px] min-h-[50px]"
-                      />
-                    </div>
-                  </td>
-                  <td className="py-4 px-6 font-semibold text-gray-700">
-                    {nft.name}
-                  </td>
-                  <td className="py-4 px-6 text-sm">{nft.description}</td>
-                  <td className="py-4 px-6 text-sm">
-                    <span className="mr-2">owner</span>
-                    <a
-                      href={`https://solscan.io/account/${nft.owner.address}`}
-                      target="_blank"
-                      rel="noreferrer"
-                      title="Owner Address"
-                      className="bg-gray-100 p-1 hover:bg-gray-200"
-                    >
-                      {nft.owner.address.substr(0, 4)}...
-                      {nft.owner.address.slice(-4)}
-                    </a>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          {display === "list" ? (
+            <ListView nfts={data.nfts} />
+          ) : (
+            <GridView nfts={data.nfts} />
+          )}
         </div>
       )}
     </>
