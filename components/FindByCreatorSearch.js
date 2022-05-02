@@ -108,7 +108,7 @@ export default function FindByCreatorSearch({ address }) {
                 className="h-6 w-6 inline cursor-pointer mr-1 align-middle -mt-1"
                 aria-hidden="true"
               />
-              Mint List JSON
+              JSON
             </a>
           </div>
           {display === "list" ? (
