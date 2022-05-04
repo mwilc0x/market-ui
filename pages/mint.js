@@ -2,6 +2,8 @@ import Head from "next/head";
 import Navbar from "/components/Navbar";
 import MintForm from "/components/mint/MintForm";
 
+import { WalletContextProvider } from "/contexts/wallet";
+
 export default function Mint() {
   return (
     <div className="dark:bg-black">
@@ -12,7 +14,9 @@ export default function Mint() {
       </Head>
       <div className="p-4 w-full xl:w-[1024px] mx-auto">
         <Navbar />
-        <MintForm />
+        <WalletContextProvider>
+          <MintForm />
+        </WalletContextProvider>
       </div>
     </div>
   );

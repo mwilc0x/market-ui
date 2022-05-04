@@ -99,3 +99,7 @@ body {
 .open .hamburger__bottom-bun {
   transform: rotate(-45deg) translateY(0px);
 }
+
+.wallet-adapter-button-trigger {
+  background-color: #512da8;
+}
