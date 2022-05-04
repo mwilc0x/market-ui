@@ -1,6 +1,6 @@
 import Masonry from "react-masonry-css";
 
-export default function GridView({ nfts }) {
+export default function GridView({ nfts, searchBy }) {
   const breakpointColumnsObj = {
     default: 4,
     1100: 3,
@@ -28,19 +28,21 @@ export default function GridView({ nfts }) {
               {nft.name}
             </p>
             <p className="mt-1 dark:text-gray-400">{nft.description}</p>
-            <div className="mt-4">
-              <span className="mr-2 dark:text-gray-300">owner</span>
-              <a
-                href={`https://solscan.io/account/${nft.owner.address}`}
-                target="_blank"
-                rel="noreferrer"
-                title="Owner Address"
-                className="bg-gray-100 p-1 hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300"
-              >
-                {nft.owner.address.substr(0, 4)}...
-                {nft.owner.address.slice(-4)}
-              </a>
-            </div>
+            {searchBy === "creator" && (
+              <div className="mt-4">
+                <span className="mr-2 dark:text-gray-300">owner</span>
+                <a
+                  href={`https://solscan.io/account/${nft.owner.address}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  title="Owner Address"
+                  className="bg-gray-100 p-1 hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300"
+                >
+                  {nft.owner.address.substr(0, 4)}...
+                  {nft.owner.address.slice(-4)}
+                </a>
+              </div>
+            )}
           </div>
         ))}
       </Masonry>

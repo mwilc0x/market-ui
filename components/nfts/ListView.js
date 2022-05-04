@@ -1,4 +1,4 @@
-export default function ListView({ nfts }) {
+export default function ListView({ nfts, searchBy }) {
   return (
     <>
       <div className="sm:hidden mt-16">
@@ -19,19 +19,21 @@ export default function ListView({ nfts }) {
                     {nft.name}
                   </p>
                   <p className="mt-1">{nft.description}</p>
-                  <div className="mt-4">
-                    <span className="mr-2">owner</span>
-                    <a
-                      href={`https://solscan.io/account/${nft.owner.address}`}
-                      target="_blank"
-                      rel="noreferrer"
-                      title="Owner Address"
-                      className="bg-gray-100 dark:bg-gray-700 p-1 hover:bg-gray-200 dark:text-gray-300"
-                    >
-                      {nft.owner.address.substr(0, 4)}...
-                      {nft.owner.address.slice(-4)}
-                    </a>
-                  </div>
+                  {searchBy === "creator" && (
+                    <div className="mt-4">
+                      <span className="mr-2">owner</span>
+                      <a
+                        href={`https://solscan.io/account/${nft.owner.address}`}
+                        target="_blank"
+                        rel="noreferrer"
+                        title="Owner Address"
+                        className="bg-gray-100 dark:bg-gray-700 p-1 hover:bg-gray-200 dark:text-gray-300"
+                      >
+                        {nft.owner.address.substr(0, 4)}...
+                        {nft.owner.address.slice(-4)}
+                      </a>
+                    </div>
+                  )}
                 </dd>
               </div>
             </dl>
@@ -57,19 +59,21 @@ export default function ListView({ nfts }) {
                 {nft.name}
               </td>
               <td className="py-4 px-6 text-sm">{nft.description}</td>
-              <td className="py-4 px-6 text-sm rounded-r-lg">
-                <span className="mr-2">owner</span>
-                <a
-                  href={`https://solscan.io/account/${nft.owner.address}`}
-                  target="_blank"
-                  rel="noreferrer"
-                  title="Owner Address"
-                  className="bg-gray-100 dark:bg-gray-700 p-1 hover:bg-gray-200 dark:text-gray-300"
-                >
-                  {nft.owner.address.substr(0, 4)}...
-                  {nft.owner.address.slice(-4)}
-                </a>
-              </td>
+              {searchBy === "creator" && (
+                <td className="py-4 px-6 text-sm rounded-r-lg">
+                  <span className="mr-2">owner</span>
+                  <a
+                    href={`https://solscan.io/account/${nft.owner.address}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    title="Owner Address"
+                    className="bg-gray-100 dark:bg-gray-700 p-1 hover:bg-gray-200 dark:text-gray-300"
+                  >
+                    {nft.owner.address.substr(0, 4)}...
+                    {nft.owner.address.slice(-4)}
+                  </a>
+                </td>
+              )}
             </tr>
           ))}
         </tbody>
