@@ -24,7 +24,7 @@ export default function GridView({ nfts, searchBy }) {
               src={nft.image}
               className="object-center object-cover rounded-lg"
             />
-            <p className="font-semibold text-gray-700 dark:text-gray-300">
+            <p className="font-semibold text-gray-700 dark:text-gray-300 mt-2">
               {nft.name}
             </p>
             <p className="mt-1 dark:text-gray-400">{nft.description}</p>
