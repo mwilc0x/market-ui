@@ -49,6 +49,17 @@ export default function Home() {
           Mint a one of one NFT (master edition with a max supply of 0).
         </p>
         <p className="mt-12">
+          <Link href="/marketplaces">
+            <a>
+              <strong>Marketplaces</strong>
+            </a>
+          </Link>
+        </p>
+        <p className="mt-6">
+          Uses Holaplex&apos;s new GraphQL API to show listings from the six
+          currently live Holaplex Marketplace&apos;s.
+        </p>
+        <p className="mt-12">
           <Twitter username="richjard" />
         </p>
       </div>

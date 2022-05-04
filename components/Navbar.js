@@ -36,21 +36,24 @@ export default function Navbar() {
         >
           <div className="mr-6 mb-6 sm:mb-0 mt-3 sm:mt-0 inline">
             <Link href="/creator">
-              <a className="text-blue-500 hover:text-blue-600">
-                [NFTs by Creator]
-              </a>
+              <a className="text-blue-500 hover:text-blue-600">[Creator]</a>
             </Link>
           </div>
           <div className="mr-6 mb-6 sm:mb-0 inline">
             <Link href="/owner">
-              <a className="text-blue-500 hover:text-blue-600">
-                [NFTs by Owner]
-              </a>
+              <a className="text-blue-500 hover:text-blue-600">[Owner]</a>
             </Link>
           </div>
           <div className="mr-6 mb-6 sm:mb-0 inline">
             <Link href="/mint">
-              <a className="text-blue-500 hover:text-blue-600">[Mint an NFT]</a>
+              <a className="text-blue-500 hover:text-blue-600">[Mint]</a>
+            </Link>
+          </div>
+          <div className="mr-6 mb-6 sm:mb-0 inline">
+            <Link href="/marketplaces">
+              <a className="text-blue-500 hover:text-blue-600">
+                [Marketplaces]
+              </a>
             </Link>
           </div>
           <DarkMode />
