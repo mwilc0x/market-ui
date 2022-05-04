@@ -1,34 +1,18 @@
 import React, { useState } from "react";
-import { gql, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { CSVLink } from "react-csv";
-import ListView from "/components/ListView";
-import GridView from "/components/GridView";
+import ListView from "/components/nfts/ListView";
+import GridView from "/components/nfts/GridView";
 import {
   ViewListIcon,
   ViewGridIcon,
   DocumentDownloadIcon,
 } from "@heroicons/react/outline";
 
-const GET_NFT = gql`
-  query GetNft($address: [PublicKey!]) {
-    nfts(creators: $address, offset: 0, limit: 100000) {
-      name
-      address
-      image(width: 1400)
-      sellerFeeBasisPoints
-      mintAddress
-      description
-      owner {
-        address
-      }
-    }
-  }
-`;
-
-export default function FindByCreatorSearch({ address }) {
+export default function Search({ address, query, searchBy }) {
   const [display, setDisplay] = useState("list");
 
-  const { data, loading, error } = useQuery(GET_NFT, {
+  const { data, loading, error } = useQuery(query, {
     variables: {
       address: address,
     },
@@ -43,6 +27,23 @@ export default function FindByCreatorSearch({ address }) {
     link.download = "mintlist.json";
     link.click();
   };
+
+  const csvData = data
+    ? searchBy === "creator"
+      ? data.nfts.map((nft) => ({
+          name: nft.name,
+          description: nft.description,
+          mint: nft.mintAddress,
+          image: nft.image,
+          owner: nft.owner.address,
+        }))
+      : data.nfts.map((nft) => ({
+          name: nft.name,
+          description: nft.description,
+          mint: nft.mintAddress,
+          image: nft.image,
+        }))
+    : null;
 
   return (
     <>
@@ -84,13 +85,7 @@ export default function FindByCreatorSearch({ address }) {
           </div>
           <div className="float-right">
             <CSVLink
-              data={data.nfts.map((nft) => ({
-                name: nft.name,
-                description: nft.description,
-                mint: nft.mintAddress,
-                image: nft.image,
-                owner: nft.owner.address,
-              }))}
+              data={csvData}
               filename={"mints.csv"}
               className="inline bg-amber-400 hover:bg-amber-500 dark:bg-amber-500 dark:hover:bg-amber-600 text-white px-4 py-3 text-md leading-4 rounded-lg"
             >
@@ -112,9 +107,9 @@ export default function FindByCreatorSearch({ address }) {
             </a>
           </div>
           {display === "list" ? (
-            <ListView nfts={data.nfts} />
+            <ListView nfts={data.nfts} searchBy={searchBy} />
           ) : (
-            <GridView nfts={data.nfts} />
+            <GridView nfts={data.nfts} searchBy={searchBy} />
           )}
         </div>
       )}

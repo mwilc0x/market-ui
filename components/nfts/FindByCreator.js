@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import FindByCreatorSearch from "/components/FindByCreatorSearch";
+import { gql } from "@apollo/client";
+import Search from "/components/nfts/Search";
 
 export default function FindByCreator() {
   const [address, setAddress] = useState();
@@ -8,6 +9,22 @@ export default function FindByCreator() {
     const addy = document.getElementById("address").value;
     setAddress(addy);
   };
+
+  const query = gql`
+    query GetNft($address: [PublicKey!]) {
+      nfts(creators: $address, offset: 0, limit: 100000) {
+        name
+        address
+        image(width: 1400)
+        sellerFeeBasisPoints
+        mintAddress
+        description
+        owner {
+          address
+        }
+      }
+    }
+  `;
 
   return (
     <>
@@ -24,7 +41,7 @@ export default function FindByCreator() {
           Search
         </button>
       </article>
-      <FindByCreatorSearch address={address} />
+      <Search address={address} query={query} searchBy="creator" />
     </>
   );
 }

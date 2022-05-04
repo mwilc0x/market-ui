@@ -28,3 +28,74 @@ body {
 .masonry-grid_column > div {
   margin-bottom: 2rem;
 }
+
+.dzu-dropzone {
+  width: 100%;
+  height: 300px;
+  border: 2px #ccc dashed;
+  text-align: center;
+}
+
+.dzu-previewButton {
+  position: absolute;
+  z-index: 999 !important;
+  width: 15px;
+  height: 15px;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.dzu-previewContainer {
+  overflow: hidden;
+  height: 296px;
+}
+
+.dzu-previewImage {
+  object-position: center;
+  object-fit: cover;
+}
+
+/* HAMBURGER MENU */
+
+.hamburger {
+  cursor: pointer;
+  width: 48px;
+  height: 24px;
+  transition: all 0.25s;
+}
+
+.hamburger__top-bun,
+.hamburger__bottom-bun {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  transform: rotate(0);
+  transition: all 0.5s;
+}
+
+.hamburger:hover [class*="-bun"] {
+  background: #999;
+}
+
+.hamburger__top-bun {
+  transform: translateY(-5px);
+}
+
+.hamburger__bottom-bun {
+  transform: translateY(3px);
+}
+
+.open {
+  transform: rotate(90deg);
+  transform: translateY(-1px);
+}
+
+.open .hamburger__top-bun {
+  transform: rotate(45deg) translateY(0px);
+}
+
+.open .hamburger__bottom-bun {
+  transform: rotate(-45deg) translateY(0px);
+}
