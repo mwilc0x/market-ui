@@ -47,7 +47,12 @@ export default function Listings({ nfts, subdomain, auctionHouse }) {
                   l.seller === nft.owner.address
               )
               .map((listing) => (
-                <Nft nft={nft} listing={listing} subdomain={subdomain} />
+                <Nft
+                  key={listing.address}
+                  nft={nft}
+                  listing={listing}
+                  subdomain={subdomain}
+                />
               ))}
           </>
         ))}
