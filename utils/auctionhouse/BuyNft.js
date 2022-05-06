@@ -1,7 +1,9 @@
+import { toast } from "react-toastify";
 import { AuctionHouseProgram } from "@metaplex-foundation/mpl-auction-house";
 import { MetadataProgram } from "@metaplex-foundation/mpl-token-metadata";
 
 import {
+  Connection,
   PublicKey,
   SYSVAR_INSTRUCTIONS_PUBKEY,
   Transaction,
@@ -17,49 +19,41 @@ const {
   createPrintPurchaseReceiptInstruction,
 } = AuctionHouseProgram.instructions;
 
-export default async function buyNftTransaction(nft, wallet) {
-  if (!wallet.publicKey || !wallet.signTransaction) {
-    return;
-  }
+export default async function buyNftTransaction(
+  nft,
+  listing,
+  publicKey,
+  signTransaction,
+  ah
+) {
+  const connection = new Connection(process.env.NEXT_PUBLIC_RPC, "confirmed");
 
-  const auctionHouse = new PublicKey(process.env.NEXT_PUBLIC_AUCTIONHOUSE);
+  const auctionHouse = new PublicKey(ah.auctionhouse);
+  const authority = new PublicKey(ah.authority);
+  const auctionHouseFeeAccount = new PublicKey(ah.feeAccount);
+  const treasuryMint = new PublicKey(ah.treasuryMint);
 
-  const authority = new PublicKey(
-    process.env.NEXT_PUBLIC_AUCTIONHOUSE_AUTHORITY
-  );
-
-  const auctionHouseFeeAccount = new PublicKey(
-    process.env.NEXT_PUBLIC_AUCTIONHOUSE_FEE_ACCOUNT
-  );
-
-  const treasuryMint = new PublicKey(
-    process.env.NEXT_PUBLIC_AUCTIONHOUSE_TREASURY_MINT
-  );
-
-  const seller = new PublicKey(nft.listings[0].seller);
-
+  const seller = new PublicKey(listing.seller);
   const tokenMint = new PublicKey(nft.mintAddress);
 
-  const auctionHouseTreasury = new PublicKey(
-    process.env.NEXT_PUBLIC_AUCTIONHOUSE_TREASURY
-  );
+  const auctionHouseTreasury = new PublicKey(ah.treasury);
 
-  const listingReceipt = new PublicKey(nft.listings[0].address);
-  const sellerPaymentReceiptAccount = new PublicKey(nft.listings[0].seller);
-  const sellerTradeState = new PublicKey(nft.listings[0].tradeState);
-  const buyerPrice = nft.listings[0].price;
+  const listingReceipt = new PublicKey(listing.address);
+  const sellerPaymentReceiptAccount = new PublicKey(listing.seller);
+  const sellerTradeState = new PublicKey(listing.tradeState);
+  const buyerPrice = listing.price;
   const tokenAccount = new PublicKey(nft.owner.associatedTokenAccountAddress);
   const [metadata] = await MetadataProgram.findMetadataAccount(tokenMint);
 
   const [escrowPaymentAccount, escrowPaymentBump] =
     await AuctionHouseProgram.findEscrowPaymentAccountAddress(
       auctionHouse,
-      wallet.publicKey
+      publicKey
     );
 
   const [buyerTradeState, tradeStateBump] =
     await AuctionHouseProgram.findPublicBidTradeStateAddress(
-      wallet.publicKey,
+      publicKey,
       auctionHouse,
       treasuryMint,
       tokenMint,
@@ -84,7 +78,7 @@ export default async function buyNftTransaction(nft, wallet) {
   const [buyerReceiptTokenAccount] =
     await AuctionHouseProgram.findAssociatedTokenAccountAddress(
       tokenMint,
-      wallet.publicKey
+      publicKey
     );
 
   const [bidReceipt, bidReceiptBump] =
@@ -97,9 +91,9 @@ export default async function buyNftTransaction(nft, wallet) {
     );
 
   const publicBuyInstructionAccounts = {
-    wallet: wallet.publicKey,
-    paymentAccount: wallet.publicKey,
-    transferAuthority: wallet.publicKey,
+    wallet: publicKey,
+    paymentAccount: publicKey,
+    transferAuthority: publicKey,
     treasuryMint,
     tokenAccount,
     metadata,
@@ -118,7 +112,7 @@ export default async function buyNftTransaction(nft, wallet) {
   };
 
   const executeSaleInstructionAccounts = {
-    buyer: wallet.publicKey,
+    buyer: publicKey,
     seller,
     tokenAccount,
     tokenMint,
@@ -146,7 +140,7 @@ export default async function buyNftTransaction(nft, wallet) {
   };
 
   const printBidReceiptAccounts = {
-    bookkeeper: wallet.publicKey,
+    bookkeeper: publicKey,
     receipt: bidReceipt,
     instruction: SYSVAR_INSTRUCTIONS_PUBKEY,
   };
@@ -156,7 +150,7 @@ export default async function buyNftTransaction(nft, wallet) {
   };
 
   const printPurchaseReceiptAccounts = {
-    bookkeeper: wallet.publicKey,
+    bookkeeper: publicKey,
     purchaseReceipt,
     bidReceipt,
     listingReceipt,
@@ -209,7 +203,7 @@ export default async function buyNftTransaction(nft, wallet) {
     .add(printPurchaseReceiptInstruction);
 
   txt.recentBlockhash = (await connection.getLatestBlockhash()).blockhash;
-  txt.feePayer = wallet.publicKey;
+  txt.feePayer = publicKey;
 
   let signed;
 
