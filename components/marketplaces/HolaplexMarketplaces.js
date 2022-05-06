@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { gql } from "@apollo/client";
-import Activity from "/components/marketplaces/Activity";
+import ListingsContainer from "/components/marketplaces/ListingsContainer";
 
-export default function MarketplaceMain() {
+export default function HolaplexMarketplaces() {
   const [subdomain, setSubdomain] = useState();
-  const [publicKey, setPublicKey] = useState();
+  const [auctionhousePublicKey, setAuctionhousePublicKey] = useState();
 
   function setSelected(m) {
     setSubdomain(m.subdomain);
-    setPublicKey(m.auctionhouse);
+    setAuctionhousePublicKey(m.auctionhouse);
   }
 
   const marketplaces = [
@@ -45,22 +45,51 @@ export default function MarketplaceMain() {
   ];
 
   const query = gql`
-    query GetActivity($auctionHouses: PublicKey!) {
-      activities(auctionHouses: [$auctionHouses]) {
-        activityType
-        createdAt
-        nft {
-          name
+    query GetNfts($auctionHouses: PublicKey!) {
+      nfts(
+        auctionHouses: [$auctionHouses]
+        offset: 0
+        limit: 10000
+        listed: true
+      ) {
+        name
+        address
+        image(width: 1400)
+        sellerFeeBasisPoints
+        mintAddress
+        description
+        listings {
           address
-          image(width: 1400)
-          sellerFeeBasisPoints
-          mintAddress
-          description
-          listings {
-            price
-            createdAt
-            canceledAt
-          }
+          price
+          createdAt
+          canceledAt
+          seller
+          tradeState
+          metadata
+          tradeStateBump
+          purchaseReceipt
+          tokenSize
+          bump
+          auctionHouse
+        }
+        offers {
+          address
+          tradeState
+          price
+          buyer
+          createdAt
+          tradeState
+        }
+        purchases {
+          price
+          createdAt
+        }
+        owner {
+          associatedTokenAccountAddress
+          address
+        }
+        creators {
+          address
         }
       }
     }
@@ -83,8 +112,13 @@ export default function MarketplaceMain() {
             {m.name}
           </button>
         ))}
-        {subdomain && publicKey && (
-          <Activity publicKey={publicKey} query={query} subdomain={subdomain} />
+        {subdomain && auctionhousePublicKey && (
+          <ListingsContainer
+            auctionhousePublicKey={auctionhousePublicKey}
+            query={query}
+            subdomain={subdomain}
+            source="holaplex"
+          />
         )}
       </div>
     </>

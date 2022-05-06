@@ -34,7 +34,7 @@ export default function Navbar() {
           id="menu"
           className="w-full sm:w-auto self-end sm:self-center sm:flex flex-col sm:flex-row items-center h-fit py-1 pb-4 sm:py-0 sm:pb-0 hidden top-[40px] bg-white dark:bg-black"
         >
-          <div className="mr-6 mb-6 sm:mb-0 mt-3 sm:mt-0 inline">
+          <div className="mr-6 mb-6 sm:mb-0 inline">
             <Link href="/creator">
               <a className="text-blue-500 hover:text-blue-600">[Creator]</a>
             </Link>
@@ -54,6 +54,11 @@ export default function Navbar() {
               <a className="text-blue-500 hover:text-blue-600">
                 [Marketplaces]
               </a>
+            </Link>
+          </div>
+          <div className="mr-6 mb-6 sm:mb-0 inline">
+            <Link href="/wallet">
+              <a className="text-blue-500 hover:text-blue-600">[Wallet]</a>
             </Link>
           </div>
           <DarkMode />

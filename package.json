@@ -10,8 +10,10 @@
   },
   "dependencies": {
     "@apollo/client": "^3.6.1",
+    "@headlessui/react": "^1.6.1",
     "@heroicons/react": "^1.0.6",
-    "@metaplex-foundation/mpl-token-metadata": "^2.1.1",
+    "@metaplex-foundation/mpl-auction-house": "^1.2.0",
+    "@metaplex-foundation/mpl-token-metadata": "^1.2.5",
     "@solana/spl-token": "^0.1.5",
     "@solana/wallet-adapter-base": "^0.9.5",
     "@solana/wallet-adapter-react": "^0.15.4",

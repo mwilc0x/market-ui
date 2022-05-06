@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Navbar from "/components/Navbar";
-import MarketplaceMain from "/components/marketplaces/MarketplaceMain";
+import HolaplexMarketplaces from "/components/marketplaces/HolaplexMarketplaces";
 
 export default function Marketplaces() {
   return (
@@ -12,7 +12,7 @@ export default function Marketplaces() {
       </Head>
       <div className="p-4 w-full xl:w-[1024px] mx-auto">
         <Navbar />
-        <MarketplaceMain />
+        <HolaplexMarketplaces />
       </div>
     </div>
   );

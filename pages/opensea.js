@@ -1,8 +1,8 @@
 import Head from "next/head";
 import Navbar from "/components/Navbar";
-import MintForm from "/components/mint/MintForm";
+import OpenseaCollections from "/components/marketplaces/OpenseaCollections";
 
-export default function Mint() {
+export default function Opensea() {
   return (
     <div className="dark:bg-black">
       <Head>
@@ -12,7 +12,7 @@ export default function Mint() {
       </Head>
       <div className="p-4 w-full xl:w-[1024px] mx-auto">
         <Navbar />
-        <MintForm />
+        <OpenseaCollections />
       </div>
     </div>
   );
