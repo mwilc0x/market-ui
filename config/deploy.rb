@@ -46,10 +46,10 @@ namespace :deploy do
     invoke 'pm2:restart'
   end
 
-  # task :build do
-  #   invoke 'yarn:build'
-  # end
+  task :build do
+    invoke 'yarn:build'
+  end
 
-  # after :publishing, :build
+  after :publishing, :build
   after :publishing, :restart   
 end
