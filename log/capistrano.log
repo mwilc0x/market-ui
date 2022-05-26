@@ -2597,3 +2597,238 @@ info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/d
  DEBUG [727c9427] 	[PM2] PM2 Successfully daemonized
  DEBUG [727c9427] 	[]
  DEBUG [727c9427] Finished in 0.828 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-05-26 13:50:32 +0800 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [c1dfcd13] Running /usr/bin/env mkdir -p /tmp as richard@159.223.80.122
+ DEBUG [c1dfcd13] Command: /usr/bin/env mkdir -p /tmp
+  INFO [c1dfcd13] Finished in 1.651 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-0bb4e29382fcbbf03e1d.sh 0.0%
+  INFO Uploading /tmp/git-ssh-0bb4e29382fcbbf03e1d.sh 100.0%
+  INFO [2f607abe] Running /usr/bin/env chmod 700 /tmp/git-ssh-0bb4e29382fcbbf03e1d.sh as richard@159.223.80.122
+ DEBUG [2f607abe] Command: /usr/bin/env chmod 700 /tmp/git-ssh-0bb4e29382fcbbf03e1d.sh
+  INFO [2f607abe] Finished in 0.281 seconds with exit status 0 (successful).
+  INFO [cb8cb513] Running /usr/bin/env git ls-remote git@github-provable:richardfsr/provable.art.git HEAD as richard@159.223.80.122
+ DEBUG [cb8cb513] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-0bb4e29382fcbbf03e1d.sh" ; /usr/bin/env git ls-remote git@github-provable:richardfsr/provable.art.git HEAD )
+ DEBUG [cb8cb513] 	1cb71abcc745470c2ed0ad644c1447d49c110712	HEAD
+  INFO [cb8cb513] Finished in 2.914 seconds with exit status 0 (successful).
+  INFO [c65b7e17] Running /usr/bin/env mkdir -p /opt/app/production/provable/shared /opt/app/production/provable/releases as richard@159.223.80.122
+ DEBUG [c65b7e17] Command: /usr/bin/env mkdir -p /opt/app/production/provable/shared /opt/app/production/provable/releases
+  INFO [c65b7e17] Finished in 0.339 seconds with exit status 0 (successful).
+  INFO [b8224ed2] Running /usr/bin/env mkdir -p /opt/app/production/provable/shared as richard@159.223.80.122
+ DEBUG [b8224ed2] Command: /usr/bin/env mkdir -p /opt/app/production/provable/shared
+  INFO [b8224ed2] Finished in 0.278 seconds with exit status 0 (successful).
+ DEBUG [26b35e02] Running [ -f /opt/app/production/provable/shared/ecosystem.config.js ] as richard@159.223.80.122
+ DEBUG [26b35e02] Command: [ -f /opt/app/production/provable/shared/ecosystem.config.js ]
+ DEBUG [26b35e02] Finished in 0.120 seconds with exit status 0 (successful).
+ DEBUG [93605872] Running [ -f /opt/app/production/provable/current/REVISION ] as richard@159.223.80.122
+ DEBUG [93605872] Command: [ -f /opt/app/production/provable/current/REVISION ]
+ DEBUG [93605872] Finished in 0.216 seconds with exit status 0 (successful).
+ DEBUG [603110a8] Running /usr/bin/env cat /opt/app/production/provable/current/REVISION 2>/dev/null as richard@159.223.80.122
+ DEBUG [603110a8] Command: /usr/bin/env cat /opt/app/production/provable/current/REVISION 2>/dev/null
+ DEBUG [603110a8] 	93d24a48b43551c01fdb66a4f1ad04dcd34788e3
+ DEBUG [603110a8] Finished in 0.317 seconds with exit status 0 (successful).
+ DEBUG [f587a530] Running [ -f /opt/app/production/provable/repo/HEAD ] as richard@159.223.80.122
+ DEBUG [f587a530] Command: [ -f /opt/app/production/provable/repo/HEAD ]
+ DEBUG [f587a530] Finished in 0.240 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /opt/app/production/provable/repo
+ DEBUG [5aa81695] Running if test ! -d /opt/app/production/provable/repo; then echo "Directory does not exist '/opt/app/production/provable/repo'" 1>&2; false; fi as richard@159.223.80.122
+ DEBUG [5aa81695] Command: if test ! -d /opt/app/production/provable/repo; then echo "Directory does not exist '/opt/app/production/provable/repo'" 1>&2; false; fi
+ DEBUG [5aa81695] Finished in 0.199 seconds with exit status 0 (successful).
+  INFO [0578fe4e] Running /usr/bin/env git remote set-url origin git@github-provable:richardfsr/provable.art.git as richard@159.223.80.122
+ DEBUG [0578fe4e] Command: cd /opt/app/production/provable/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-0bb4e29382fcbbf03e1d.sh" ; /usr/bin/env git remote set-url origin git@github-provable:richardfsr/provable.art.git )
+  INFO [0578fe4e] Finished in 0.249 seconds with exit status 0 (successful).
+  INFO [832f367c] Running /usr/bin/env git remote update --prune as richard@159.223.80.122
+ DEBUG [832f367c] Command: cd /opt/app/production/provable/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-0bb4e29382fcbbf03e1d.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [832f367c] 	Fetching origin
+ DEBUG [832f367c] 	From github-provable:richardfsr/provable.art
+   93d24a4..1cb71ab  main       -> main
+  INFO [832f367c] Finished in 2.856 seconds with exit status 0 (successful).
+ DEBUG [3ac143a5] Running if test ! -d /opt/app/production/provable/repo; then echo "Directory does not exist '/opt/app/production/provable/repo'" 1>&2; false; fi as richard@159.223.80.122
+ DEBUG [3ac143a5] Command: if test ! -d /opt/app/production/provable/repo; then echo "Directory does not exist '/opt/app/production/provable/repo'" 1>&2; false; fi
+ DEBUG [3ac143a5] Finished in 0.181 seconds with exit status 0 (successful).
+  INFO [97076c13] Running /usr/bin/env mkdir -p /opt/app/production/provable/releases/20220526055039 as richard@159.223.80.122
+ DEBUG [97076c13] Command: cd /opt/app/production/provable/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-0bb4e29382fcbbf03e1d.sh" ; /usr/bin/env mkdir -p /opt/app/production/provable/releases/20220526055039 )
+  INFO [97076c13] Finished in 0.134 seconds with exit status 0 (successful).
+  INFO [d3c27d3b] Running /usr/bin/env git archive main | /usr/bin/env tar -x -f - -C /opt/app/production/provable/releases/20220526055039 as richard@159.223.80.122
+ DEBUG [d3c27d3b] Command: cd /opt/app/production/provable/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-0bb4e29382fcbbf03e1d.sh" ; /usr/bin/env git archive main | /usr/bin/env tar -x -f - -C /opt/app/production/provable/releases/20220526055039 )
+  INFO [d3c27d3b] Finished in 0.328 seconds with exit status 0 (successful).
+ DEBUG [5d8c31d1] Running if test ! -d /opt/app/production/provable/repo; then echo "Directory does not exist '/opt/app/production/provable/repo'" 1>&2; false; fi as richard@159.223.80.122
+ DEBUG [5d8c31d1] Command: if test ! -d /opt/app/production/provable/repo; then echo "Directory does not exist '/opt/app/production/provable/repo'" 1>&2; false; fi
+ DEBUG [5d8c31d1] Finished in 0.138 seconds with exit status 0 (successful).
+ DEBUG [7a172564] Running /usr/bin/env git rev-list --max-count=1 main as richard@159.223.80.122
+ DEBUG [7a172564] Command: cd /opt/app/production/provable/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-0bb4e29382fcbbf03e1d.sh" ; /usr/bin/env git rev-list --max-count=1 main )
+ DEBUG [7a172564] 	1cb71abcc745470c2ed0ad644c1447d49c110712
+ DEBUG [7a172564] Finished in 0.252 seconds with exit status 0 (successful).
+ DEBUG [59010f87] Running if test ! -d /opt/app/production/provable/releases/20220526055039; then echo "Directory does not exist '/opt/app/production/provable/releases/20220526055039'" 1>&2; false; fi as richard@159.223.80.122
+ DEBUG [59010f87] Command: if test ! -d /opt/app/production/provable/releases/20220526055039; then echo "Directory does not exist '/opt/app/production/provable/releases/20220526055039'" 1>&2; false; fi
+ DEBUG [59010f87] Finished in 0.148 seconds with exit status 0 (successful).
+  INFO [e1b3bf38] Running /usr/bin/env echo "1cb71abcc745470c2ed0ad644c1447d49c110712" > REVISION as richard@159.223.80.122
+ DEBUG [e1b3bf38] Command: cd /opt/app/production/provable/releases/20220526055039 && /usr/bin/env echo "1cb71abcc745470c2ed0ad644c1447d49c110712" > REVISION
+  INFO [e1b3bf38] Finished in 0.228 seconds with exit status 0 (successful).
+  INFO [90f4c30b] Running /usr/bin/env mkdir -p /opt/app/production/provable/releases/20220526055039 as richard@159.223.80.122
+ DEBUG [90f4c30b] Command: /usr/bin/env mkdir -p /opt/app/production/provable/releases/20220526055039
+  INFO [90f4c30b] Finished in 0.280 seconds with exit status 0 (successful).
+ DEBUG [460d374f] Running [ -L /opt/app/production/provable/releases/20220526055039/ecosystem.config.js ] as richard@159.223.80.122
+ DEBUG [460d374f] Command: [ -L /opt/app/production/provable/releases/20220526055039/ecosystem.config.js ]
+ DEBUG [460d374f] Finished in 0.221 seconds with exit status 1 (failed).
+ DEBUG [4d41953f] Running [ -f /opt/app/production/provable/releases/20220526055039/ecosystem.config.js ] as richard@159.223.80.122
+ DEBUG [4d41953f] Command: [ -f /opt/app/production/provable/releases/20220526055039/ecosystem.config.js ]
+ DEBUG [4d41953f] Finished in 0.213 seconds with exit status 1 (failed).
+  INFO [21d01c76] Running /usr/bin/env ln -s /opt/app/production/provable/shared/ecosystem.config.js /opt/app/production/provable/releases/20220526055039/ecosystem.config.js as richard@159.223.80.122
+ DEBUG [21d01c76] Command: /usr/bin/env ln -s /opt/app/production/provable/shared/ecosystem.config.js /opt/app/production/provable/releases/20220526055039/ecosystem.config.js
+  INFO [21d01c76] Finished in 0.178 seconds with exit status 0 (successful).
+  INFO [fdda2f9d] Running /usr/bin/env ln -s /opt/app/production/provable/releases/20220526055039 /opt/app/production/provable/releases/current as richard@159.223.80.122
+ DEBUG [fdda2f9d] Command: /usr/bin/env ln -s /opt/app/production/provable/releases/20220526055039 /opt/app/production/provable/releases/current
+  INFO [fdda2f9d] Finished in 0.162 seconds with exit status 0 (successful).
+  INFO [32d4b48b] Running /usr/bin/env mv /opt/app/production/provable/releases/current /opt/app/production/provable as richard@159.223.80.122
+ DEBUG [32d4b48b] Command: /usr/bin/env mv /opt/app/production/provable/releases/current /opt/app/production/provable
+  INFO [32d4b48b] Finished in 0.317 seconds with exit status 0 (successful).
+ DEBUG [1362bd7e] Running if test ! -d /opt/app/production/provable/current; then echo "Directory does not exist '/opt/app/production/provable/current'" 1>&2; false; fi as richard@159.223.80.122
+ DEBUG [1362bd7e] Command: if test ! -d /opt/app/production/provable/current; then echo "Directory does not exist '/opt/app/production/provable/current'" 1>&2; false; fi
+ DEBUG [1362bd7e] Finished in 0.125 seconds with exit status 0 (successful).
+  INFO [47b40dde] Running /usr/bin/env yarn install as richard@159.223.80.122
+ DEBUG [47b40dde] Command: cd /opt/app/production/provable/current && /usr/bin/env yarn install
+ DEBUG [47b40dde] 	yarn install v1.22.17
+ DEBUG [47b40dde] 	[1/5] Validating package.json...
+ DEBUG [47b40dde] 	[2/5] Resolving packages...
+ DEBUG [47b40dde] 	[3/5] Fetching packages...
+ DEBUG [47b40dde] 	[4/5] Linking dependencies...
+ DEBUG [47b40dde] 	warning "@holaplex/marketplace-js-sdk > @metaplex/js@4.12.0" has unmet peer dependency "@metaplex-foundation/mpl-auction@^0.0.2".
+ DEBUG [47b40dde] 	warning "@holaplex/marketplace-js-sdk > @metaplex/js@4.12.0" has unmet peer dependency "@metaplex-foundation/mpl-core@^0.0.2".
+ DEBUG [47b40dde] 	warning "@holaplex/marketplace-js-sdk > @metaplex/js@4.12.0" has unmet peer dependency "@metaplex-foundation/mpl-metaplex@^0.0.5".
+ DEBUG [47b40dde] 	warning "@holaplex/marketplace-js-sdk > @metaplex/js@4.12.0" has incorrect peer dependency "@metaplex-foundation/mpl-token-metadata@^0.0.2".
+ DEBUG [47b40dde] 	warning "@holaplex/marketplace-js-sdk > @metaplex/js@4.12.0" has unmet peer dependency "@metaplex-foundation/mpl-token-vault@^0.0.2".
+ DEBUG [47b40dde] 	warning "@holaplex/marketplace-js-sdk > @metaplex-foundation/mpl-auction-house > @solana/web3.js > sinon-chai@3.7.0" has unmet peer dependency "chai@^4.0.0".
+ DEBUG [47b40dde] 	warning "@holaplex/marketplace-js-sdk > @metaplex-foundation/mpl-auction-house > @solana/web3.js > sinon-chai@3.7.0" has unmet peer dependency "sinon@>=4.0.0".
+ DEBUG [47b40dde] 	warning "@solana/wallet-adapter-wallets > @solana/wallet-adapter-torus > @toruslabs/solana-embed@0.1.6" has unmet peer dependency "@babel/runtime@7.x".
+ DEBUG [47b40dde] 	warning "@solana/wallet-adapter-wallets > @solana/wallet-adapter-torus > @toruslabs/solana-embed > @toruslabs/base-controllers@1.6.17" has unmet peer dependency "@babel/runtime@7.x".
+ DEBUG [47b40dde] 	warning "@solana/wallet-adapter-wallets > @solana/wallet-adapter-torus > @toruslabs/solana-embed > @toruslabs/http-helpers@2.2.0" has unmet peer dependency "@babel/runtime@7.x".
+ DEBUG [47b40dde] 	warning "@solana/wallet-adapter-wallets > @solana/wallet-adapter-torus > @toruslabs/solana-embed > @toruslabs/openlogin-jrpc@1.7.3" has unmet peer dependency "@babel/runtime@7.x".
+ DEBUG [47b40dde] 	warning "@solana/wallet-adapter-wallets > @solana/wallet-adapter-torus > @toruslabs/solana-embed > @toruslabs/openlogin-jrpc > @toruslabs/openlogin-utils@1.7.0" has unmet peer dependency "@babel/runtime@7.x".
+ DEBUG [47b40dde] 	warning "oyster-common > @testing-library/user-event@7.2.1" has unmet peer dependency "@testing-library/dom@>=5".
+ DEBUG [47b40dde] 	warning "oyster-common > @solana/wallet-adapter-wallets > @solana/wallet-adapter-torus > @toruslabs/openlogin@0.9.5" has unmet peer dependency "@babel/runtime@7.x".
+ DEBUG [47b40dde] 	warning "oyster-common > @solana/wallet-adapter-wallets > @solana/wallet-adapter-torus > @toruslabs/openlogin-ed25519@0.9.5" has unmet peer dependency "@babel/runtime@7.x".
+ DEBUG [47b40dde] 	warning "oyster-common > @solana/wallet-adapter-wallets > @solana/wallet-adapter-torus > @toruslabs/openlogin > @toruslabs/http-helpers@1.4.0" has unmet peer dependency "@babel/runtime@7.x".
+ DEBUG [47b40dde] 	warning "oyster-common > @solana/wallet-adapter-wallets > @solana/wallet-adapter-torus > @toruslabs/openlogin > @toruslabs/openlogin-jrpc@0.9.5" has unmet peer dependency "@babel/runtime@7.x".
+ DEBUG [47b40dde] 	warning "oyster-common > @solana/wallet-adapter-wallets > @solana/wallet-adapter-torus > @toruslabs/openlogin > @toruslabs/openlogin-utils@0.9.5" has unmet peer dependency "@babel/runtime@7.x".
+ DEBUG [47b40dde] 	warning " > react-dropzone-uploader@2.11.0" has unmet peer dependency "prop-types@>=15.5.10".
+ DEBUG [47b40dde] 	warning "react-loader-spinner > styled-components@5.3.5" has unmet peer dependency "react-is@>= 16.8.0".
+ DEBUG [47b40dde] 	warning "eslint-config-next > @typescript-eslint/parser > @typescript-eslint/typescript-estree > tsutils@3.21.0" has unmet peer dependency "typescript@>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta".
+ DEBUG [47b40dde] 	[5/5] Building fresh packages...
+ DEBUG [47b40dde] 	Done in 36.89s.
+  INFO [47b40dde] Finished in 37.379 seconds with exit status 0 (successful).
+ DEBUG [200363a5] Running if test ! -d /opt/app/production/provable/current; then echo "Directory does not exist '/opt/app/production/provable/current'" 1>&2; false; fi as richard@159.223.80.122
+ DEBUG [200363a5] Command: if test ! -d /opt/app/production/provable/current; then echo "Directory does not exist '/opt/app/production/provable/current'" 1>&2; false; fi
+ DEBUG [200363a5] Finished in 0.276 seconds with exit status 0 (successful).
+  INFO [35743bf4] Running /usr/bin/env yarn build as richard@159.223.80.122
+ DEBUG [35743bf4] Command: cd /opt/app/production/provable/current && /usr/bin/env yarn build
+ DEBUG [35743bf4] 	yarn run v1.22.17
+ DEBUG [35743bf4] 	$ next build
+ DEBUG [35743bf4] 	info  - Loaded env from /opt/app/production/provable/releases/20220526055039/.env
+ DEBUG [35743bf4] 	info  - Checking validity of types...
+ DEBUG [35743bf4] 	
+./components/listings/Nft.js
+51:7  Warning: Do not use <img>. Use Image from 'next/image' instead. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+51:7  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+./components/marketplaces/Nft.js
+57:11  Warning: Do not use <img>. Use Image from 'next/image' instead. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+57:11  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+./components/nfts/GridView.js
+23:13  Warning: Do not use <img>. Use Image from 'next/image' instead. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+23:13  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+./components/nfts/ListView.js
+11:21  Warning: Do not use <img>. Use Image from 'next/image' instead. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+11:21  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+52:19  Warning: Do not use <img>. Use Image from 'next/image' instead. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+52:19  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+./components/wallet/Nft.js
+38:7  Warning: Do not use <img>. Use Image from 'next/image' instead. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+38:7  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+./components/wallet/SellModal.js
+60:21  Warning: Do not use <img>. Use Image from 'next/image' instead. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+60:21  Warning: img elements must have an alt prop, either with meaningful text, or an empty string for decorative images.  jsx-a11y/alt-text
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/basic-features/eslint#disabling-rules
+ DEBUG [35743bf4] 	info  - Creating an optimized production build...
+ DEBUG [35743bf4] 	info  - Compiled successfully
+ DEBUG [35743bf4] 	info  - Collecting page data...
+ DEBUG [35743bf4] 	info  - Generating static pages (0/10)
+ DEBUG [35743bf4] 	info  - Generating static pages (2/10)
+ DEBUG [35743bf4] 	info  - Generating static pages (4/10)
+ DEBUG [35743bf4] 	info  - Generating static pages (7/10)
+ DEBUG [35743bf4] 	info  - Generating static pages (10/10)
+ DEBUG [35743bf4] 	info  - Finalizing page optimization...
+ DEBUG [35743bf4] 	
+ DEBUG [35743bf4] 	Page                                       Size     First Load JS
+┌ ○ /                                      2.55 kB         297 kB
+├   /_app                                  0 B             292 kB
+├ ○ /404                                   197 B           292 kB
+├ λ /api/hello                             0 B             292 kB
+├ ○ /collections                           2.58 kB         382 kB
+├ ○ /creator                               1.22 kB         312 kB
+├ ○ /listings                              3.67 kB         383 kB
+├ ○ /marketplaces                          2.56 kB         382 kB
+├ ○ /mint                                  163 kB          492 kB
+├ ○ /owner                                 1.21 kB         312 kB
+└ ○ /wallet                                14.9 kB         386 kB
++ First Load JS shared by all              292 kB
+  ├ chunks/framework-bb5c596eafb42b22.js   42.1 kB
+  ├ chunks/main-0b732eee54c1b94c.js        28.4 kB
+  ├ chunks/pages/_app-3ed8d68712db6262.js  219 kB
+  ├ chunks/webpack-4bee9badf1676530.js     2 kB
+  └ css/ae19e4cfc846f6a9.css               6.81 kB
+ DEBUG [35743bf4] 	
+ DEBUG [35743bf4] 	λ  (Server)  server-side renders at runtime (uses getInitialProps or getServerSideProps)
+○  (Static)  automatically rendered as static HTML (uses no initial props)
+ DEBUG [35743bf4] 	
+ DEBUG [35743bf4] 	Done in 51.16s.
+  INFO [35743bf4] Finished in 51.567 seconds with exit status 0 (successful).
+ DEBUG [1a638db9] Running if test ! -d /opt/app/production/provable/current; then echo "Directory does not exist '/opt/app/production/provable/current'" 1>&2; false; fi as richard@159.223.80.122
+ DEBUG [1a638db9] Command: if test ! -d /opt/app/production/provable/current; then echo "Directory does not exist '/opt/app/production/provable/current'" 1>&2; false; fi
+ DEBUG [1a638db9] Finished in 0.245 seconds with exit status 0 (successful).
+ DEBUG [5abea237] Running /usr/bin/env pm2 jlist provable as richard@159.223.80.122
+ DEBUG [5abea237] Command: cd /opt/app/production/provable/current && /usr/bin/env pm2 jlist provable
+ DEBUG [5abea237] 	[{"pid":0,"name":"provable","pm2_env":{"exit_code":1,"versioning":null,"version":"N/A","unstable_restarts":0,"restart_time":30,"pm_id":0,"created_at":null,"axm_dynamic":{},"axm_options":{},"axm_monitor":{},"axm_actions":[],"pm_uptime":1653544186535,"status":"errored","unique_id":"ab338fc1-6a0b-4054-ae22-dfd61e843043","PM2_HOME":"/home/richard/.pm2","PM2_USAGE":"CLI","_":"/usr/bin/pm2","OLDPWD":"/opt/app/production/provable","SSH_TTY":"/dev/pts/1","DBUS_SESSION_BUS_ADDRESS":"unix:path=/run/user/1000/bus","PATH":"/home/richard/.local/share/solana/install/active_release/bin:/home/richard/.local/share/solana/install/active_release/bin:/home/richard/.rbenv/plugins/ruby-build/bin:/home/richard/.rbenv/shims:/home/richard/.rbenv/bin:/home/richard/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin","XDG_DATA_DIRS":"/usr/local/share:/usr/share:/var/lib/snapd/desktop","SSH_CLIENT":"210.195.37.252 64981 22","XDG_RUNTIME_DIR":"/run/user/1000","XDG_SESSION_ID":"3","SHLVL":"1","LC_TERMINAL_VERSION":"3.4.15","USER":"richard","LESSOPEN":"| /usr/bin/lesspipe %s","TERM":"xterm-256color","XDG_SESSION_CLASS":"user","LESSCLOSE":"/usr/bin/lesspipe %s %s","SSH_CONNECTION":"210.195.37.252 64981 159.223.80.122 22","LC_TERMINAL":"iTerm2","LS_COLORS":"rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:","LANG":"C.UTF-8","HOME":"/home/richard","MOTD_SHOWN":"pam","XDG_SESSION_TYPE":"tty","LOGNAME":"richard","PWD":"/opt/app/production/provable/current","RBENV_SHELL":"bash","SHELL":"/bin/bash","NODE_APP_INSTANCE":0,"vizion_running":false,"km_link":false,"pm_pid_path":"/home/richard/.pm2/pids/provable-0.pid","pm_err_log_path":"/home/richard/.pm2/logs/provable-error.log","pm_out_log_path":"/home/richard/.pm2/logs/provable-out.log","instances":1,"exec_mode":"fork_mode","pm_cwd":"/opt/app/production/provable/releases/20220526052701","pm_exec_path":"/usr/bin/yarn","node_args":[],"name":"provable","filter_env":[],"namespace":"default","args":["start"],"exec_interpreter":"bash","env":{"unique_id":"ab338fc1-6a0b-4054-ae22-dfd61e843043","provable":{},"PM2_HOME":"/home/richard/.pm2","PM2_USAGE":"CLI","_":"/usr/bin/pm2","OLDPWD":"/opt/app/production/provable","SSH_TTY":"/dev/pts/1","DBUS_SESSION_BUS_ADDRESS":"unix:path=/run/user/1000/bus","PATH":"/home/richard/.local/share/solana/install/active_release/bin:/home/richard/.local/share/solana/install/active_release/bin:/home/richard/.rbenv/plugins/ruby-build/bin:/home/richard/.rbenv/shims:/home/richard/.rbenv/bin:/home/richard/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin","XDG_DATA_DIRS":"/usr/local/share:/usr/share:/var/lib/snapd/desktop","SSH_CLIENT":"210.195.37.252 64981 22","XDG_RUNTIME_DIR":"/run/user/1000","XDG_SESSION_ID":"3","SHLVL":"1","LC_TERMINAL_VERSION":"3.4.15","USER":"richard","LESSOPEN":"| /usr/bin/lesspipe %s","TERM":"xterm-256color","XDG_SESSION_CLASS":"user","LESSCLOSE":"/usr/bin/lesspipe %s %s","SSH_CONNECTION":"210.195.37.252 64981 159.223.80.122 22","LC_TERMINAL":"iTerm2","LS_COLORS":"rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:","LANG":"C.UTF-8","HOME":"/home/richard","MOTD_SHOWN":"pam","XDG_SESSION_TYPE":"tty","LOGNAME":"richard","PWD":"/opt/app/production/provable/current","RBENV_SHELL":"bash","SHELL":"/bin/bash"},"merge_logs":true,"vizion":true,"autorestart":true,"watch":false,"instance_var":"NODE_APP_INSTANCE","pmx":true,"automation":true,"treekill":true,"username":"richard","windowsHide":true,"kill_retry_time":100,"prev_restart_delay":0},"pm_id":0,"monit":{"memory":0,"cpu":0}}]
+ DEBUG [5abea237] Finished in 0.697 seconds with exit status 0 (successful).
+  INFO App has errored
+ DEBUG [c0f527b1] Running if test ! -d /opt/app/production/provable/current; then echo "Directory does not exist '/opt/app/production/provable/current'" 1>&2; false; fi as richard@159.223.80.122
+ DEBUG [c0f527b1] Command: if test ! -d /opt/app/production/provable/current; then echo "Directory does not exist '/opt/app/production/provable/current'" 1>&2; false; fi
+ DEBUG [c0f527b1] Finished in 0.371 seconds with exit status 0 (successful).
+  INFO [f90ae270] Running /usr/bin/env pm2 restart provable --update-env as richard@159.223.80.122
+ DEBUG [f90ae270] Command: cd /opt/app/production/provable/current && /usr/bin/env pm2 restart provable --update-env
+ DEBUG [f90ae270] 	[PM2] Applying action restartProcessId on app [provable](ids: [ 0 ])
+ DEBUG [f90ae270] 	[PM2] [provable](0) ✓
+ DEBUG [f90ae270] 	┌─────┬─────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id  │ name        │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├─────┼─────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 0   │ provable    │ default     │ N/A     │ fork    │ 10931    │ 0s     │ 30   │ online    │ 0%       │ 2.9mb    │ richard  │ disabled │
+└─────┴─────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+  INFO [f90ae270] Finished in 0.508 seconds with exit status 0 (successful).
+ DEBUG [31bb3d84] Running /usr/bin/env ls -x /opt/app/production/provable/releases as richard@159.223.80.122
+ DEBUG [31bb3d84] Command: /usr/bin/env ls -x /opt/app/production/provable/releases
+ DEBUG [31bb3d84] 	20220526043949	20220526044048	20220526045452	20220526050336	20220526052701
+20220526055039
+ DEBUG [31bb3d84] Finished in 0.640 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on 159.223.80.122
+ DEBUG [9a1a58d1] Running [ -d /opt/app/production/provable/current ] as richard@159.223.80.122
+ DEBUG [9a1a58d1] Command: [ -d /opt/app/production/provable/current ]
+ DEBUG [9a1a58d1] Finished in 0.873 seconds with exit status 0 (successful).
+ DEBUG [2d2a00e3] Running /usr/bin/env readlink /opt/app/production/provable/current as richard@159.223.80.122
+ DEBUG [2d2a00e3] Command: /usr/bin/env readlink /opt/app/production/provable/current
+ DEBUG [2d2a00e3] 	/opt/app/production/provable/releases/20220526055039
+ DEBUG [2d2a00e3] Finished in 0.687 seconds with exit status 0 (successful).
+  INFO [1d9221c6] Running /usr/bin/env rm -rf /opt/app/production/provable/releases/20220526043949 as richard@159.223.80.122
+ DEBUG [1d9221c6] Command: /usr/bin/env rm -rf /opt/app/production/provable/releases/20220526043949
+  INFO [1d9221c6] Finished in 0.548 seconds with exit status 0 (successful).
+ DEBUG [33273d90] Running if test ! -d /opt/app/production/provable/releases; then echo "Directory does not exist '/opt/app/production/provable/releases'" 1>&2; false; fi as richard@159.223.80.122
+ DEBUG [33273d90] Command: if test ! -d /opt/app/production/provable/releases; then echo "Directory does not exist '/opt/app/production/provable/releases'" 1>&2; false; fi
+ DEBUG [33273d90] Finished in 0.559 seconds with exit status 0 (successful).
+  INFO [c09c563d] Running /usr/bin/env echo "Branch main (at 1cb71abcc745470c2ed0ad644c1447d49c110712) deployed as release 20220526055039 by richard" >> /opt/app/production/provable/revisions.log as richard@159.223.80.122
+ DEBUG [c09c563d] Command: cd /opt/app/production/provable/releases && /usr/bin/env echo "Branch main (at 1cb71abcc745470c2ed0ad644c1447d49c110712) deployed as release 20220526055039 by richard" >> /opt/app/production/provable/revisions.log
+  INFO [c09c563d] Finished in 0.300 seconds with exit status 0 (successful).
