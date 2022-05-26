@@ -12,6 +12,7 @@
     "@apollo/client": "^3.6.1",
     "@headlessui/react": "^1.6.1",
     "@heroicons/react": "^1.0.6",
+    "@holaplex/marketplace-js-sdk": "^0.1.7",
     "@metaplex-foundation/mpl-auction-house": "^1.2.0",
     "@metaplex-foundation/mpl-token-metadata": "^1.2.5",
     "@solana/spl-token": "^0.1.5",

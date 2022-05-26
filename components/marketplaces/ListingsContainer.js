@@ -7,7 +7,7 @@ export default function ListingsContainer({
   query,
   subdomain,
 }) {
-  const { data, loading, error } = useQuery(query, {
+  const { data, loading, error, refetch } = useQuery(query, {
     variables: {
       auctionHouses: auctionhousePublicKey,
       creators: creatorPublicKey,
@@ -20,11 +20,7 @@ export default function ListingsContainer({
       {error && <p className="text-gray-300 text-sm">{error.message}</p>}
       {data && data.nfts && (
         <div className="mt-6 pt-6 border-t-2 border-gray-100 dark:border-gray-700">
-          <Listings
-            subdomain={subdomain}
-            nfts={data.nfts}
-            auctionHouse={auctionhousePublicKey}
-          />
+          <Listings subdomain={subdomain} nfts={data.nfts} refetch={refetch} />
         </div>
       )}
     </>

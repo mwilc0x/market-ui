@@ -60,7 +60,27 @@ export default function Home() {
           currently live Holaplex Marketplace&apos;s.
         </p>
         <p className="mt-12">
-          <Link href="/marketplaces">
+          <Link href="/collections">
+            <a>
+              <strong>Collections</strong>
+            </a>
+          </Link>
+        </p>
+        <p className="mt-6">
+          Listing from multiple AuctionHouse&apos;s by collection. Includes
+          listings from Holaplex, Holaplex Marketplaces, Provable and MagicEden.
+          OpenSea hopefully coming soon.
+        </p>
+        <p className="mt-12">
+          <Link href="/listings">
+            <a>
+              <strong>Listings</strong>
+            </a>
+          </Link>
+        </p>
+        <p className="mt-6">All listings from the Provable AuctionHouse.</p>
+        <p className="mt-12">
+          <Link href="/wallet">
             <a>
               <strong>Wallet</strong>
             </a>

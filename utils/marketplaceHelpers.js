@@ -53,4 +53,64 @@ export const marketplaces = [
     treasuryMint: "So11111111111111111111111111111111111111112",
     authority: "SouL9LfYuj86QGnrxYckqXbxSb9tVrbhyBxnhTtBx3q",
   },
+  {
+    name: "OpenSea",
+    auctionhouse: "3o9d13qUvEuuauhFrVom1vuCzgNsJifeaBYDPquaT73Y",
+    feeAccount: "5xyoD5hnWDBLsW6rjW2TBmqiDQsbod6Uaw15dRhNrDzn",
+    treasury: "8mcjXbJ8j4VryYFNpcBCFS37Au8zVYU53WTVaruJWcKt",
+    treasuryMint: "So11111111111111111111111111111111111111112",
+    authority: "pAHAKoTJsAAe2ZcvTZUxoYzuygVAFAmbYmJYdWT886r",
+  },
+  {
+    name: "MagicEden",
+    auctionhouse: "GWErq8nJf5JQtohg5k7RTkiZmoCxvGBJqbMSfkrxYFFy",
+    feeAccount: "91boRn3TZ7oeprHKk3q8QbyfevjZxLnL9LZsEqN468GE",
+    treasury: "2e3dJ3mEjpdMDZsL5rGuCkMxqE116nBpMS2tKu9v8RRB",
+    treasuryMint: "So11111111111111111111111111111111111111112",
+    authority: "BAfqGqULeJg6XVqw75orgNnmELcuwnTSnVpvhQmPPuFK",
+  },
+  {
+    name: "Holaplex",
+    auctionhouse: "9SvsTjqk3YoicaYnC4VW1f8QAN9ku7QCCk6AyfUdzc9t",
+    feeAccount: "FjG7tUH4BiA1CAd6zH1GVPfz3Fchw1mJzhu3yCTP1WDN",
+    treasury: "9ZEdUX5qo74kHUSmejUZ8KBNeCieJEaqZg7m5o79Zdn6",
+    treasuryMint: "So11111111111111111111111111111111111111112",
+    authority: "ho1aVYd4TDWCi1pMqFvboPPc3J13e4LgWkWzGJpPJty",
+  },
+  {
+    name: "Provable",
+    auctionhouse: "3nAR6ZWZQA1uSNcRy3Qya2ihLU9dhaWKfZavoSiRrXzj",
+    feeAccount: "BumM7hvTGYUvHBSMaDiHqiBPGV8udxhtpZ7CcgFLi2Q8",
+    treasury: "9rKM3prmcAnjLwwKAp1vHqXds8TRjM9Rz3bqfugkJXRZ",
+    treasuryMint: "So11111111111111111111111111111111111111112",
+    authority: "GQbrgxZsRGm3XrrcD9RrwaYHNaLDgvLm4Q16sH7Ybo7r",
+  },
+];
+
+export const collections = [
+  {
+    name: "Grim Syndicate",
+    subdomain: "grimsyndicate",
+    creator: ["DnP3GRVqtR9vjxMZH4PcFuGZ4ZqhbNqoGzJuTrHACK6f"],
+  },
+  {
+    name: "Degenerate Ape Academy",
+    subdomain: "degenape",
+    creator: ["DC2mkgwhy56w3viNtHDjJQmc7SGu2QX785bS4aexojwX"],
+  },
+  {
+    name: "Okay Bears",
+    subdomain: "okaybears",
+    creator: ["3xVDoLaecZwXXtN59o6T3Gfxwjcgf8Hc9RfoqBn995P9"],
+  },
+  {
+    name: "Solana Monkey Business",
+    subdomain: "smb",
+    creator: ["9uBX3ASjxWvNBAD1xjbVaKA74mWGZys3RGSF7DdeDD3F"],
+  },
+  {
+    name: "Famous Fox Federation",
+    subdomain: "famousfox",
+    creator: ["D3XrkNZz6wx6cofot7Zohsf2KSsu2ArngNk8VqU9cTY3"],
+  },
 ];

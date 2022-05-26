@@ -1,13 +1,13 @@
 import { useQuery } from "@apollo/client";
 import Masonry from "react-masonry-css";
-import Nft from "/components/wallet/Nft";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Nft from "/components/listings/Nft";
 
-export default function WalletContents({ address, query }) {
+export default function Listings({ auctionhousePublicKey, query }) {
   const { data, loading, error, refetch } = useQuery(query, {
     variables: {
-      address: address,
+      auctionHouses: auctionhousePublicKey,
     },
   });
 
@@ -34,16 +34,30 @@ export default function WalletContents({ address, query }) {
       />
       {loading && <p className="text-gray-300 text-sm">searching...</p>}
       {error && <p className="text-gray-300 text-sm">{error.message}</p>}
-      {data && data.nfts && data.nfts.length === 0 && <p>0 results</p>}
-      {data && data.nfts && data.nfts.length > 0 && (
-        <div className="mt-20 w-full">
+      {data && data.nfts && (
+        <div className="mt-6 pt-6">
           <Masonry
             breakpointCols={breakpointColumnsObj}
             className="masonry-grid"
             columnClassName="masonry-grid_column"
           >
-            {data.nfts.map((nft, index) => (
-              <Nft key={index} nft={nft} refetch={refetch} />
+            {data.nfts.map((nft) => (
+              <div key={nft.address}>
+                {nft.listings
+                  .filter(
+                    (l) =>
+                      l.auctionHouse === auctionhousePublicKey &&
+                      l.seller === nft.owner.address
+                  )
+                  .map((listing) => (
+                    <Nft
+                      key={listing.address}
+                      nft={nft}
+                      listing={listing}
+                      refetch={refetch}
+                    />
+                  ))}
+              </div>
             ))}
           </Masonry>
         </div>

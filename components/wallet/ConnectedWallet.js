@@ -6,7 +6,7 @@ export default function ConnectedWallet() {
   const { publicKey } = useWallet();
 
   const query = gql`
-    query GetNft($address: [PublicKey!]) {
+    query GetNfts($address: [PublicKey!]) {
       nfts(owners: $address, offset: 0, limit: 100000) {
         name
         address
@@ -17,6 +17,20 @@ export default function ConnectedWallet() {
         owner {
           associatedTokenAccountAddress
           address
+        }
+        listings {
+          address
+          price
+          createdAt
+          canceledAt
+          seller
+          tradeState
+          metadata
+          tradeStateBump
+          purchaseReceipt
+          tokenSize
+          bump
+          auctionHouse
         }
       }
     }

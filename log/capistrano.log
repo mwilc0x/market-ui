@@ -1,0 +1,264 @@
+# Logfile created on 2022-05-26 10:52:06 +0800 by logger.rb/v1.4.3
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-05-26 10:52:06 +0800 cap production deploy:check
+  INFO ---------------------------------------------------------------------------
+  INFO [70216262] Running /usr/bin/env mkdir -p /tmp as richard@github-provable
+ DEBUG [70216262] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-05-26 10:52:34 +0800 cap production deploy:check
+  INFO ---------------------------------------------------------------------------
+  INFO [81366c4e] Running /usr/bin/env mkdir -p /tmp as richard@159.223.80.122
+ DEBUG [81366c4e] Command: /usr/bin/env mkdir -p /tmp
+  INFO [81366c4e] Finished in 0.903 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-f006e5ddc48f6197d2d7.sh 0.0%
+  INFO Uploading /tmp/git-ssh-f006e5ddc48f6197d2d7.sh 100.0%
+  INFO [8603196b] Running /usr/bin/env chmod 700 /tmp/git-ssh-f006e5ddc48f6197d2d7.sh as richard@159.223.80.122
+ DEBUG [8603196b] Command: /usr/bin/env chmod 700 /tmp/git-ssh-f006e5ddc48f6197d2d7.sh
+  INFO [8603196b] Finished in 0.126 seconds with exit status 0 (successful).
+  INFO [2453baed] Running /usr/bin/env git ls-remote git@github-provable:richardfsr/provable.art.git HEAD as richard@159.223.80.122
+ DEBUG [2453baed] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-f006e5ddc48f6197d2d7.sh" ; /usr/bin/env git ls-remote git@github-provable:richardfsr/provable.art.git HEAD )
+ DEBUG [2453baed] 	48763b55d13c8367e5094a3698951a4fb4555647	HEAD
+  INFO [2453baed] Finished in 2.826 seconds with exit status 0 (successful).
+  INFO [1fd458a4] Running /usr/bin/env mkdir -p /opt/app/production/provable/shared /opt/app/production/provable/releases as richard@159.223.80.122
+ DEBUG [1fd458a4] Command: /usr/bin/env mkdir -p /opt/app/production/provable/shared /opt/app/production/provable/releases
+  INFO [1fd458a4] Finished in 0.180 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-05-26 10:52:54 +0800 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [ee2db725] Running /usr/bin/env mkdir -p /tmp as richard@159.223.80.122
+ DEBUG [ee2db725] Command: /usr/bin/env mkdir -p /tmp
+  INFO [ee2db725] Finished in 0.899 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-ded7d101900cccf36831.sh 0.0%
+  INFO Uploading /tmp/git-ssh-ded7d101900cccf36831.sh 100.0%
+  INFO [b73506b7] Running /usr/bin/env chmod 700 /tmp/git-ssh-ded7d101900cccf36831.sh as richard@159.223.80.122
+ DEBUG [b73506b7] Command: /usr/bin/env chmod 700 /tmp/git-ssh-ded7d101900cccf36831.sh
+  INFO [b73506b7] Finished in 0.126 seconds with exit status 0 (successful).
+  INFO [f3126597] Running /usr/bin/env git ls-remote git@github-provable:richardfsr/provable.art.git HEAD as richard@159.223.80.122
+ DEBUG [f3126597] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-ded7d101900cccf36831.sh" ; /usr/bin/env git ls-remote git@github-provable:richardfsr/provable.art.git HEAD )
+ DEBUG [f3126597] 	48763b55d13c8367e5094a3698951a4fb4555647	HEAD
+  INFO [f3126597] Finished in 2.672 seconds with exit status 0 (successful).
+  INFO [9aef0dd1] Running /usr/bin/env mkdir -p /opt/app/production/provable/shared /opt/app/production/provable/releases as richard@159.223.80.122
+ DEBUG [9aef0dd1] Command: /usr/bin/env mkdir -p /opt/app/production/provable/shared /opt/app/production/provable/releases
+  INFO [9aef0dd1] Finished in 2.752 seconds with exit status 0 (successful).
+ DEBUG [69f56a11] Running [ -f /opt/app/production/provable/current/REVISION ] as richard@159.223.80.122
+ DEBUG [69f56a11] Command: [ -f /opt/app/production/provable/current/REVISION ]
+ DEBUG [69f56a11] Finished in 2.968 seconds with exit status 1 (failed).
+ DEBUG [495cc36d] Running [ -f /opt/app/production/provable/repo/HEAD ] as richard@159.223.80.122
+ DEBUG [495cc36d] Command: [ -f /opt/app/production/provable/repo/HEAD ]
+ DEBUG [495cc36d] Finished in 3.292 seconds with exit status 1 (failed).
+ DEBUG [63b04a43] Running if test ! -d /opt/app/production/provable; then echo "Directory does not exist '/opt/app/production/provable'" 1>&2; false; fi as richard@159.223.80.122
+ DEBUG [63b04a43] Command: if test ! -d /opt/app/production/provable; then echo "Directory does not exist '/opt/app/production/provable'" 1>&2; false; fi
+ DEBUG [63b04a43] Finished in 3.112 seconds with exit status 0 (successful).
+  INFO [bf0efac5] Running /usr/bin/env git clone --mirror git@github-provable:richardfsr/provable.art.git /opt/app/production/provable/repo as richard@159.223.80.122
+ DEBUG [bf0efac5] Command: cd /opt/app/production/provable && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-ded7d101900cccf36831.sh" ; /usr/bin/env git clone --mirror git@github-provable:richardfsr/provable.art.git /opt/app/production/provable/repo )
+ DEBUG [bf0efac5] 	Cloning into bare repository '/opt/app/production/provable/repo'...
+  INFO [bf0efac5] Finished in 3.933 seconds with exit status 0 (successful).
+ DEBUG [1f66e064] Running if test ! -d /opt/app/production/provable/repo; then echo "Directory does not exist '/opt/app/production/provable/repo'" 1>&2; false; fi as richard@159.223.80.122
+ DEBUG [1f66e064] Command: if test ! -d /opt/app/production/provable/repo; then echo "Directory does not exist '/opt/app/production/provable/repo'" 1>&2; false; fi
+ DEBUG [1f66e064] Finished in 1.802 seconds with exit status 0 (successful).
+  INFO [04e86803] Running /usr/bin/env git remote set-url origin git@github-provable:richardfsr/provable.art.git as richard@159.223.80.122
+ DEBUG [04e86803] Command: cd /opt/app/production/provable/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-ded7d101900cccf36831.sh" ; /usr/bin/env git remote set-url origin git@github-provable:richardfsr/provable.art.git )
+  INFO [04e86803] Finished in 4.182 seconds with exit status 0 (successful).
+  INFO [9e2c68cf] Running /usr/bin/env git remote update --prune as richard@159.223.80.122
+ DEBUG [9e2c68cf] Command: cd /opt/app/production/provable/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-ded7d101900cccf36831.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [9e2c68cf] 	Fetching origin
+  INFO [9e2c68cf] Finished in 3.025 seconds with exit status 0 (successful).
+ DEBUG [fa2e6cd2] Running if test ! -d /opt/app/production/provable/repo; then echo "Directory does not exist '/opt/app/production/provable/repo'" 1>&2; false; fi as richard@159.223.80.122
+ DEBUG [fa2e6cd2] Command: if test ! -d /opt/app/production/provable/repo; then echo "Directory does not exist '/opt/app/production/provable/repo'" 1>&2; false; fi
+ DEBUG [fa2e6cd2] Finished in 2.659 seconds with exit status 0 (successful).
+  INFO [e57a76f9] Running /usr/bin/env mkdir -p /opt/app/production/provable/releases/20220526025305 as richard@159.223.80.122
+ DEBUG [e57a76f9] Command: cd /opt/app/production/provable/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-ded7d101900cccf36831.sh" ; /usr/bin/env mkdir -p /opt/app/production/provable/releases/20220526025305 )
+  INFO [e57a76f9] Finished in 3.528 seconds with exit status 0 (successful).
+  INFO [1379d862] Running /usr/bin/env git archive main | /usr/bin/env tar -x -f - -C /opt/app/production/provable/releases/20220526025305 as richard@159.223.80.122
+ DEBUG [1379d862] Command: cd /opt/app/production/provable/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-ded7d101900cccf36831.sh" ; /usr/bin/env git archive main | /usr/bin/env tar -x -f - -C /opt/app/production/provable/releases/20220526025305 )
+  INFO [1379d862] Finished in 0.145 seconds with exit status 0 (successful).
+ DEBUG [0bd5f8b1] Running if test ! -d /opt/app/production/provable/repo; then echo "Directory does not exist '/opt/app/production/provable/repo'" 1>&2; false; fi as richard@159.223.80.122
+ DEBUG [0bd5f8b1] Command: if test ! -d /opt/app/production/provable/repo; then echo "Directory does not exist '/opt/app/production/provable/repo'" 1>&2; false; fi
+ DEBUG [0bd5f8b1] Finished in 0.164 seconds with exit status 0 (successful).
+ DEBUG [0d417921] Running /usr/bin/env git rev-list --max-count=1 main as richard@159.223.80.122
+ DEBUG [0d417921] Command: cd /opt/app/production/provable/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-ded7d101900cccf36831.sh" ; /usr/bin/env git rev-list --max-count=1 main )
+ DEBUG [0d417921] 	48763b55d13c8367e5094a3698951a4fb4555647
+ DEBUG [0d417921] Finished in 0.128 seconds with exit status 0 (successful).
+ DEBUG [0703f25e] Running if test ! -d /opt/app/production/provable/releases/20220526025305; then echo "Directory does not exist '/opt/app/production/provable/releases/20220526025305'" 1>&2; false; fi as richard@159.223.80.122
+ DEBUG [0703f25e] Command: if test ! -d /opt/app/production/provable/releases/20220526025305; then echo "Directory does not exist '/opt/app/production/provable/releases/20220526025305'" 1>&2; false; fi
+ DEBUG [0703f25e] Finished in 0.217 seconds with exit status 0 (successful).
+  INFO [7f2e66e2] Running /usr/bin/env echo "48763b55d13c8367e5094a3698951a4fb4555647" > REVISION as richard@159.223.80.122
+ DEBUG [7f2e66e2] Command: cd /opt/app/production/provable/releases/20220526025305 && /usr/bin/env echo "48763b55d13c8367e5094a3698951a4fb4555647" > REVISION
+  INFO [7f2e66e2] Finished in 0.134 seconds with exit status 0 (successful).
+  INFO [10b3b3da] Running /usr/bin/env ln -s /opt/app/production/provable/releases/20220526025305 /opt/app/production/provable/releases/current as richard@159.223.80.122
+ DEBUG [10b3b3da] Command: /usr/bin/env ln -s /opt/app/production/provable/releases/20220526025305 /opt/app/production/provable/releases/current
+  INFO [10b3b3da] Finished in 0.170 seconds with exit status 0 (successful).
+  INFO [81777077] Running /usr/bin/env mv /opt/app/production/provable/releases/current /opt/app/production/provable as richard@159.223.80.122
+ DEBUG [81777077] Command: /usr/bin/env mv /opt/app/production/provable/releases/current /opt/app/production/provable
+  INFO [81777077] Finished in 0.136 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-05-26 10:54:22 +0800 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [795bf619] Running /usr/bin/env mkdir -p /tmp as richard@159.223.80.122
+ DEBUG [795bf619] Command: /usr/bin/env mkdir -p /tmp
+  INFO [795bf619] Finished in 1.118 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-b54fd3cac3991d39bc89.sh 0.0%
+  INFO Uploading /tmp/git-ssh-b54fd3cac3991d39bc89.sh 100.0%
+  INFO [b5d8b427] Running /usr/bin/env chmod 700 /tmp/git-ssh-b54fd3cac3991d39bc89.sh as richard@159.223.80.122
+ DEBUG [b5d8b427] Command: /usr/bin/env chmod 700 /tmp/git-ssh-b54fd3cac3991d39bc89.sh
+  INFO [b5d8b427] Finished in 0.132 seconds with exit status 0 (successful).
+  INFO [e8b628d7] Running /usr/bin/env git ls-remote git@github-provable:richardfsr/provable.art.git HEAD as richard@159.223.80.122
+ DEBUG [e8b628d7] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-b54fd3cac3991d39bc89.sh" ; /usr/bin/env git ls-remote git@github-provable:richardfsr/provable.art.git HEAD )
+ DEBUG [e8b628d7] 	48763b55d13c8367e5094a3698951a4fb4555647	HEAD
+  INFO [e8b628d7] Finished in 2.806 seconds with exit status 0 (successful).
+  INFO [604ca2da] Running /usr/bin/env mkdir -p /opt/app/production/provable/shared /opt/app/production/provable/releases as richard@159.223.80.122
+ DEBUG [604ca2da] Command: /usr/bin/env mkdir -p /opt/app/production/provable/shared /opt/app/production/provable/releases
+  INFO [604ca2da] Finished in 0.127 seconds with exit status 0 (successful).
+ DEBUG [95982f0a] Running [ -f /opt/app/production/provable/current/REVISION ] as richard@159.223.80.122
+ DEBUG [95982f0a] Command: [ -f /opt/app/production/provable/current/REVISION ]
+ DEBUG [95982f0a] Finished in 0.185 seconds with exit status 0 (successful).
+ DEBUG [6ec0a1a0] Running /usr/bin/env cat /opt/app/production/provable/current/REVISION 2>/dev/null as richard@159.223.80.122
+ DEBUG [6ec0a1a0] Command: /usr/bin/env cat /opt/app/production/provable/current/REVISION 2>/dev/null
+ DEBUG [6ec0a1a0] 	48763b55d13c8367e5094a3698951a4fb4555647
+ DEBUG [6ec0a1a0] Finished in 0.130 seconds with exit status 0 (successful).
+ DEBUG [4f62acd9] Running [ -f /opt/app/production/provable/repo/HEAD ] as richard@159.223.80.122
+ DEBUG [4f62acd9] Command: [ -f /opt/app/production/provable/repo/HEAD ]
+ DEBUG [4f62acd9] Finished in 0.373 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /opt/app/production/provable/repo
+ DEBUG [0a3068a5] Running if test ! -d /opt/app/production/provable/repo; then echo "Directory does not exist '/opt/app/production/provable/repo'" 1>&2; false; fi as richard@159.223.80.122
+ DEBUG [0a3068a5] Command: if test ! -d /opt/app/production/provable/repo; then echo "Directory does not exist '/opt/app/production/provable/repo'" 1>&2; false; fi
+ DEBUG [0a3068a5] Finished in 0.129 seconds with exit status 0 (successful).
+  INFO [34c1fd56] Running /usr/bin/env git remote set-url origin git@github-provable:richardfsr/provable.art.git as richard@159.223.80.122
+ DEBUG [34c1fd56] Command: cd /opt/app/production/provable/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-b54fd3cac3991d39bc89.sh" ; /usr/bin/env git remote set-url origin git@github-provable:richardfsr/provable.art.git )
+  INFO [34c1fd56] Finished in 0.178 seconds with exit status 0 (successful).
+  INFO [d6472b07] Running /usr/bin/env git remote update --prune as richard@159.223.80.122
+ DEBUG [d6472b07] Command: cd /opt/app/production/provable/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-b54fd3cac3991d39bc89.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [d6472b07] 	Fetching origin
+  INFO [d6472b07] Finished in 2.755 seconds with exit status 0 (successful).
+ DEBUG [55e6a5ec] Running if test ! -d /opt/app/production/provable/repo; then echo "Directory does not exist '/opt/app/production/provable/repo'" 1>&2; false; fi as richard@159.223.80.122
+ DEBUG [55e6a5ec] Command: if test ! -d /opt/app/production/provable/repo; then echo "Directory does not exist '/opt/app/production/provable/repo'" 1>&2; false; fi
+ DEBUG [55e6a5ec] Finished in 0.192 seconds with exit status 0 (successful).
+  INFO [5d4f5c42] Running /usr/bin/env mkdir -p /opt/app/production/provable/releases/20220526025426 as richard@159.223.80.122
+ DEBUG [5d4f5c42] Command: cd /opt/app/production/provable/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-b54fd3cac3991d39bc89.sh" ; /usr/bin/env mkdir -p /opt/app/production/provable/releases/20220526025426 )
+  INFO [5d4f5c42] Finished in 0.140 seconds with exit status 0 (successful).
+  INFO [2a8a8a70] Running /usr/bin/env git archive main | /usr/bin/env tar -x -f - -C /opt/app/production/provable/releases/20220526025426 as richard@159.223.80.122
+ DEBUG [2a8a8a70] Command: cd /opt/app/production/provable/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-b54fd3cac3991d39bc89.sh" ; /usr/bin/env git archive main | /usr/bin/env tar -x -f - -C /opt/app/production/provable/releases/20220526025426 )
+  INFO [2a8a8a70] Finished in 0.390 seconds with exit status 0 (successful).
+ DEBUG [92146482] Running if test ! -d /opt/app/production/provable/repo; then echo "Directory does not exist '/opt/app/production/provable/repo'" 1>&2; false; fi as richard@159.223.80.122
+ DEBUG [92146482] Command: if test ! -d /opt/app/production/provable/repo; then echo "Directory does not exist '/opt/app/production/provable/repo'" 1>&2; false; fi
+ DEBUG [92146482] Finished in 0.134 seconds with exit status 0 (successful).
+ DEBUG [a25972a7] Running /usr/bin/env git rev-list --max-count=1 main as richard@159.223.80.122
+ DEBUG [a25972a7] Command: cd /opt/app/production/provable/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-b54fd3cac3991d39bc89.sh" ; /usr/bin/env git rev-list --max-count=1 main )
+ DEBUG [a25972a7] 	48763b55d13c8367e5094a3698951a4fb4555647
+ DEBUG [a25972a7] Finished in 0.184 seconds with exit status 0 (successful).
+ DEBUG [cd7f6d71] Running if test ! -d /opt/app/production/provable/releases/20220526025426; then echo "Directory does not exist '/opt/app/production/provable/releases/20220526025426'" 1>&2; false; fi as richard@159.223.80.122
+ DEBUG [cd7f6d71] Command: if test ! -d /opt/app/production/provable/releases/20220526025426; then echo "Directory does not exist '/opt/app/production/provable/releases/20220526025426'" 1>&2; false; fi
+ DEBUG [cd7f6d71] Finished in 0.138 seconds with exit status 0 (successful).
+  INFO [5d9f8dc8] Running /usr/bin/env echo "48763b55d13c8367e5094a3698951a4fb4555647" > REVISION as richard@159.223.80.122
+ DEBUG [5d9f8dc8] Command: cd /opt/app/production/provable/releases/20220526025426 && /usr/bin/env echo "48763b55d13c8367e5094a3698951a4fb4555647" > REVISION
+  INFO [5d9f8dc8] Finished in 0.178 seconds with exit status 0 (successful).
+  INFO [defcc3c8] Running /usr/bin/env ln -s /opt/app/production/provable/releases/20220526025426 /opt/app/production/provable/releases/current as richard@159.223.80.122
+ DEBUG [defcc3c8] Command: /usr/bin/env ln -s /opt/app/production/provable/releases/20220526025426 /opt/app/production/provable/releases/current
+  INFO [defcc3c8] Finished in 0.157 seconds with exit status 0 (successful).
+  INFO [43d19872] Running /usr/bin/env mv /opt/app/production/provable/releases/current /opt/app/production/provable as richard@159.223.80.122
+ DEBUG [43d19872] Command: /usr/bin/env mv /opt/app/production/provable/releases/current /opt/app/production/provable
+  INFO [43d19872] Finished in 0.177 seconds with exit status 0 (successful).
+ DEBUG [fb73d676] Running if test ! -d /opt/app/production/provable/current; then echo "Directory does not exist '/opt/app/production/provable/current'" 1>&2; false; fi as richard@159.223.80.122
+ DEBUG [fb73d676] Command: if test ! -d /opt/app/production/provable/current; then echo "Directory does not exist '/opt/app/production/provable/current'" 1>&2; false; fi
+ DEBUG [fb73d676] Finished in 0.131 seconds with exit status 0 (successful).
+ DEBUG [026a5bc1] Running /usr/bin/env pm2 jlist  as richard@159.223.80.122
+ DEBUG [026a5bc1] Command: cd /opt/app/production/provable/current && /usr/bin/env pm2 jlist 
+ DEBUG [026a5bc1] 	/usr/bin/env: 
+ DEBUG [026a5bc1] 	‘pm2’
+ DEBUG [026a5bc1] 	: No such file or directory
+ DEBUG [026a5bc1] 	
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-05-26 10:56:27 +0800 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [b1c764e0] Running /usr/bin/env mkdir -p /tmp as richard@159.223.80.122
+ DEBUG [b1c764e0] Command: /usr/bin/env mkdir -p /tmp
+  INFO [b1c764e0] Finished in 0.926 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-4b377b55314b75d98899.sh 0.0%
+  INFO Uploading /tmp/git-ssh-4b377b55314b75d98899.sh 100.0%
+  INFO [b6cac031] Running /usr/bin/env chmod 700 /tmp/git-ssh-4b377b55314b75d98899.sh as richard@159.223.80.122
+ DEBUG [b6cac031] Command: /usr/bin/env chmod 700 /tmp/git-ssh-4b377b55314b75d98899.sh
+  INFO [b6cac031] Finished in 0.121 seconds with exit status 0 (successful).
+  INFO [3b80c4d0] Running /usr/bin/env git ls-remote git@github-provable:richardfsr/provable.art.git HEAD as richard@159.223.80.122
+ DEBUG [3b80c4d0] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-4b377b55314b75d98899.sh" ; /usr/bin/env git ls-remote git@github-provable:richardfsr/provable.art.git HEAD )
+ DEBUG [3b80c4d0] 	48763b55d13c8367e5094a3698951a4fb4555647	HEAD
+  INFO [3b80c4d0] Finished in 2.645 seconds with exit status 0 (successful).
+  INFO [dc8ff829] Running /usr/bin/env mkdir -p /opt/app/production/provable/shared /opt/app/production/provable/releases as richard@159.223.80.122
+ DEBUG [dc8ff829] Command: /usr/bin/env mkdir -p /opt/app/production/provable/shared /opt/app/production/provable/releases
+  INFO [dc8ff829] Finished in 0.173 seconds with exit status 0 (successful).
+ DEBUG [6e6242e4] Running [ -f /opt/app/production/provable/current/REVISION ] as richard@159.223.80.122
+ DEBUG [6e6242e4] Command: [ -f /opt/app/production/provable/current/REVISION ]
+ DEBUG [6e6242e4] Finished in 0.121 seconds with exit status 0 (successful).
+ DEBUG [75193e78] Running /usr/bin/env cat /opt/app/production/provable/current/REVISION 2>/dev/null as richard@159.223.80.122
+ DEBUG [75193e78] Command: /usr/bin/env cat /opt/app/production/provable/current/REVISION 2>/dev/null
+ DEBUG [75193e78] 	48763b55d13c8367e5094a3698951a4fb4555647
+ DEBUG [75193e78] Finished in 0.169 seconds with exit status 0 (successful).
+ DEBUG [62fb0796] Running [ -f /opt/app/production/provable/repo/HEAD ] as richard@159.223.80.122
+ DEBUG [62fb0796] Command: [ -f /opt/app/production/provable/repo/HEAD ]
+ DEBUG [62fb0796] Finished in 0.121 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /opt/app/production/provable/repo
+ DEBUG [566df132] Running if test ! -d /opt/app/production/provable/repo; then echo "Directory does not exist '/opt/app/production/provable/repo'" 1>&2; false; fi as richard@159.223.80.122
+ DEBUG [566df132] Command: if test ! -d /opt/app/production/provable/repo; then echo "Directory does not exist '/opt/app/production/provable/repo'" 1>&2; false; fi
+ DEBUG [566df132] Finished in 0.165 seconds with exit status 0 (successful).
+  INFO [21785df5] Running /usr/bin/env git remote set-url origin git@github-provable:richardfsr/provable.art.git as richard@159.223.80.122
+ DEBUG [21785df5] Command: cd /opt/app/production/provable/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-4b377b55314b75d98899.sh" ; /usr/bin/env git remote set-url origin git@github-provable:richardfsr/provable.art.git )
+  INFO [21785df5] Finished in 0.129 seconds with exit status 0 (successful).
+  INFO [f950bb0f] Running /usr/bin/env git remote update --prune as richard@159.223.80.122
+ DEBUG [f950bb0f] Command: cd /opt/app/production/provable/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-4b377b55314b75d98899.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [f950bb0f] 	Fetching origin
+  INFO [f950bb0f] Finished in 2.795 seconds with exit status 0 (successful).
+ DEBUG [907b2644] Running if test ! -d /opt/app/production/provable/repo; then echo "Directory does not exist '/opt/app/production/provable/repo'" 1>&2; false; fi as richard@159.223.80.122
+ DEBUG [907b2644] Command: if test ! -d /opt/app/production/provable/repo; then echo "Directory does not exist '/opt/app/production/provable/repo'" 1>&2; false; fi
+ DEBUG [907b2644] Finished in 0.173 seconds with exit status 0 (successful).
+  INFO [cd003f21] Running /usr/bin/env mkdir -p /opt/app/production/provable/releases/20220526025632 as richard@159.223.80.122
+ DEBUG [cd003f21] Command: cd /opt/app/production/provable/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-4b377b55314b75d98899.sh" ; /usr/bin/env mkdir -p /opt/app/production/provable/releases/20220526025632 )
+  INFO [cd003f21] Finished in 0.128 seconds with exit status 0 (successful).
+  INFO [d81636b4] Running /usr/bin/env git archive main | /usr/bin/env tar -x -f - -C /opt/app/production/provable/releases/20220526025632 as richard@159.223.80.122
+ DEBUG [d81636b4] Command: cd /opt/app/production/provable/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-4b377b55314b75d98899.sh" ; /usr/bin/env git archive main | /usr/bin/env tar -x -f - -C /opt/app/production/provable/releases/20220526025632 )
+  INFO [d81636b4] Finished in 0.180 seconds with exit status 0 (successful).
+ DEBUG [239b3a06] Running if test ! -d /opt/app/production/provable/repo; then echo "Directory does not exist '/opt/app/production/provable/repo'" 1>&2; false; fi as richard@159.223.80.122
+ DEBUG [239b3a06] Command: if test ! -d /opt/app/production/provable/repo; then echo "Directory does not exist '/opt/app/production/provable/repo'" 1>&2; false; fi
+ DEBUG [239b3a06] Finished in 0.123 seconds with exit status 0 (successful).
+ DEBUG [e99e2d1e] Running /usr/bin/env git rev-list --max-count=1 main as richard@159.223.80.122
+ DEBUG [e99e2d1e] Command: cd /opt/app/production/provable/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-4b377b55314b75d98899.sh" ; /usr/bin/env git rev-list --max-count=1 main )
+ DEBUG [e99e2d1e] 	48763b55d13c8367e5094a3698951a4fb4555647
+ DEBUG [e99e2d1e] Finished in 0.168 seconds with exit status 0 (successful).
+ DEBUG [d0abfe4a] Running if test ! -d /opt/app/production/provable/releases/20220526025632; then echo "Directory does not exist '/opt/app/production/provable/releases/20220526025632'" 1>&2; false; fi as richard@159.223.80.122
+ DEBUG [d0abfe4a] Command: if test ! -d /opt/app/production/provable/releases/20220526025632; then echo "Directory does not exist '/opt/app/production/provable/releases/20220526025632'" 1>&2; false; fi
+ DEBUG [d0abfe4a] Finished in 0.125 seconds with exit status 0 (successful).
+  INFO [ec59a0a6] Running /usr/bin/env echo "48763b55d13c8367e5094a3698951a4fb4555647" > REVISION as richard@159.223.80.122
+ DEBUG [ec59a0a6] Command: cd /opt/app/production/provable/releases/20220526025632 && /usr/bin/env echo "48763b55d13c8367e5094a3698951a4fb4555647" > REVISION
+  INFO [ec59a0a6] Finished in 0.166 seconds with exit status 0 (successful).
+  INFO [92b70300] Running /usr/bin/env ln -s /opt/app/production/provable/releases/20220526025632 /opt/app/production/provable/releases/current as richard@159.223.80.122
+ DEBUG [92b70300] Command: /usr/bin/env ln -s /opt/app/production/provable/releases/20220526025632 /opt/app/production/provable/releases/current
+  INFO [92b70300] Finished in 0.125 seconds with exit status 0 (successful).
+  INFO [4cf28386] Running /usr/bin/env mv /opt/app/production/provable/releases/current /opt/app/production/provable as richard@159.223.80.122
+ DEBUG [4cf28386] Command: /usr/bin/env mv /opt/app/production/provable/releases/current /opt/app/production/provable
+  INFO [4cf28386] Finished in 0.169 seconds with exit status 0 (successful).
+ DEBUG [3a9c4f84] Running if test ! -d /opt/app/production/provable/current; then echo "Directory does not exist '/opt/app/production/provable/current'" 1>&2; false; fi as richard@159.223.80.122
+ DEBUG [3a9c4f84] Command: if test ! -d /opt/app/production/provable/current; then echo "Directory does not exist '/opt/app/production/provable/current'" 1>&2; false; fi
+ DEBUG [3a9c4f84] Finished in 0.125 seconds with exit status 0 (successful).
+ DEBUG [e0a1a2e2] Running /usr/bin/env pm2 jlist  as richard@159.223.80.122
+ DEBUG [e0a1a2e2] Command: cd /opt/app/production/provable/current && /usr/bin/env pm2 jlist 
+ DEBUG [e0a1a2e2] 	[PM2] Spawning PM2 daemon with pm2_home=/home/richard/.pm2
+ DEBUG [e0a1a2e2] 	[PM2] PM2 Successfully daemonized
+ DEBUG [e0a1a2e2] 	[]
+ DEBUG [e0a1a2e2] Finished in 0.627 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-05-26 11:01:43 +0800 cap production deploy:restart
+  INFO ---------------------------------------------------------------------------
+ DEBUG [296bd2b2] Running if test ! -d /opt/app/production/provable/current; then echo "Directory does not exist '/opt/app/production/provable/current'" 1>&2; false; fi as richard@159.223.80.122
+ DEBUG [296bd2b2] Command: if test ! -d /opt/app/production/provable/current; then echo "Directory does not exist '/opt/app/production/provable/current'" 1>&2; false; fi
+ DEBUG [296bd2b2] Finished in 0.958 seconds with exit status 0 (successful).
+ DEBUG [fa0353a1] Running /usr/bin/env pm2 jlist  as richard@159.223.80.122
+ DEBUG [fa0353a1] Command: cd /opt/app/production/provable/current && /usr/bin/env pm2 jlist 
+ DEBUG [fa0353a1] 	[]
+ DEBUG [fa0353a1] Finished in 0.300 seconds with exit status 0 (successful).
+  INFO App is not registerd
+ DEBUG [566d7367] Running if test ! -d /opt/app/production/provable/current; then echo "Directory does not exist '/opt/app/production/provable/current'" 1>&2; false; fi as richard@159.223.80.122
+ DEBUG [566d7367] Command: if test ! -d /opt/app/production/provable/current; then echo "Directory does not exist '/opt/app/production/provable/current'" 1>&2; false; fi
+ DEBUG [566d7367] Finished in 0.164 seconds with exit status 0 (successful).
+  INFO [752bb76b] Running /usr/bin/env pm2 stop  as richard@159.223.80.122
+ DEBUG [752bb76b] Command: cd /opt/app/production/provable/current && /usr/bin/env pm2 stop 
+ DEBUG [752bb76b] 	
+ DEBUG [752bb76b] 	  error: missing required argument `id|name|namespace|all|json|stdin'
+

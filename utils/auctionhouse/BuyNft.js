@@ -24,7 +24,8 @@ export default async function buyNftTransaction(
   listing,
   publicKey,
   signTransaction,
-  ah
+  ah,
+  refetch
 ) {
   const connection = new Connection(process.env.NEXT_PUBLIC_RPC, "confirmed");
 
@@ -222,6 +223,8 @@ export default async function buyNftTransaction(
     signature = await connection.sendRawTransaction(signed.serialize());
 
     await connection.confirmTransaction(signature, "confirmed");
+
+    await refetch();
 
     toast.success("The transaction was confirmed.");
   } catch (e) {
