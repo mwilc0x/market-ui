@@ -22,7 +22,7 @@ set :deploy_to, "/opt/app/production/provable"
 # set :pty, true
 
 # Default value for :linked_files is []
-append :linked_files, ".env"
+append :linked_files, "ecosystem.config.js"
 
 # Default value for linked_dirs is []
 # append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "tmp/webpacker", "public/system", "vendor", "storage"
@@ -44,6 +44,10 @@ namespace :deploy do
   desc 'Restart application'
   task :restart do
     invoke 'pm2:restart'
+  end
+
+  task :build do
+    invoke 'yarn:build'
   end
 
   after :publishing, :build
