@@ -4,7 +4,7 @@ import { WalletContextProvider } from "/contexts/wallet";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 
 const client = new ApolloClient({
-  uri: process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT,
+  uri: "https://graph.holaplex.com/v1",
   cache: new InMemoryCache(),
 });
 
