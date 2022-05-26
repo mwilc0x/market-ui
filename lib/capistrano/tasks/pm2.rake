@@ -4,7 +4,7 @@ namespace :pm2 do
 
   def app_status
     within current_path do
-      ps = JSON.parse(capture :pm2, :jlist, fetch(:app_command))
+      ps = JSON.parse(capture :pm2, :jlist, fetch(:application))
       if ps.empty?
         return nil
       else
@@ -16,13 +16,13 @@ namespace :pm2 do
 
   def restart_app
     within current_path do
-      execute :pm2, :restart, fetch(:app_command)
+      execute :pm2, :restart, fetch(:application)
     end
   end
   
   def start_app
     within current_path do
-      execute :pm2, :stop, fetch(:app_command)
+      execute :pm2, :stop, fetch(:application)
     end
   end
   

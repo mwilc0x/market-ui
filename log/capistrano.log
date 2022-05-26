@@ -262,3 +262,184 @@
  DEBUG [752bb76b] 	
  DEBUG [752bb76b] 	  error: missing required argument `id|name|namespace|all|json|stdin'
 
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-05-26 11:07:13 +0800 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [7a404f73] Running /usr/bin/env mkdir -p /tmp as richard@159.223.80.122
+ DEBUG [7a404f73] Command: /usr/bin/env mkdir -p /tmp
+  INFO [7a404f73] Finished in 0.874 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-24088c2b362a64b18c33.sh 0.0%
+  INFO Uploading /tmp/git-ssh-24088c2b362a64b18c33.sh 100.0%
+  INFO [88c41cae] Running /usr/bin/env chmod 700 /tmp/git-ssh-24088c2b362a64b18c33.sh as richard@159.223.80.122
+ DEBUG [88c41cae] Command: /usr/bin/env chmod 700 /tmp/git-ssh-24088c2b362a64b18c33.sh
+  INFO [88c41cae] Finished in 0.129 seconds with exit status 0 (successful).
+  INFO [1768253b] Running /usr/bin/env git ls-remote git@github-provable:richardfsr/provable.art.git HEAD as richard@159.223.80.122
+ DEBUG [1768253b] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-24088c2b362a64b18c33.sh" ; /usr/bin/env git ls-remote git@github-provable:richardfsr/provable.art.git HEAD )
+ DEBUG [1768253b] 	7333268d7c460795fdfe9914491ac783ca24204a	HEAD
+  INFO [1768253b] Finished in 2.755 seconds with exit status 0 (successful).
+  INFO [945f8551] Running /usr/bin/env mkdir -p /opt/app/production/provable/shared /opt/app/production/provable/releases as richard@159.223.80.122
+ DEBUG [945f8551] Command: /usr/bin/env mkdir -p /opt/app/production/provable/shared /opt/app/production/provable/releases
+  INFO [945f8551] Finished in 0.170 seconds with exit status 0 (successful).
+  INFO [4839b724] Running /usr/bin/env mkdir -p /opt/app/production/provable/shared as richard@159.223.80.122
+ DEBUG [4839b724] Command: /usr/bin/env mkdir -p /opt/app/production/provable/shared
+  INFO [4839b724] Finished in 0.130 seconds with exit status 0 (successful).
+ DEBUG [5501d973] Running [ -f /opt/app/production/provable/shared/.env ] as richard@159.223.80.122
+ DEBUG [5501d973] Command: [ -f /opt/app/production/provable/shared/.env ]
+ DEBUG [5501d973] Finished in 0.176 seconds with exit status 1 (failed).
+ ERROR linked file /opt/app/production/provable/shared/.env does not exist on 159.223.80.122
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-05-26 11:07:40 +0800 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [3aeff1b5] Running /usr/bin/env mkdir -p /tmp as richard@159.223.80.122
+ DEBUG [3aeff1b5] Command: /usr/bin/env mkdir -p /tmp
+  INFO [3aeff1b5] Finished in 0.969 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-2665eff366ce5ea71ba5.sh 0.0%
+  INFO Uploading /tmp/git-ssh-2665eff366ce5ea71ba5.sh 100.0%
+  INFO [22c5dd4b] Running /usr/bin/env chmod 700 /tmp/git-ssh-2665eff366ce5ea71ba5.sh as richard@159.223.80.122
+ DEBUG [22c5dd4b] Command: /usr/bin/env chmod 700 /tmp/git-ssh-2665eff366ce5ea71ba5.sh
+  INFO [22c5dd4b] Finished in 0.127 seconds with exit status 0 (successful).
+  INFO [67d81f2f] Running /usr/bin/env git ls-remote git@github-provable:richardfsr/provable.art.git HEAD as richard@159.223.80.122
+ DEBUG [67d81f2f] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-2665eff366ce5ea71ba5.sh" ; /usr/bin/env git ls-remote git@github-provable:richardfsr/provable.art.git HEAD )
+ DEBUG [67d81f2f] 	7333268d7c460795fdfe9914491ac783ca24204a	HEAD
+  INFO [67d81f2f] Finished in 2.620 seconds with exit status 0 (successful).
+  INFO [39dc14d5] Running /usr/bin/env mkdir -p /opt/app/production/provable/shared /opt/app/production/provable/releases as richard@159.223.80.122
+ DEBUG [39dc14d5] Command: /usr/bin/env mkdir -p /opt/app/production/provable/shared /opt/app/production/provable/releases
+  INFO [39dc14d5] Finished in 0.183 seconds with exit status 0 (successful).
+  INFO [91d11656] Running /usr/bin/env mkdir -p /opt/app/production/provable/shared as richard@159.223.80.122
+ DEBUG [91d11656] Command: /usr/bin/env mkdir -p /opt/app/production/provable/shared
+  INFO [91d11656] Finished in 0.125 seconds with exit status 0 (successful).
+ DEBUG [0f45aaf9] Running [ -f /opt/app/production/provable/shared/.env ] as richard@159.223.80.122
+ DEBUG [0f45aaf9] Command: [ -f /opt/app/production/provable/shared/.env ]
+ DEBUG [0f45aaf9] Finished in 0.168 seconds with exit status 1 (failed).
+ ERROR linked file /opt/app/production/provable/shared/.env does not exist on 159.223.80.122
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-05-26 11:08:48 +0800 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [b1bb8ebf] Running /usr/bin/env mkdir -p /tmp as richard@159.223.80.122
+ DEBUG [b1bb8ebf] Command: /usr/bin/env mkdir -p /tmp
+  INFO [b1bb8ebf] Finished in 0.945 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-3075ec370c11a231674e.sh 0.0%
+  INFO Uploading /tmp/git-ssh-3075ec370c11a231674e.sh 100.0%
+  INFO [eb96bd7d] Running /usr/bin/env chmod 700 /tmp/git-ssh-3075ec370c11a231674e.sh as richard@159.223.80.122
+ DEBUG [eb96bd7d] Command: /usr/bin/env chmod 700 /tmp/git-ssh-3075ec370c11a231674e.sh
+  INFO [eb96bd7d] Finished in 0.125 seconds with exit status 0 (successful).
+  INFO [7b9141cc] Running /usr/bin/env git ls-remote git@github-provable:richardfsr/provable.art.git HEAD as richard@159.223.80.122
+ DEBUG [7b9141cc] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-3075ec370c11a231674e.sh" ; /usr/bin/env git ls-remote git@github-provable:richardfsr/provable.art.git HEAD )
+ DEBUG [7b9141cc] 	7333268d7c460795fdfe9914491ac783ca24204a	HEAD
+  INFO [7b9141cc] Finished in 2.726 seconds with exit status 0 (successful).
+  INFO [e750eb7f] Running /usr/bin/env mkdir -p /opt/app/production/provable/shared /opt/app/production/provable/releases as richard@159.223.80.122
+ DEBUG [e750eb7f] Command: /usr/bin/env mkdir -p /opt/app/production/provable/shared /opt/app/production/provable/releases
+  INFO [e750eb7f] Finished in 0.299 seconds with exit status 0 (successful).
+  INFO [7d974141] Running /usr/bin/env mkdir -p /opt/app/production/provable/shared as richard@159.223.80.122
+ DEBUG [7d974141] Command: /usr/bin/env mkdir -p /opt/app/production/provable/shared
+  INFO [7d974141] Finished in 0.124 seconds with exit status 0 (successful).
+ DEBUG [82c2568d] Running [ -f /opt/app/production/provable/shared/.env ] as richard@159.223.80.122
+ DEBUG [82c2568d] Command: [ -f /opt/app/production/provable/shared/.env ]
+ DEBUG [82c2568d] Finished in 0.180 seconds with exit status 0 (successful).
+ DEBUG [fab75a32] Running [ -f /opt/app/production/provable/current/REVISION ] as richard@159.223.80.122
+ DEBUG [fab75a32] Command: [ -f /opt/app/production/provable/current/REVISION ]
+ DEBUG [fab75a32] Finished in 0.124 seconds with exit status 0 (successful).
+ DEBUG [67847e41] Running /usr/bin/env cat /opt/app/production/provable/current/REVISION 2>/dev/null as richard@159.223.80.122
+ DEBUG [67847e41] Command: /usr/bin/env cat /opt/app/production/provable/current/REVISION 2>/dev/null
+ DEBUG [67847e41] 	48763b55d13c8367e5094a3698951a4fb4555647
+ DEBUG [67847e41] Finished in 0.178 seconds with exit status 0 (successful).
+ DEBUG [8aca8278] Running [ -f /opt/app/production/provable/repo/HEAD ] as richard@159.223.80.122
+ DEBUG [8aca8278] Command: [ -f /opt/app/production/provable/repo/HEAD ]
+ DEBUG [8aca8278] Finished in 0.122 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /opt/app/production/provable/repo
+ DEBUG [e3899085] Running if test ! -d /opt/app/production/provable/repo; then echo "Directory does not exist '/opt/app/production/provable/repo'" 1>&2; false; fi as richard@159.223.80.122
+ DEBUG [e3899085] Command: if test ! -d /opt/app/production/provable/repo; then echo "Directory does not exist '/opt/app/production/provable/repo'" 1>&2; false; fi
+ DEBUG [e3899085] Finished in 0.167 seconds with exit status 0 (successful).
+  INFO [55520bda] Running /usr/bin/env git remote set-url origin git@github-provable:richardfsr/provable.art.git as richard@159.223.80.122
+ DEBUG [55520bda] Command: cd /opt/app/production/provable/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-3075ec370c11a231674e.sh" ; /usr/bin/env git remote set-url origin git@github-provable:richardfsr/provable.art.git )
+  INFO [55520bda] Finished in 0.133 seconds with exit status 0 (successful).
+  INFO [38cb2b21] Running /usr/bin/env git remote update --prune as richard@159.223.80.122
+ DEBUG [38cb2b21] Command: cd /opt/app/production/provable/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-3075ec370c11a231674e.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [38cb2b21] 	Fetching origin
+ DEBUG [38cb2b21] 	From github-provable:richardfsr/provable.art
+ DEBUG [38cb2b21] 	   48763b5..7333268  main       -> main
+  INFO [38cb2b21] Finished in 2.969 seconds with exit status 0 (successful).
+ DEBUG [051e3371] Running if test ! -d /opt/app/production/provable/repo; then echo "Directory does not exist '/opt/app/production/provable/repo'" 1>&2; false; fi as richard@159.223.80.122
+ DEBUG [051e3371] Command: if test ! -d /opt/app/production/provable/repo; then echo "Directory does not exist '/opt/app/production/provable/repo'" 1>&2; false; fi
+ DEBUG [051e3371] Finished in 0.189 seconds with exit status 0 (successful).
+  INFO [a73499b6] Running /usr/bin/env mkdir -p /opt/app/production/provable/releases/20220526030853 as richard@159.223.80.122
+ DEBUG [a73499b6] Command: cd /opt/app/production/provable/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-3075ec370c11a231674e.sh" ; /usr/bin/env mkdir -p /opt/app/production/provable/releases/20220526030853 )
+  INFO [a73499b6] Finished in 0.173 seconds with exit status 0 (successful).
+  INFO [b8e5d78e] Running /usr/bin/env git archive main | /usr/bin/env tar -x -f - -C /opt/app/production/provable/releases/20220526030853 as richard@159.223.80.122
+ DEBUG [b8e5d78e] Command: cd /opt/app/production/provable/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-3075ec370c11a231674e.sh" ; /usr/bin/env git archive main | /usr/bin/env tar -x -f - -C /opt/app/production/provable/releases/20220526030853 )
+  INFO [b8e5d78e] Finished in 0.181 seconds with exit status 0 (successful).
+ DEBUG [73238d2a] Running if test ! -d /opt/app/production/provable/repo; then echo "Directory does not exist '/opt/app/production/provable/repo'" 1>&2; false; fi as richard@159.223.80.122
+ DEBUG [73238d2a] Command: if test ! -d /opt/app/production/provable/repo; then echo "Directory does not exist '/opt/app/production/provable/repo'" 1>&2; false; fi
+ DEBUG [73238d2a] Finished in 0.124 seconds with exit status 0 (successful).
+ DEBUG [1bb51d35] Running /usr/bin/env git rev-list --max-count=1 main as richard@159.223.80.122
+ DEBUG [1bb51d35] Command: cd /opt/app/production/provable/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-3075ec370c11a231674e.sh" ; /usr/bin/env git rev-list --max-count=1 main )
+ DEBUG [1bb51d35] 	7333268d7c460795fdfe9914491ac783ca24204a
+ DEBUG [1bb51d35] Finished in 0.173 seconds with exit status 0 (successful).
+ DEBUG [8f7ceaad] Running if test ! -d /opt/app/production/provable/releases/20220526030853; then echo "Directory does not exist '/opt/app/production/provable/releases/20220526030853'" 1>&2; false; fi as richard@159.223.80.122
+ DEBUG [8f7ceaad] Command: if test ! -d /opt/app/production/provable/releases/20220526030853; then echo "Directory does not exist '/opt/app/production/provable/releases/20220526030853'" 1>&2; false; fi
+ DEBUG [8f7ceaad] Finished in 0.126 seconds with exit status 0 (successful).
+  INFO [5d2dc9cf] Running /usr/bin/env echo "7333268d7c460795fdfe9914491ac783ca24204a" > REVISION as richard@159.223.80.122
+ DEBUG [5d2dc9cf] Command: cd /opt/app/production/provable/releases/20220526030853 && /usr/bin/env echo "7333268d7c460795fdfe9914491ac783ca24204a" > REVISION
+  INFO [5d2dc9cf] Finished in 0.164 seconds with exit status 0 (successful).
+  INFO [61352ab4] Running /usr/bin/env mkdir -p /opt/app/production/provable/releases/20220526030853 as richard@159.223.80.122
+ DEBUG [61352ab4] Command: /usr/bin/env mkdir -p /opt/app/production/provable/releases/20220526030853
+  INFO [61352ab4] Finished in 0.126 seconds with exit status 0 (successful).
+ DEBUG [162ea85a] Running [ -L /opt/app/production/provable/releases/20220526030853/.env ] as richard@159.223.80.122
+ DEBUG [162ea85a] Command: [ -L /opt/app/production/provable/releases/20220526030853/.env ]
+ DEBUG [162ea85a] Finished in 0.164 seconds with exit status 1 (failed).
+ DEBUG [9afd60f6] Running [ -f /opt/app/production/provable/releases/20220526030853/.env ] as richard@159.223.80.122
+ DEBUG [9afd60f6] Command: [ -f /opt/app/production/provable/releases/20220526030853/.env ]
+ DEBUG [9afd60f6] Finished in 0.130 seconds with exit status 0 (successful).
+  INFO [0a0abe89] Running /usr/bin/env rm /opt/app/production/provable/releases/20220526030853/.env as richard@159.223.80.122
+ DEBUG [0a0abe89] Command: /usr/bin/env rm /opt/app/production/provable/releases/20220526030853/.env
+  INFO [0a0abe89] Finished in 0.165 seconds with exit status 0 (successful).
+  INFO [3d691f56] Running /usr/bin/env ln -s /opt/app/production/provable/shared/.env /opt/app/production/provable/releases/20220526030853/.env as richard@159.223.80.122
+ DEBUG [3d691f56] Command: /usr/bin/env ln -s /opt/app/production/provable/shared/.env /opt/app/production/provable/releases/20220526030853/.env
+  INFO [3d691f56] Finished in 0.128 seconds with exit status 0 (successful).
+  INFO [bae5db15] Running /usr/bin/env ln -s /opt/app/production/provable/releases/20220526030853 /opt/app/production/provable/releases/current as richard@159.223.80.122
+ DEBUG [bae5db15] Command: /usr/bin/env ln -s /opt/app/production/provable/releases/20220526030853 /opt/app/production/provable/releases/current
+  INFO [bae5db15] Finished in 0.166 seconds with exit status 0 (successful).
+  INFO [c7e7563c] Running /usr/bin/env mv /opt/app/production/provable/releases/current /opt/app/production/provable as richard@159.223.80.122
+ DEBUG [c7e7563c] Command: /usr/bin/env mv /opt/app/production/provable/releases/current /opt/app/production/provable
+  INFO [c7e7563c] Finished in 0.132 seconds with exit status 0 (successful).
+ DEBUG [a36571c2] Running if test ! -d /opt/app/production/provable/current; then echo "Directory does not exist '/opt/app/production/provable/current'" 1>&2; false; fi as richard@159.223.80.122
+ DEBUG [a36571c2] Command: if test ! -d /opt/app/production/provable/current; then echo "Directory does not exist '/opt/app/production/provable/current'" 1>&2; false; fi
+ DEBUG [a36571c2] Finished in 0.163 seconds with exit status 0 (successful).
+ DEBUG [8eeefb36] Running /usr/bin/env pm2 jlist  as richard@159.223.80.122
+ DEBUG [8eeefb36] Command: cd /opt/app/production/provable/current && /usr/bin/env pm2 jlist 
+ DEBUG [8eeefb36] 	[{"pid":0,"name":"provable","pm2_env":{"exit_code":1,"node_version":"16.14.0","versioning":null,"version":"0.1.0","unstable_restarts":0,"restart_time":15,"pm_id":0,"created_at":null,"axm_dynamic":{},"axm_options":{"error":true,"heapdump":true,"feature.profiler.heapsnapshot":false,"feature.profiler.heapsampling":true,"feature.profiler.cpu_js":true,"latency":true,"catchExceptions":true,"profiling":true,"metrics":{"http":true,"runtime":true,"eventLoop":true,"network":false,"v8":true},"standalone":false,"tracing":{"outbound":false,"enabled":false},"module_conf":{},"apm":{"version":"5.0.0","type":"node"},"module_name":"provable","module_version":"5.2.0"},"axm_monitor":{},"axm_actions":[],"pm_uptime":1653534228902,"status":"errored","unique_id":"56afa2d2-da69-4066-8550-c201d6c5e540","SHELL":"/bin/bash","RBENV_SHELL":"bash","PWD":"/opt/app/production/provable/current","LOGNAME":"richard","XDG_SESSION_TYPE":"tty","MOTD_SHOWN":"pam","HOME":"/home/richard","LANG":"C.UTF-8","LS_COLORS":"rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:","LC_TERMINAL":"iTerm2","SSH_CONNECTION":"210.195.37.252 62561 159.223.80.122 22","LESSCLOSE":"/usr/bin/lesspipe %s %s","XDG_SESSION_CLASS":"user","TERM":"xterm-256color","LESSOPEN":"| /usr/bin/lesspipe %s","USER":"richard","LC_TERMINAL_VERSION":"3.4.15","SHLVL":"1","XDG_SESSION_ID":"192","XDG_RUNTIME_DIR":"/run/user/1000","SSH_CLIENT":"210.195.37.252 62561 22","XDG_DATA_DIRS":"/usr/local/share:/usr/share:/var/lib/snapd/desktop","PATH":"/home/richard/.local/share/solana/install/active_release/bin:/home/richard/.local/share/solana/install/active_release/bin:/home/richard/.rbenv/plugins/ruby-build/bin:/home/richard/.rbenv/shims:/home/richard/.rbenv/bin:/home/richard/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin","DBUS_SESSION_BUS_ADDRESS":"unix:path=/run/user/1000/bus","SSH_TTY":"/dev/pts/0","OLDPWD":"/opt/app/production","_":"/usr/bin/pm2","PM2_USAGE":"CLI","PM2_JSON_PROCESSING":"true","PM2_HOME":"/home/richard/.pm2","provable":"{}","NODE_APP_INSTANCE":0,"vizion_running":false,"km_link":false,"pm_pid_path":"/home/richard/.pm2/pids/provable-0.pid","pm_err_log_path":"/home/richard/.pm2/logs/provable-error.log","pm_out_log_path":"/home/richard/.pm2/logs/provable-out.log","instances":1,"exec_mode":"fork_mode","exec_interpreter":"node","pm_cwd":"/opt/app/production/provable/releases/20220526025632","pm_exec_path":"/opt/app/production/provable/releases/20220526025632/pages/_app.js","node_args":[],"name":"provable","env":{"unique_id":"56afa2d2-da69-4066-8550-c201d6c5e540","SHELL":"/bin/bash","RBENV_SHELL":"bash","PWD":"/opt/app/production/provable/current","LOGNAME":"richard","XDG_SESSION_TYPE":"tty","MOTD_SHOWN":"pam","HOME":"/home/richard","LANG":"C.UTF-8","LS_COLORS":"rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:","LC_TERMINAL":"iTerm2","SSH_CONNECTION":"210.195.37.252 62561 159.223.80.122 22","LESSCLOSE":"/usr/bin/lesspipe %s %s","XDG_SESSION_CLASS":"user","TERM":"xterm-256color","LESSOPEN":"| /usr/bin/lesspipe %s","USER":"richard","LC_TERMINAL_VERSION":"3.4.15","SHLVL":"1","XDG_SESSION_ID":"192","XDG_RUNTIME_DIR":"/run/user/1000","SSH_CLIENT":"210.195.37.252 62561 22","XDG_DATA_DIRS":"/usr/local/share:/usr/share:/var/lib/snapd/desktop","PATH":"/home/richard/.local/share/solana/install/active_release/bin:/home/richard/.local/share/solana/install/active_release/bin:/home/richard/.rbenv/plugins/ruby-build/bin:/home/richard/.rbenv/shims:/home/richard/.rbenv/bin:/home/richard/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin","DBUS_SESSION_BUS_ADDRESS":"unix:path=/run/user/1000/bus","SSH_TTY":"/dev/pts/0","OLDPWD":"/opt/app/production","_":"/usr/bin/pm2","PM2_USAGE":"CLI","PM2_JSON_PROCESSING":"true","PM2_HOME":"/home/richard/.pm2","provable":"{}"},"merge_logs":true,"vizion":true,"autorestart":true,"instance_var":"NODE_APP_INSTANCE","pmx":true,"automation":true,"treekill":true,"username":"richard","windowsHide":true,"kill_retry_time":100,"namespace":"default"},"pm_id":0,"monit":{"memory":0,"cpu":0}}]
+ DEBUG [8eeefb36] Finished in 0.301 seconds with exit status 0 (successful).
+  INFO App has errored
+ DEBUG [39815e69] Running if test ! -d /opt/app/production/provable/current; then echo "Directory does not exist '/opt/app/production/provable/current'" 1>&2; false; fi as richard@159.223.80.122
+ DEBUG [39815e69] Command: if test ! -d /opt/app/production/provable/current; then echo "Directory does not exist '/opt/app/production/provable/current'" 1>&2; false; fi
+ DEBUG [39815e69] Finished in 0.171 seconds with exit status 0 (successful).
+  INFO [1dea315b] Running /usr/bin/env pm2 restart  as richard@159.223.80.122
+ DEBUG [1dea315b] Command: cd /opt/app/production/provable/current && /usr/bin/env pm2 restart 
+ DEBUG [1dea315b] 	
+ DEBUG [1dea315b] 	  error: missing required argument `id|name|namespace|all|json|stdin'
+
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-05-26 11:10:42 +0800 cap production deploy:restart
+  INFO ---------------------------------------------------------------------------
+ DEBUG [65b32a30] Running if test ! -d /opt/app/production/provable/current; then echo "Directory does not exist '/opt/app/production/provable/current'" 1>&2; false; fi as richard@159.223.80.122
+ DEBUG [65b32a30] Command: if test ! -d /opt/app/production/provable/current; then echo "Directory does not exist '/opt/app/production/provable/current'" 1>&2; false; fi
+ DEBUG [65b32a30] Finished in 0.871 seconds with exit status 0 (successful).
+ DEBUG [bed90979] Running /usr/bin/env pm2 jlist provable as richard@159.223.80.122
+ DEBUG [bed90979] Command: cd /opt/app/production/provable/current && /usr/bin/env pm2 jlist provable
+ DEBUG [bed90979] 	[{"pid":0,"name":"provable","pm2_env":{"exit_code":1,"node_version":"16.14.0","versioning":null,"version":"0.1.0","unstable_restarts":0,"restart_time":15,"pm_id":0,"created_at":null,"axm_dynamic":{},"axm_options":{"error":true,"heapdump":true,"feature.profiler.heapsnapshot":false,"feature.profiler.heapsampling":true,"feature.profiler.cpu_js":true,"latency":true,"catchExceptions":true,"profiling":true,"metrics":{"http":true,"runtime":true,"eventLoop":true,"network":false,"v8":true},"standalone":false,"tracing":{"outbound":false,"enabled":false},"module_conf":{},"apm":{"version":"5.0.0","type":"node"},"module_name":"provable","module_version":"5.2.0"},"axm_monitor":{},"axm_actions":[],"pm_uptime":1653534228902,"status":"errored","unique_id":"56afa2d2-da69-4066-8550-c201d6c5e540","SHELL":"/bin/bash","RBENV_SHELL":"bash","PWD":"/opt/app/production/provable/current","LOGNAME":"richard","XDG_SESSION_TYPE":"tty","MOTD_SHOWN":"pam","HOME":"/home/richard","LANG":"C.UTF-8","LS_COLORS":"rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:","LC_TERMINAL":"iTerm2","SSH_CONNECTION":"210.195.37.252 62561 159.223.80.122 22","LESSCLOSE":"/usr/bin/lesspipe %s %s","XDG_SESSION_CLASS":"user","TERM":"xterm-256color","LESSOPEN":"| /usr/bin/lesspipe %s","USER":"richard","LC_TERMINAL_VERSION":"3.4.15","SHLVL":"1","XDG_SESSION_ID":"192","XDG_RUNTIME_DIR":"/run/user/1000","SSH_CLIENT":"210.195.37.252 62561 22","XDG_DATA_DIRS":"/usr/local/share:/usr/share:/var/lib/snapd/desktop","PATH":"/home/richard/.local/share/solana/install/active_release/bin:/home/richard/.local/share/solana/install/active_release/bin:/home/richard/.rbenv/plugins/ruby-build/bin:/home/richard/.rbenv/shims:/home/richard/.rbenv/bin:/home/richard/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin","DBUS_SESSION_BUS_ADDRESS":"unix:path=/run/user/1000/bus","SSH_TTY":"/dev/pts/0","OLDPWD":"/opt/app/production","_":"/usr/bin/pm2","PM2_USAGE":"CLI","PM2_JSON_PROCESSING":"true","PM2_HOME":"/home/richard/.pm2","provable":"{}","NODE_APP_INSTANCE":0,"vizion_running":false,"km_link":false,"pm_pid_path":"/home/richard/.pm2/pids/provable-0.pid","pm_err_log_path":"/home/richard/.pm2/logs/provable-error.log","pm_out_log_path":"/home/richard/.pm2/logs/provable-out.log","instances":1,"exec_mode":"fork_mode","exec_interpreter":"node","pm_cwd":"/opt/app/production/provable/releases/20220526025632","pm_exec_path":"/opt/app/production/provable/releases/20220526025632/pages/_app.js","node_args":[],"name":"provable","env":{"unique_id":"56afa2d2-da69-4066-8550-c201d6c5e540","SHELL":"/bin/bash","RBENV_SHELL":"bash","PWD":"/opt/app/production/provable/current","LOGNAME":"richard","XDG_SESSION_TYPE":"tty","MOTD_SHOWN":"pam","HOME":"/home/richard","LANG":"C.UTF-8","LS_COLORS":"rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:","LC_TERMINAL":"iTerm2","SSH_CONNECTION":"210.195.37.252 62561 159.223.80.122 22","LESSCLOSE":"/usr/bin/lesspipe %s %s","XDG_SESSION_CLASS":"user","TERM":"xterm-256color","LESSOPEN":"| /usr/bin/lesspipe %s","USER":"richard","LC_TERMINAL_VERSION":"3.4.15","SHLVL":"1","XDG_SESSION_ID":"192","XDG_RUNTIME_DIR":"/run/user/1000","SSH_CLIENT":"210.195.37.252 62561 22","XDG_DATA_DIRS":"/usr/local/share:/usr/share:/var/lib/snapd/desktop","PATH":"/home/richard/.local/share/solana/install/active_release/bin:/home/richard/.local/share/solana/install/active_release/bin:/home/richard/.rbenv/plugins/ruby-build/bin:/home/richard/.rbenv/shims:/home/richard/.rbenv/bin:/home/richard/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin","DBUS_SESSION_BUS_ADDRESS":"unix:path=/run/user/1000/bus","SSH_TTY":"/dev/pts/0","OLDPWD":"/opt/app/production","_":"/usr/bin/pm2","PM2_USAGE":"CLI","PM2_JSON_PROCESSING":"true","PM2_HOME":"/home/richard/.pm2","provable":"{}"},"merge_logs":true,"vizion":true,"autorestart":true,"instance_var":"NODE_APP_INSTANCE","pmx":true,"automation":true,"treekill":true,"username":"richard","windowsHide":true,"kill_retry_time":100,"namespace":"default"},"pm_id":0,"monit":{"memory":0,"cpu":0}}]
+ DEBUG [bed90979] Finished in 0.302 seconds with exit status 0 (successful).
+  INFO App has errored
+ DEBUG [1de52c43] Running if test ! -d /opt/app/production/provable/current; then echo "Directory does not exist '/opt/app/production/provable/current'" 1>&2; false; fi as richard@159.223.80.122
+ DEBUG [1de52c43] Command: if test ! -d /opt/app/production/provable/current; then echo "Directory does not exist '/opt/app/production/provable/current'" 1>&2; false; fi
+ DEBUG [1de52c43] Finished in 0.160 seconds with exit status 0 (successful).
+  INFO [1b9e1cff] Running /usr/bin/env pm2 restart provable as richard@159.223.80.122
+ DEBUG [1b9e1cff] Command: cd /opt/app/production/provable/current && /usr/bin/env pm2 restart provable
+ DEBUG [1b9e1cff] 	Use --update-env to update environment variables
+ DEBUG [1b9e1cff] 	[PM2] Applying action restartProcessId on app [provable](ids: [ 0 ])
+ DEBUG [1b9e1cff] 	[PM2] [provable](0) ✓
+ DEBUG [1b9e1cff] 	┌─────┬─────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id  │ name        │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├─────┼─────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 0   │ provable    │ default     │ 0.1.0   │ fork    │ 40885    │ 0s     │ 15   │ online    │ 0%       │ 3.3mb    │ richard  │ disabled │
+└─────┴─────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+  INFO [1b9e1cff] Finished in 0.334 seconds with exit status 0 (successful).
