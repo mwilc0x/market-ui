@@ -16,13 +16,13 @@ namespace :pm2 do
 
   def restart_app
     within current_path do
-      execute :pm2, :restart, fetch(:application)
+      execute :pm2, :restart, fetch(:application), "--update-env"
     end
   end
   
   def start_app
     within current_path do
-      execute :pm2, :stop, fetch(:application)
+      execute :pm2, :start, :yarn, "--name", fetch(:application), "--interpreter", :bash, "--", :start
     end
   end
   
