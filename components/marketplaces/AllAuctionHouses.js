@@ -27,7 +27,6 @@ export default function AllAuctionHouses() {
           auctionHouse
           price
           createdAt
-          wallets
           activityType
         }
         listings {

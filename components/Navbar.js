@@ -61,11 +61,11 @@ export default function Navbar() {
               <a className="text-blue-500 hover:text-blue-600">[Collections]</a>
             </Link>
           </div>
-          <div className="mr-6 mb-6 md:mb-0 inline">
+          {/* <div className="mr-6 mb-6 md:mb-0 inline">
             <Link href="/listings">
               <a className="text-blue-500 hover:text-blue-600">[Listings]</a>
             </Link>
-          </div>
+          </div> */}
           <div className="mr-6 mb-6 md:mb-0 inline">
             <Link href="/wallet">
               <a className="text-blue-500 hover:text-blue-600">[Wallet]</a>

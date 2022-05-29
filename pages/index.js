@@ -71,14 +71,14 @@ export default function Home() {
           listings from Holaplex, Holaplex Marketplaces, Provable and MagicEden.
           OpenSea hopefully coming soon.
         </p>
-        <p className="mt-12">
+        {/* <p className="mt-12">
           <Link href="/listings">
             <a>
               <strong>Listings</strong>
             </a>
           </Link>
         </p>
-        <p className="mt-6">All listings from the Provable AuctionHouse.</p>
+        <p className="mt-6">All listings from the Provable AuctionHouse.</p> */}
         <p className="mt-12">
           <Link href="/wallet">
             <a>
