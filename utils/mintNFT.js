@@ -160,20 +160,16 @@ export default async function mintNFT(connection, wallet, files, metadata) {
 
   toast.info("Uploading file...");
 
-  const result = await axios.post(
-    process.env.NEXT_PUBLIC_METAPLEX,
-    {
-      data,
-    },
-    {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    }
-  );
+  const result = await (
+    await fetch(process.env.NEXT_PUBLIC_METAPLEX, {
+      method: "POST",
+      body: data,
+    })
+  ).json();
 
   console.log(result);
 
-  const metadataFile = result.data.messages?.find(
+  const metadataFile = result.messages?.find(
     (m) => m.filename === RESERVED_TXN_MANIFEST
   );
 
