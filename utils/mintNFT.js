@@ -1,3 +1,4 @@
+import axios from "axios";
 import { MintLayout, Token } from "@solana/spl-token";
 import {
   PublicKey,
@@ -159,16 +160,20 @@ export default async function mintNFT(connection, wallet, files, metadata) {
 
   toast.info("Uploading file...");
 
-  const result = await (
-    await fetch("/api/proxy", {
-      method: "POST",
-      body: data,
-    })
-  ).json();
+  const result = await axios.post(
+    process.env.NEXT_PUBLIC_METAPLEX,
+    {
+      data,
+    },
+    {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    }
+  );
 
   console.log(result);
 
-  const metadataFile = result.messages?.find(
+  const metadataFile = result.data.messages?.find(
     (m) => m.filename === RESERVED_TXN_MANIFEST
   );
 
