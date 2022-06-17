@@ -160,7 +160,7 @@ export default async function mintNFT(connection, wallet, files, metadata) {
   toast.info("Uploading file...");
 
   const result = await (
-    await fetch(process.env.NEXT_PUBLIC_METAPLEX, {
+    await fetch("/api/proxy", {
       method: "POST",
       body: data,
     })
