@@ -4,10 +4,10 @@ import { CSVLink } from "react-csv";
 import ListView from "/components/nfts/ListView";
 import GridView from "/components/nfts/GridView";
 import {
-  ViewListIcon,
-  ViewGridIcon,
-  DocumentDownloadIcon,
-} from "@heroicons/react/outline";
+  ListBulletIcon,
+  Squares2X2Icon,
+  DocumentArrowDownIcon,
+} from "@heroicons/react/24/outline";
 
 export default function Search({ address, query, searchBy }) {
   const [display, setDisplay] = useState("list");
@@ -63,7 +63,7 @@ export default function Search({ address, query, searchBy }) {
                   : "bg-gray-200 dark:bg-gray-800"
               }`}
             >
-              <ViewListIcon
+              <ListBulletIcon
                 className="h-6 w-6 inline cursor-pointer -mt-0.5"
                 aria-hidden="true"
                 onClick={() => setDisplay("list")}
@@ -76,7 +76,7 @@ export default function Search({ address, query, searchBy }) {
                   : "bg-gray-200 dark:bg-gray-800"
               }`}
             >
-              <ViewGridIcon
+              <Squares2X2Icon
                 className="h-6 w-6 inline cursor-pointer -mt-0.5"
                 aria-hidden="true"
                 onClick={() => setDisplay("grid")}
@@ -89,7 +89,7 @@ export default function Search({ address, query, searchBy }) {
               filename={"mints.csv"}
               className="inline bg-amber-400 hover:bg-amber-500 dark:bg-amber-500 dark:hover:bg-amber-600 text-white px-4 py-3 text-md leading-4 rounded-lg"
             >
-              <DocumentDownloadIcon
+              <DocumentArrowDownIcon
                 className="h-6 w-6 inline cursor-pointer mr-1 align-middle -mt-1"
                 aria-hidden="true"
               />
@@ -99,7 +99,7 @@ export default function Search({ address, query, searchBy }) {
               onClick={downloadJson}
               className="inline bg-amber-400 hover:bg-amber-500 dark:bg-amber-500 dark:hover:bg-amber-600 text-white px-4 py-3 text-md leading-4 rounded-lg ml-2 cursor-pointer"
             >
-              <DocumentDownloadIcon
+              <DocumentArrowDownIcon
                 className="h-6 w-6 inline cursor-pointer mr-1 align-middle -mt-1"
                 aria-hidden="true"
               />

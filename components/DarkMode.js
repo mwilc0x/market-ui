@@ -1,5 +1,5 @@
 import { useTheme } from "next-themes";
-import { SunIcon, MoonIcon } from "@heroicons/react/solid";
+import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
 import { useState, useEffect } from "react";
 
 const DarkMode = () => {
