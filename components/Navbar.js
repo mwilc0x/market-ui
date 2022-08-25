@@ -17,7 +17,7 @@ export default function Navbar() {
         <div className="w-full md:w-auto self-start md:self-center flex flex-row md:flex-none flex-no-wrap justify-between items-center">
           <h1 className="text-blue-500 hover:text-blue-600 text-xl font-bold inline">
             <Link href="/">
-              <a>provable</a>
+              <a>solprint</a>
             </Link>
           </h1>
           <button

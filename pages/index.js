@@ -7,8 +7,8 @@ export default function Home() {
   return (
     <div className="dark:bg-black">
       <Head>
-        <title>Provable</title>
-        <meta name="description" content="Provable" />
+        <title>solprint</title>
+        <meta name="description" content="solprint" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="p-4 w-full xl:w-[1024px] mx-auto">
@@ -68,7 +68,7 @@ export default function Home() {
         </p>
         <p className="mt-6">
           Listing from multiple AuctionHouse&apos;s by collection. Includes
-          listings from Holaplex, Holaplex Marketplaces, Provable and MagicEden.
+          listings from Holaplex, Holaplex Marketplaces, SolPrint and MagicEden.
           OpenSea hopefully coming soon.
         </p>
         {/* <p className="mt-12">
@@ -78,7 +78,7 @@ export default function Home() {
             </a>
           </Link>
         </p>
-        <p className="mt-6">All listings from the Provable AuctionHouse.</p> */}
+        <p className="mt-6">All listings from the SolPrint AuctionHouse.</p> */}
         <p className="mt-12">
           <Link href="/wallet">
             <a>

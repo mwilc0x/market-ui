@@ -6,7 +6,7 @@ export default function Collections() {
   return (
     <div className="dark:bg-black">
       <Head>
-        <title>Provable</title>
+        <title>SolPrint</title>
         <meta name="description" content="Provable" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

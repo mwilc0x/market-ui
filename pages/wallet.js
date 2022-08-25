@@ -10,8 +10,8 @@ export default function Wallet() {
   return (
     <div className="dark:bg-black">
       <Head>
-        <title>Provable</title>
-        <meta name="description" content="Provable" />
+        <title>SolPrint</title>
+        <meta name="description" content="SolPrint" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="p-4 w-full xl:w-[1024px] mx-auto">

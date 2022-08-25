@@ -78,12 +78,12 @@ export const marketplaces = [
     authority: "ho1aVYd4TDWCi1pMqFvboPPc3J13e4LgWkWzGJpPJty",
   },
   {
-    name: "Provable",
-    auctionhouse: "3nAR6ZWZQA1uSNcRy3Qya2ihLU9dhaWKfZavoSiRrXzj",
-    feeAccount: "BumM7hvTGYUvHBSMaDiHqiBPGV8udxhtpZ7CcgFLi2Q8",
-    treasury: "9rKM3prmcAnjLwwKAp1vHqXds8TRjM9Rz3bqfugkJXRZ",
+    name: "SolPrint",
+    auctionhouse: "CZ2DQcEGJ8FbcGDCjMizW5L6bdmE6JfSXT7fHpdegRYA",
+    feeAccount: "B4PejAvqEKYRxkpkWqRqgJeaDswBwazQGnsZoboWCRbz",
+    treasury: "4ZF4GozkBVJqikguYzrb1sfSYsbt8uks19vekCf6prFG",
     treasuryMint: "So11111111111111111111111111111111111111112",
-    authority: "GQbrgxZsRGm3XrrcD9RrwaYHNaLDgvLm4Q16sH7Ybo7r",
+    authority: "6yJuMYmHqBg6Qh4iN1fDy6U7ZPXwkqZ5tcWWS8gAAex7",
   },
 ];
 
