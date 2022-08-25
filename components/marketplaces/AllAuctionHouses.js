@@ -22,30 +22,28 @@ export default function AllAuctionHouses() {
         mintAddress
         description
         activities {
-          address
           metadata
-          auctionHouse
+          auctionHouse {
+            address
+          }
           price
           createdAt
           activityType
         }
         listings {
-          address
-          auctionHouse
-          bookkeeper
+          auctionHouse {
+            address
+          }
           seller
           metadata
-          purchaseReceipt
           price
           tokenSize
-          bump
           tradeState
           tradeStateBump
           createdAt
           canceledAt
         }
         offers {
-          address
           tradeState
           price
           buyer

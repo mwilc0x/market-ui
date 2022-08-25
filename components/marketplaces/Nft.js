@@ -11,7 +11,11 @@ export default function Nft({ nft, listing, subdomain, refetch }) {
   const { setVisible } = useWalletModal();
   const [processing, setProcessing] = useState(false);
 
-  const ah = marketplaces.find((m) => m.auctionhouse === listing.auctionHouse);
+  const ah = marketplaces.find((m) => m.auctionhouse === listing.auctionHouse.address);
+
+  if (!ah) {
+    return null;
+  }
 
   function marketplaceLink() {
     var url = "";

@@ -19,7 +19,6 @@ export default function ConnectedWallet() {
           address
         }
         listings {
-          address
           price
           createdAt
           canceledAt
@@ -27,10 +26,10 @@ export default function ConnectedWallet() {
           tradeState
           metadata
           tradeStateBump
-          purchaseReceipt
           tokenSize
-          bump
-          auctionHouse
+          auctionHouse {
+            address
+          }
         }
       }
     }
