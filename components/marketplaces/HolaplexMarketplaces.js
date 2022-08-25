@@ -27,7 +27,6 @@ export default function HolaplexMarketplaces() {
         mintAddress
         description
         listings {
-          address
           price
           createdAt
           canceledAt
@@ -35,13 +34,12 @@ export default function HolaplexMarketplaces() {
           tradeState
           metadata
           tradeStateBump
-          purchaseReceipt
           tokenSize
-          bump
-          auctionHouse
+          auctionHouse {
+            address
+          }
         }
         offers {
-          address
           tradeState
           price
           buyer
