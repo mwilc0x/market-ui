@@ -87,9 +87,6 @@ export default function Home() {
           </Link>
         </p>
         <p className="mt-6">View the contents of your wallet.</p>
-        <p className="mt-12">
-          <Twitter username="richjard" />
-        </p>
       </div>
     </div>
   );
