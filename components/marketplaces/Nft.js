@@ -12,9 +12,15 @@ export default function Nft({ nft, listing, subdomain, refetch }) {
   const { setVisible } = useWalletModal();
   const [processing, setProcessing] = useState(false);
 
-  const ah = marketplaces.find((m) => m.auctionhouse === listing.auctionHouse.address);
+  let ah;
+  try {
+    ah = marketplaces.find((m) => m.auctionhouse === listing.auctionHouse.address);
 
-  if (!ah) {
+    if (!ah) {
+      return null;
+    }
+  } catch (e) {
+    console.log('error:', e);
     return null;
   }
 
