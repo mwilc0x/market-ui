@@ -72,7 +72,7 @@ export default function Navbar() {
               <a className="text-blue-500 hover:text-blue-600">[Wallet]</a>
             </Link>
           </div>
-          <DarkMode />
+          <DarkMode classname={["mb-6 md:mb-0 inline"]} />
 
           <div className="mr-6 mb-6 md:mb-0 inline wallet-btn">
             <WalletMultiButton style={{ height: 30, fontSize: 13 }} />
