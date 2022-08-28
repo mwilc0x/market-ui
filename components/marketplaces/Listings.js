@@ -1,5 +1,5 @@
 import Masonry from "react-masonry-css";
-import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
+// import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import Nft from "/components/marketplaces/Nft";
 
 export default function Listings({ nfts, subdomain, refetch }) {
@@ -10,14 +10,16 @@ export default function Listings({ nfts, subdomain, refetch }) {
     500: 1,
   };
 
+  console.log('hello', nfts);
+
   return (
     <div>
       <h1 className="text-lg font-bold text-gray-600 mb-4 dark:text-gray-200 w-fit float-left">
         {nfts.length} Listings
       </h1>
-      <div className="float-right">
+      {/* <div className="float-right">
         <WalletMultiButton />
-      </div>
+      </div> */}
       <div className="clear-both mb-6"></div>
       <Masonry
         breakpointCols={breakpointColumnsObj}

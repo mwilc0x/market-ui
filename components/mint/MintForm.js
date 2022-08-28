@@ -5,7 +5,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { getDroppedOrSelectedFiles } from "html5-file-selector";
 import { useWallet } from "@solana/wallet-adapter-react";
-import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
+// import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import { Connection, PublicKey } from "@solana/web3.js";
 import mintNFT from "/utils/mintNFT";
 import { Creator, extendBorsh } from "/utils/metaplex/metadata";
@@ -139,9 +139,9 @@ export default function MintForm() {
         theme="dark"
       />
       <p className="dark:text-white">Mint an NFT on Solana.</p>
-      <div className="mt-6 relative">
+      {/* <div className="mt-6 relative">
         <WalletMultiButton />
-      </div>
+      </div> */}
       <div className="mt-6 relative">
         <Dropzone
           onChangeStatus={onFileChange}

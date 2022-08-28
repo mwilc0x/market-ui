@@ -1,4 +1,7 @@
+import Image from "next/image";
+
 export default function ListView({ nfts, searchBy }) {
+  console.log('yop!', nfts);
   return (
     <>
       <div className="sm:hidden mt-16">
@@ -8,7 +11,8 @@ export default function ListView({ nfts, searchBy }) {
               <div className="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 mb-2 rounded-lg shadow-[0_12px_40px_0px_rgba(0,0,0,0.06)] text-gray-500 ng-star-inserted border-gray-100 dark:border-gray-900 border-0 border-separate [border-spacing:0_0.5rem] hover:shadow-[0_12px_40px_0px_rgba(0,0,0,0.18)] dark:bg-zinc-800">
                 <dt className="text-sm font-medium text-gray-500 dark:text-gray-200 float-left">
                   <div className="w-[50px] h-[50px] overflow-hidden rounded-lg">
-                    <img
+                    <Image
+                      alt="nft image"
                       src={nft.image}
                       className="object-center object-cover rounded-lg min-w-[50px] min-h-[50px]"
                     />
@@ -49,7 +53,8 @@ export default function ListView({ nfts, searchBy }) {
             >
               <td className="py-4 px-6 rounded-l-lg">
                 <div className="w-[50px] h-[50px] overflow-hidden">
-                  <img
+                  <Image
+                    alt="nft image"
                     src={nft.image}
                     className="object-center object-cover rounded-lg min-w-[50px] min-h-[50px]"
                   />

@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Navbar from "/components/Navbar";
 import { useWallet } from "@solana/wallet-adapter-react";
-import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
+// import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import ConnectedWallet from "/components/wallet/ConnectedWallet";
 
 export default function Wallet() {
@@ -20,9 +20,9 @@ export default function Wallet() {
           <h1 className="text-lg font-bold text-gray-600 mb-4 dark:text-gray-200 float-left w-fit">
             {publicKey ? "Your Wallet" : "Connect Your Wallet"}
           </h1>
-          <div className="w-fit float-right">
+          {/* <div className="w-fit float-right">
             <WalletMultiButton />
-          </div>
+          </div> */}
           <div className="clear-both">{publicKey && <ConnectedWallet />}</div>
         </div>
       </div>

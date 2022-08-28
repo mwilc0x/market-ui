@@ -113,4 +113,14 @@ export const collections = [
     subdomain: "famousfox",
     creator: ["D3XrkNZz6wx6cofot7Zohsf2KSsu2ArngNk8VqU9cTY3"],
   },
+  {
+    name: "Serum Surfers",
+    subdomain: 'serum-surfers',
+    creator: ["5v3tpTWZmn8JCzTFVE3eZLLQhhqSLLmTcRR2DZ8Gx2JX"]
+  },
+  {
+    name: "SOuLTools",
+    subdomain: "soultools",
+    creator: ["AtsVWP3hh1MdF2Zz8XWNWwNxbZzt7AtjJBxxPAajnMsY"]
+  }
 ];

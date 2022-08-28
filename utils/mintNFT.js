@@ -1,4 +1,3 @@
-import axios from "axios";
 import { MintLayout, Token } from "@solana/spl-token";
 import {
   PublicKey,

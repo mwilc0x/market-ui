@@ -1,4 +1,5 @@
 import Masonry from "react-masonry-css";
+import Image from "next/image";
 
 export default function GridView({ nfts, searchBy }) {
   const breakpointColumnsObj = {
@@ -20,7 +21,8 @@ export default function GridView({ nfts, searchBy }) {
             key={index}
             className="mb-10 p-2 rounded-lg shadow-[0_12px_40px_0px_rgba(0,0,0,0.06)] text-gray-500 border-gray-100 dark:border-gray-900 border-0 border-separate [border-spacing:0_0.5rem] hover:shadow-[0_12px_40px_0px_rgba(0,0,0,0.18)] dark:bg-zinc-800 dark:text-gray-100"
           >
-            <img
+            <Image
+              alt="nft image"
               src={nft.image}
               className="object-center object-cover rounded-lg"
             />

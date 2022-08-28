@@ -39,6 +39,18 @@ export default async function buyNftTransaction(
 
   const auctionHouseTreasury = new PublicKey(ah.treasury);
 
+
+console.log(
+  'buyNftTransaction',
+  nft,
+  listing,
+  publicKey,
+  signTransaction,
+  ah,
+  refetch
+);
+
+
   const listingReceipt = new PublicKey(listing.address);
   const sellerPaymentReceiptAccount = new PublicKey(listing.seller);
   const sellerTradeState = new PublicKey(listing.tradeState);

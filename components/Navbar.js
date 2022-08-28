@@ -1,5 +1,6 @@
 import Link from "next/link";
 import DarkMode from "/components/DarkMode";
+import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 
 export default function Navbar() {
   function navToggle() {
@@ -72,6 +73,10 @@ export default function Navbar() {
             </Link>
           </div>
           <DarkMode />
+
+          <div className="mr-6 mb-6 md:mb-0 inline">
+            <WalletMultiButton />
+          </div>
         </div>
       </nav>
     </header>

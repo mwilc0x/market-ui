@@ -1,4 +1,5 @@
 import { Fragment, useState } from "react";
+import Image from "next/image";
 import { Dialog, Transition } from "@headlessui/react";
 import sellNftTransaction from "/utils/auctionhouse/SellNft";
 import { useWallet } from "@solana/wallet-adapter-react";
@@ -57,7 +58,7 @@ export default function SellModal({ open, nft, closeModal, refetch }) {
               <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                 <div className="sm:flex sm:items-start">
                   <div className="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 sm:mx-0 sm:h-10 sm:w-10">
-                    <img src={nft.image} className="rounded-full" />
+                    <Image alt="nft image" src={nft.image} className="rounded-full" />
                   </div>
                   <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                     <Dialog.Title

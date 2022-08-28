@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { roundToTwo } from "/utils/roundToTwo";
 import { useWallet } from "@solana/wallet-adapter-react";
@@ -38,6 +39,7 @@ export default function Nft({ nft, listing, subdomain, refetch }) {
   }
 
   const buyNft = async (nft, listing) => {
+    console.log('yo', nft, listing, publicKey);
     if (!publicKey) {
       setVisible(true);
       return;
@@ -58,9 +60,12 @@ export default function Nft({ nft, listing, subdomain, refetch }) {
     <div className="relative mb-10 p-2 rounded-lg shadow-[0_12px_40px_0px_rgba(0,0,0,0.06)] text-gray-500 border-gray-100 dark:border-gray-900 border-0 border-separate [border-spacing:0_0.5rem] hover:shadow-[0_12px_40px_0px_rgba(0,0,0,0.18)] dark:bg-zinc-800 dark:text-gray-100">
       <Link href={marketplaceLink()}>
         <a target="_blank">
-          <img
+          <Image
+            alt={nft.name}
             src={nft.image}
             className="object-center object-cover rounded-lg"
+            height="400"
+            width="400"
           />
         </a>
       </Link>
