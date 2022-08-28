@@ -34,6 +34,8 @@ export default function Nft({ nft, refetch }) {
     setListingModal(false);
   }
 
+  const nftName = nft?.name || "No NFT name";
+
   return (
     <div className="mb-10 p-2 rounded-lg shadow-[0_12px_40px_0px_rgba(0,0,0,0.06)] text-gray-500 border-gray-100 dark:border-gray-900 border-0 border-separate [border-spacing:0_0.5rem] hover:shadow-[0_12px_40px_0px_rgba(0,0,0,0.18)] dark:bg-zinc-800 dark:text-gray-100">
       <Image 
@@ -46,7 +48,7 @@ export default function Nft({ nft, refetch }) {
       {listing ? (
         <>
           <p className="font-semibold text-gray-700 dark:text-gray-300 mt-2 float-left">
-            {nft.name}
+            {nftName}
           </p>
           <span className="float-right mt-2">
             ◎ {listing && roundToTwo(listing.price / 1000000000)}
@@ -64,7 +66,7 @@ export default function Nft({ nft, refetch }) {
       ) : (
         <>
           <p className="font-semibold text-gray-700 dark:text-gray-300 mt-2">
-            {nft.name}
+            {nftName}
           </p>
           <div className="mt-3 dark:text-gray-400">
             <div
