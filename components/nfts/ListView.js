@@ -1,7 +1,6 @@
 import Image from "next/image";
 
 export default function ListView({ nfts, searchBy }) {
-  console.log('yop!', nfts);
   return (
     <>
       <div className="sm:hidden mt-16">
