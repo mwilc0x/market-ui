@@ -20,7 +20,6 @@ export default function Nft({ nft, listing, subdomain, refetch }) {
       return null;
     }
   } catch (e) {
-    console.log('error:', e);
     return null;
   }
 

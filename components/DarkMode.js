@@ -2,7 +2,7 @@ import { useTheme } from "next-themes";
 import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
 import { useState, useEffect } from "react";
 
-const DarkMode = () => {
+const DarkMode = (props) => {
   const { systemTheme, theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -26,7 +26,7 @@ const DarkMode = () => {
     } else {
       return (
         <MoonIcon
-          className="w-6 h-6 text-gray-900 inline mr-4 hover:scale-110"
+          className={`w-6 h-6 text-gray-900 inline mr-4 hover:scale-110`}
           role="button"
           onClick={() => setTheme("dark")}
         />

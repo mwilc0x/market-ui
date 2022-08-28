@@ -74,8 +74,8 @@ export default function Navbar() {
           </div>
           <DarkMode />
 
-          <div className="mr-6 mb-6 md:mb-0 inline">
-            <WalletMultiButton />
+          <div className="mr-6 mb-6 md:mb-0 inline wallet-btn">
+            <WalletMultiButton style={{ height: 30, fontSize: 13 }} />
           </div>
         </div>
       </nav>

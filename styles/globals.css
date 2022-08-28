@@ -103,3 +103,8 @@ body {
 .wallet-adapter-button-trigger {
   background-color: #512da8;
 }
+
+.wallet-btn .wallet-adapter-button {
+  height: 30px;
+  font-size: 13px;
+}
