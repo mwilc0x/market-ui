@@ -7,6 +7,12 @@ const nextConfig = {
       remotePatterns: [
         {
           protocol: 'https',
+          hostname: 'famousfoxes.com',
+          pathname: '/hd/**',
+        },
+
+        {
+          protocol: 'https',
           hostname: 'assets.holaplex.tools',
           pathname: '/arweave/**',
         },
@@ -62,6 +68,7 @@ const nextConfig = {
           hostname: 'famousfoxes.com',
           pathname: '/hd/**',
         },
+        
       ],
     },
   }

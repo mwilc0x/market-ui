@@ -1,5 +1,10 @@
 import { toast } from "react-toastify";
-import { AuctionHouseProgram } from "@metaplex-foundation/mpl-auction-house";
+import { 
+  createPublicBuyInstruction,
+  createExecuteSaleInstruction,
+  createPrintBidReceiptInstruction,
+  createPrintPurchaseReceiptInstruction
+} from "@metaplex-foundation/mpl-auction-house";
 import { MetadataProgram } from "@metaplex-foundation/mpl-token-metadata";
 
 import {
@@ -11,13 +16,6 @@ import {
 } from "@solana/web3.js";
 
 import { concat } from "ramda";
-
-const {
-  createPublicBuyInstruction,
-  createExecuteSaleInstruction,
-  createPrintBidReceiptInstruction,
-  createPrintPurchaseReceiptInstruction,
-} = AuctionHouseProgram.instructions;
 
 export default async function buyNftTransaction(
   nft,
@@ -38,18 +36,6 @@ export default async function buyNftTransaction(
   const tokenMint = new PublicKey(nft.mintAddress);
 
   const auctionHouseTreasury = new PublicKey(ah.treasury);
-
-
-console.log(
-  'buyNftTransaction',
-  nft,
-  listing,
-  publicKey,
-  signTransaction,
-  ah,
-  refetch
-);
-
 
   const listingReceipt = new PublicKey(listing.address);
   const sellerPaymentReceiptAccount = new PublicKey(listing.seller);

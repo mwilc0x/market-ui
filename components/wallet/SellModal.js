@@ -8,7 +8,9 @@ export default function SellModal({ open, nft, closeModal, refetch }) {
   const { publicKey, signTransaction } = useWallet();
   const [processing, setProcessing] = useState(false);
 
-  function setOpen() {}
+  function handleOnClose() {
+    console.log('closing listing dialog');
+  }
 
   const listNow = async () => {
     const amount = document.getElementById("amount").value;
@@ -18,14 +20,12 @@ export default function SellModal({ open, nft, closeModal, refetch }) {
     closeModal();
   };
 
-  console.log('yo', open, nft, closeModal, refetch);
-
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog
         as="div"
         className="fixed z-10 inset-0 overflow-y-auto"
-        onClose={setOpen}
+        onClose={handleOnClose}
       >
         <div className="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
           <Transition.Child

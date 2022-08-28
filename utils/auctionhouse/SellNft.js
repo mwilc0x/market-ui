@@ -1,7 +1,10 @@
 import { toast } from "react-toastify";
 
-import { AuctionHouseProgram } from "@metaplex-foundation/mpl-auction-house";
-import { MetadataProgram } from "@metaplex-foundation/mpl-token-metadata";
+import { 
+  createSellInstruction, 
+  createPrintListingReceiptInstruction
+} from "@metaplex-foundation/mpl-auction-house";
+import * as mplTokenMetadata from "@metaplex-foundation/mpl-token-metadata";
 
 import {
   Connection,
@@ -11,9 +14,6 @@ import {
   SYSVAR_INSTRUCTIONS_PUBKEY,
 } from "@solana/web3.js";
 
-const { createSellInstruction, createPrintListingReceiptInstruction } =
-  AuctionHouseProgram.instructions;
-
 export default async function sellNftTransaction(
   amount,
   nft,
@@ -21,6 +21,7 @@ export default async function sellNftTransaction(
   signTransaction,
   refetch
 ) {
+  
   if (!publicKey || !signTransaction || !nft) {
     return;
   }
@@ -50,9 +51,11 @@ export default async function sellNftTransaction(
       tokenMint,
       buyerPrice,
       1
-    );
+  );
 
-  const [metadata] = await MetadataProgram.findMetadataAccount(tokenMint);
+  console.log('hi', mplTokenMetadata, tokenMint);
+
+  const [metadata] = await mplTokenMetadata.MetadataProgram.findMetadataAccount(tokenMint);
 
   const [programAsSigner, programAsSignerBump] =
     await AuctionHouseProgram.findAuctionHouseProgramAsSignerAddress();

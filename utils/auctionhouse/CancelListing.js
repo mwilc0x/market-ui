@@ -1,6 +1,9 @@
 import { toast } from "react-toastify";
 
-import { AuctionHouseProgram } from "@metaplex-foundation/mpl-auction-house";
+import {
+  createCancelInstruction, 
+  createCancelListingReceiptInstruction
+} from "@metaplex-foundation/mpl-auction-house";
 
 import {
   Connection,
@@ -8,9 +11,6 @@ import {
   PublicKey,
   SYSVAR_INSTRUCTIONS_PUBKEY,
 } from "@solana/web3.js";
-
-const { createCancelInstruction, createCancelListingReceiptInstruction } =
-  AuctionHouseProgram.instructions;
 
 export default async function cancelListingTransaction(
   nft,
