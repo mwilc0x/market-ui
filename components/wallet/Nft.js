@@ -63,7 +63,7 @@ export default function Nft({ nft, refetch }) {
         </>
       ) : (
         <>
-          {/* <p className="font-semibold text-gray-700 dark:text-gray-300 mt-2">
+          <p className="font-semibold text-gray-700 dark:text-gray-300 mt-2">
             {nft.name}
           </p>
           <div className="mt-3 dark:text-gray-400">
@@ -73,7 +73,7 @@ export default function Nft({ nft, refetch }) {
             >
               List Now
             </div>
-          </div> */}
+          </div>
         </>
       )}
       <div className="clear-both mb-1"></div>
