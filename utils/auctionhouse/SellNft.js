@@ -2,9 +2,9 @@ import { toast } from "react-toastify";
 
 import { 
   createSellInstruction, 
-  createPrintListingReceiptInstruction
+  createPrintListingReceiptInstruction 
 } from "@metaplex-foundation/mpl-auction-house";
-import * as mplTokenMetadata from "@metaplex-foundation/mpl-token-metadata";
+import { AuctionHouseProgram } from "../metaplex/auction-house";
 
 import {
   Connection,
@@ -42,6 +42,7 @@ export default async function sellNftTransaction(
   const associatedTokenAccount = new PublicKey(
     nft.owner.associatedTokenAccountAddress
   );
+
   const [sellerTradeState, tradeStateBump] =
     await AuctionHouseProgram.findTradeStateAddress(
       publicKey,
@@ -53,9 +54,7 @@ export default async function sellNftTransaction(
       1
   );
 
-  console.log('hi', mplTokenMetadata, tokenMint);
-
-  const [metadata] = await mplTokenMetadata.MetadataProgram.findMetadataAccount(tokenMint);
+  const [metadata] = await AuctionHouseProgram.findMetadataAccount(tokenMint);
 
   const [programAsSigner, programAsSignerBump] =
     await AuctionHouseProgram.findAuctionHouseProgramAsSignerAddress();
