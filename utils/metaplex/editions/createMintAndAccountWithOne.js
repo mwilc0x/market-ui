@@ -1,4 +1,4 @@
-import { Token } from "@solana/spl-token";
+import { createMintToInstruction } from "@solana/spl-token";
 import { PublicKey } from "@solana/web3.js";
 import {
   createAssociatedTokenAccountInstruction,
@@ -7,6 +7,8 @@ import {
 import { findProgramAddress } from "/utils/metaplex/utils";
 import { programIds } from "/utils/metaplex/ids";
 import { WalletNotConnectedError } from "@solana/wallet-adapter-base";
+
+
 
 export async function createMintAndAccountWithOne(
   wallet,
@@ -49,7 +51,7 @@ export async function createMintAndAccountWithOne(
   );
 
   instructions.push(
-    Token.createMintToInstruction(
+    createMintToInstruction(
       PROGRAM_IDS.token,
       mint,
       new PublicKey(account),

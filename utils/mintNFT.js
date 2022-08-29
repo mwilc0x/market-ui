@@ -1,4 +1,4 @@
-import { MintLayout, Token } from "@solana/spl-token";
+import { MintLayout, createMintToInstruction } from "@solana/spl-token";
 import {
   PublicKey,
   SystemProgram,
@@ -195,7 +195,7 @@ export default async function mintNFT(connection, wallet, files, metadata) {
     );
 
     updateInstructions.push(
-      Token.createMintToInstruction(
+      createMintToInstruction(
         TOKEN_PROGRAM_ID,
         mintKey,
         recipientKey,
