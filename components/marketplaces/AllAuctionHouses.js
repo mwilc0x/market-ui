@@ -3,6 +3,59 @@ import { gql } from "@apollo/client";
 import ListingsContainer from "/components/marketplaces/ListingsContainer";
 import { collections } from "/utils/marketplaceHelpers";
 
+const query = gql`
+  query GetNfts($creators: [PublicKey!]) {
+    nfts(creators: $creators, offset: 0, limit: 10000, listed: true) {
+      name
+      address
+      image(width: 1400)
+      sellerFeeBasisPoints
+      mintAddress
+      description
+      activities {
+        metadata
+        auctionHouse {
+          address
+        }
+        price
+        createdAt
+        activityType
+      }
+      listings {
+        auctionHouse {
+          address
+        }
+        seller
+        metadata
+        price
+        tokenSize
+        tradeState
+        tradeStateBump
+        createdAt
+        canceledAt
+      }
+      offers {
+        tradeState
+        price
+        buyer
+        createdAt
+        tradeState
+      }
+      purchases {
+        price
+        createdAt
+      }
+      owner {
+        associatedTokenAccountAddress
+        address
+      }
+      creators {
+        address
+      }
+    }
+  }
+`;
+
 export default function AllAuctionHouses() {
   const [selectedCollection, setSelectedCollection] = useState();
   const [creatorPublicKey, setCreatorPublicKey] = useState();
@@ -11,59 +64,6 @@ export default function AllAuctionHouses() {
     setCreatorPublicKey(c.creator);
     setSelectedCollection(c.name);
   }
-
-  const query = gql`
-    query GetNfts($creators: [PublicKey!]) {
-      nfts(creators: $creators, offset: 0, limit: 10000, listed: true) {
-        name
-        address
-        image(width: 1400)
-        sellerFeeBasisPoints
-        mintAddress
-        description
-        activities {
-          metadata
-          auctionHouse {
-            address
-          }
-          price
-          createdAt
-          activityType
-        }
-        listings {
-          auctionHouse {
-            address
-          }
-          seller
-          metadata
-          price
-          tokenSize
-          tradeState
-          tradeStateBump
-          createdAt
-          canceledAt
-        }
-        offers {
-          tradeState
-          price
-          buyer
-          createdAt
-          tradeState
-        }
-        purchases {
-          price
-          createdAt
-        }
-        owner {
-          associatedTokenAccountAddress
-          address
-        }
-        creators {
-          address
-        }
-      }
-    }
-  `;
 
   return (
     <>

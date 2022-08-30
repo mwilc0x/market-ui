@@ -4,9 +4,6 @@ import {
 } from '@solana/web3.js';
 import { SPL_ASSOCIATED_TOKEN_ACCOUNT_PROGRAM_ID, TOKEN_PROGRAM_ID } from './ids';
 
-
-
-
 export function createUninitializedMint(
   instructions,
   payer,

@@ -112,7 +112,6 @@ export default async function sellNftTransaction(
   );
 
   txt.add(sellInstruction).add(printListingReceiptInstruction);
-
   txt.recentBlockhash = (await connection.getRecentBlockhash()).blockhash;
   txt.feePayer = publicKey;
 

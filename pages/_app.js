@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import { ThemeProvider } from "next-themes";
 import { WalletContextProvider } from "/contexts/wallet";
+import { MetaplexProvider } from "/contexts/metaplex";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 
 const client = new ApolloClient({
@@ -13,7 +14,9 @@ function MyApp({ Component, pageProps }) {
     <ApolloProvider client={client}>
       <ThemeProvider enableSystem={true} attribute="class">
         <WalletContextProvider>
-          <Component {...pageProps} />
+          <MetaplexProvider>
+            <Component {...pageProps} />
+          </MetaplexProvider>
         </WalletContextProvider>
       </ThemeProvider>
     </ApolloProvider>
