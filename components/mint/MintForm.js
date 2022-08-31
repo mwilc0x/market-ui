@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
-import Dropzone from "react-dropzone-uploader";
 import { Grid } from "react-loader-spinner";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { getDroppedOrSelectedFiles } from "html5-file-selector";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { Connection, PublicKey } from "@solana/web3.js";
 import mintNFT from "/utils/mintNFT";
 import { Creator, extendBorsh } from "/utils/metaplex/metadata";
-import mintEditionsToWallet from "/utils/metaplex/editions/mintEditionsToWallet";
+import FileUpload from './FileUpload';
 
 export default function MintForm() {
   const { wallet } = useWallet();
@@ -27,38 +25,6 @@ export default function MintForm() {
     if (name && name.length < 3) setDisabled(true);
     if (name && name.length > 2 && wallet && file) setDisabled(false);
   }, [name, file, wallet]);
-
-  const onFileChange = ({ file }, status) => {
-    if (status === "done") setFile(file);
-  };
-
-  const getFilesFromEvent = (e) => {
-    return new Promise((resolve) => {
-      getDroppedOrSelectedFiles(e).then((chosenFiles) => {
-        resolve(chosenFiles.map((f) => f.fileObject));
-      });
-    });
-  };
-
-  const selectFileInput = ({ accept, onFiles, files, getFilesFromEvent }) => {
-    if (files.length > 0) return null;
-    return (
-      <label className="w-full">
-        <div className="mt-2 cursor-pointer">Select File</div>
-        <input
-          className="hidden"
-          type="file"
-          accept={accept}
-          multiple
-          onChange={(e) => {
-            getFilesFromEvent(e).then((chosenFiles) => {
-              onFiles(chosenFiles);
-            });
-          }}
-        />
-      </label>
-    );
-  };
 
   const updateName = (name) => {
     if (name.length < 3) {
@@ -103,26 +69,6 @@ export default function MintForm() {
     }
   };
 
-  const doMintEditions = async () => {
-    extendBorsh();
-    const art = {
-      uri: "https://arweave.net/tYH4zgCJ7qCasKfd-eviHkPpV2UeYM_etcz3peYpCok",
-      mint: "ELGv7PST4SVWbpdDvwmJfrEKAPDSKZ9sFBTc91iLQJYV",
-      link: "",
-      title: "Ten10",
-      artist: "Richard",
-      edition: 2,
-      supply: 0,
-      maxSupply: 10,
-    };
-    try {
-      const res = await mintEditionsToWallet(art, wallet.adapter, connection);
-      console.log(res);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   return (
     <div className="w-full sm:w-[550px] mx-auto p-2 mt-12">
       <ToastContainer
@@ -139,20 +85,7 @@ export default function MintForm() {
       />
       <p className="dark:text-white">Mint an NFT on Solana.</p>
       <div className="mt-6 relative">
-        <Dropzone
-          onChangeStatus={onFileChange}
-          InputComponent={selectFileInput}
-          getFilesFromEvent={getFilesFromEvent}
-          accept="image/*,audio/*,video/*"
-          maxFiles={1}
-          inputContent="Drop A File"
-        />
-        {file && (
-          <>
-            <p className="text-gray-400">Filename: {file.name}</p>
-            <p className="text-gray-400">Size: {file.size}</p>
-          </>
-        )}
+        <FileUpload />
       </div>
       <div className="mt-6 relative">
         <label name="nft-name">Name</label>
@@ -215,12 +148,6 @@ export default function MintForm() {
           <span>Create</span>
         )}
       </button>
-      {/* <button
-        className="w-full mt-6 rounded-lg bg-blue-500 px-4 py-2 text-white mt-2 hover:bg-blue-600 disabled:bg-gray-300"
-        onClick={doMintEditions}
-      >
-        Mint Editions
-      </button> */}
     </div>
   );
 }
