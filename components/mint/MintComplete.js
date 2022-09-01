@@ -19,9 +19,9 @@ function MintDetails({ nftMint }) {
     const metadataUrl = getAddress(metadataAddress);
     return (
         <>
-            <h1 class="text-2xl">Mint Details</h1>
+            <h1 className="text-2xl">Mint Details</h1>
             <br />
-            <h3 class="text-xl">Transaction</h3>
+            <h3 className="text-xl">Transaction</h3>
             <a 
                 class="text-blue-400" 
                 href={txUrl}
@@ -29,17 +29,17 @@ function MintDetails({ nftMint }) {
                 rel="noopener noreferrer"
             >{nftMint?.response?.signature}</a>
             <br />
-            <h3 class="text-xl">Mint Address</h3>
+            <h3 className="text-xl">Mint Address</h3>
             <a 
-                class="text-blue-400" 
+                className="text-blue-400" 
                 href={mintUrl}
                 target="_blank"
                 rel="noopener noreferrer"
             >{mintAddress}</a>
             <br />
-            <h3 class="text-xl">Metadata Address</h3>
+            <h3 className="text-xl">Metadata Address</h3>
             <a 
-                class="text-blue-400" 
+                className="text-blue-400" 
                 href={metadataUrl}
                 target="_blank"
                 rel="noopener noreferrer"
