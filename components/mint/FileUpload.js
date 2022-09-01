@@ -1,7 +1,26 @@
 import React, { useCallback, useState } from 'react';
-import {useDropzone} from 'react-dropzone'
+import {useDropzone} from 'react-dropzone';
+import { create, CID } from 'ipfs-http-client';
+import Image from 'next/image';
 
-export default function FileUpload() {
+const creds = `${process.env.NEXT_PUBLIC_INFURA_PROJECT_ID}:${process.env.NEXT_PUBLIC_INFURA_PROJECT_SECRET}`;
+const credsBased = btoa(creds);
+const authorization = `Basic ${credsBased}`;
+
+let ipfs;
+try {
+  ipfs = create({
+    url: 'https://ipfs.infura.io:5001/api/v0',
+    headers: {
+      authorization,
+    }
+  });
+} catch (error) {
+  console.error('IPFS init error.', error);
+  ipfs = null;
+}
+
+export default function FileUpload(props) {
     const [image, setImage] = useState(null);
 
     const onDrop = useCallback(acceptedFiles => {
@@ -9,33 +28,18 @@ export default function FileUpload() {
             const reader = new FileReader()
             reader.onabort = () => console.log('file reading was aborted')
             reader.onerror = () => console.log('file reading has failed')
-            reader.onload = () => {
-              const binaryStr = reader.result
-              setImage(binaryStr);
-            }
-            reader.readAsDataURL(file); 
-            reader.onloadend = async (e) => {
+            reader.onload = async () => {
               try {
-                const dataUrl = e.target.result;
-                var b64 = dataUrl.split("base64,")[1];
-
-                const result = await fetch('/api/mint', {
-                  method: 'POST',
-                  headers: {
-                    'Accept': 'application/json',
-                   'Content-Type': 'application/json' 
-                  },
-                  body: JSON.stringify({
-                    name: file.name,
-                    data: b64
-                  })
-                }).then(res => res.json());
-
-                console.log(result);
+                const binaryStr = reader.result;
+                const result = await ipfs.add(Buffer.from(binaryStr));
+                console.log('infura upload result:', result);
+                setImage({ infura: result, name: file.name });
+                props.setFile(true);
               } catch (e) {
-                console.log('error uploading image', e);
+                console.log('error reading the onload buffer');
               }
-            };
+            }
+            reader.readAsArrayBuffer(file); 
           })
       }, [])
       const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
@@ -49,10 +53,15 @@ export default function FileUpload() {
             height: 420,
             width: 420, 
             outlineStyle: 'dotted', 
-            outlineColor: '#5856d6',
+            outlineColor: '#3498db',
             cursor: 'pointer'
           }}>
-          { image && <img style={{ height: 400, width: 400 }} src={image} />}
+          { image && <Image 
+            alt={image.name} 
+            width={400} 
+            height={400} 
+            src={`https://solprint.infura-ipfs.io/ipfs/${image.infura.path}`} />
+          }
           <input {...getInputProps()} />
           {
             !image ?

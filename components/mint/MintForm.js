@@ -1,76 +1,43 @@
 import React, { useState, useEffect } from "react";
 import { Grid } from "react-loader-spinner";
-import { toast, ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useWallet } from "@solana/wallet-adapter-react";
-import { Connection, PublicKey } from "@solana/web3.js";
-import mintNFT from "/utils/mintNFT";
-import { Creator, extendBorsh } from "/utils/metaplex/metadata";
 import FileUpload from './FileUpload';
 
 export default function MintForm() {
   const { wallet } = useWallet();
-  const [file, setFile] = useState();
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [royalties, setRoyalties] = useState(0);
-  const [externalUrl, setExternalUrl] = useState("");
+  const [file, setFile] = useState(null);
+  const [name, setName] = useState('');
+  const [description, setDescription] = useState('');
   const [disabled, setDisabled] = useState(true);
   const [loading, setLoading] = useState(false);
 
-  const connection = new Connection(process.env.NEXT_PUBLIC_RPC, "confirmed");
-
   useEffect(() => {
-    if (!name || !wallet || !file) setDisabled(true);
-    if (name && name.length < 3) setDisabled(true);
-    if (name && name.length > 2 && wallet && file) setDisabled(false);
-  }, [name, file, wallet]);
+    if (!file || !name || !wallet || !description) {
+      setDisabled(true);
+    } else {
+      if (disabled) {
+        setDisabled(false);
+      }
+    }
+  }, [file, name, description, wallet]);
 
   const updateName = (name) => {
-    if (name.length < 3) {
-      setName();
-    } else {
-      setName(name);
-    }
+    setName(name);
+  };
+
+  const updateDescription = (description) => {
+    setDescription(description);
   };
 
   const doMint = async () => {
     setDisabled(true);
     setLoading(true);
-    extendBorsh();
-    const metadata = {
-      animation_url: undefined,
-      creators: [
-        new Creator({
-          address: new PublicKey(wallet.adapter.publicKey.toString()),
-          verified: true,
-          share: 100,
-        }),
-      ],
-      description: description || "",
-      external_url: externalUrl || "",
-      image: file.name,
-      name: name,
-      symbol: "",
-      sellerFeeBasisPoints: royalties * 100,
-      properties: {
-        category: "image",
-        files: [{ type: file.type, uri: file.name }],
-      },
-    };
-    try {
-      await mintNFT(connection, wallet.adapter, [file], metadata);
-    } catch (error) {
-      console.error(error);
-      toast.error("Something went wrong");
-    } finally {
-      setDisabled(false);
-      setLoading(false);
-    }
   };
 
   return (
-    <div className="w-full sm:w-[550px] mx-auto p-2 mt-12">
+    <div className="flex flex-col justify-center items-center w-full sm:w-[550px] mx-auto p-2 mt-12">
       <ToastContainer
         position="bottom-left"
         autoClose={5000}
@@ -85,9 +52,9 @@ export default function MintForm() {
       />
       <p className="dark:text-white">Mint an NFT on Solana.</p>
       <div className="mt-6 relative">
-        <FileUpload />
+        <FileUpload setFile={setFile} />
       </div>
-      <div className="mt-6 relative">
+      <div className="w-full mt-6 relative">
         <label name="nft-name">Name</label>
         <input
           type="text"
@@ -99,40 +66,16 @@ export default function MintForm() {
           onChange={(e) => updateName(e.target.value)}
         />
       </div>
-      <div className="mt-6 relative">
+      <div className="w-full mt-6 relative">
         <label name="nft-description">Description</label>
         <input
           type="text"
           name="nft-description"
           id="nft-description"
           className="w-full rounded-lg px-4 py-2 border border-gray-200 dark:border-gray-600"
-          placeholder="Optional"
+          placeholder="Required"
           defaultValue={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
-      </div>
-      <div className="mt-6 relative">
-        <label name="nft-royalties">Royalties</label>
-        <input
-          type="number"
-          name="nft-royalties"
-          id="nft-royalties"
-          className="w-full rounded-lg px-4 py-2 border border-gray-200 dark:border-gray-600"
-          placeholder="Royalties"
-          defaultValue={royalties}
-          onChange={(e) => setRoyalties(e.target.value)}
-        />
-      </div>
-      <div className="mt-6 relative">
-        <label name="nft-external-url">External URL</label>
-        <input
-          type="text"
-          name="nft-external-url"
-          id="nft-external-url"
-          className="w-full rounded-lg px-4 py-2 border border-gray-200 dark:border-gray-600"
-          placeholder="Optional"
-          defaultValue={externalUrl}
-          onChange={(e) => setExternalUrl(e.target.value)}
+          onChange={(e) => updateDescription(e.target.value)}
         />
       </div>
       <button
