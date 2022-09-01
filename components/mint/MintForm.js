@@ -5,8 +5,10 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useWallet } from "@solana/wallet-adapter-react";
 import FileUpload from './FileUpload';
+import MintCompletion from './MintCompletion';
 import { bundlrStorage, walletAdapterIdentity } from '@metaplex-foundation/js';
 import { asSigner } from '../../utils/wallet';
+
 
 const StepButton = ({ 
   mintSteps,
@@ -174,6 +176,7 @@ export default function MintForm() {
 
   return (
     <div className="flex flex-col justify-center w-full sm:w-[550px] mx-auto p-2 mt-12">
+      
       <ToastContainer
         position="bottom-left"
         autoClose={5000}
@@ -197,6 +200,7 @@ export default function MintForm() {
           uploadedMetadata={uploadedMetadata}
         />
       </div>
+      <MintCompletion mintResult={mintResult} />
       <div className="w-full mt-6 relative">
         <label name="nft-symbol">Symbol</label>
         <input
