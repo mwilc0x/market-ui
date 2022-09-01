@@ -45,7 +45,7 @@ const StepButton = ({
   );
 }
 
-export default function MintForm() {
+export default function MintForm({ mintResult, setMintResult }) {
   const [mintSteps, updateMintSteps] = useState({ 
     currentStep: 0,
     steps: {
@@ -62,7 +62,6 @@ export default function MintForm() {
   const [disabled, setDisabled] = useState(true);
   const [loading, setLoading] = useState(false);
   const [uploadedMetadata, setUploadedMetadata] = useState(null);
-  const [mintResult, setMintResult] = useState(null);
 
   const { mxCtx } = useContext(MetaplexContext);
 
@@ -118,7 +117,7 @@ export default function MintForm() {
       const signer = asSigner(wallet);
   
       const { mx } = mxCtx;
-      const mintResult = await mx
+      const nftMintResult = await mx
         .use(walletAdapterIdentity(wallet))
         .nfts()
         .create({
@@ -132,8 +131,8 @@ export default function MintForm() {
         })
         .run();
       
-      console.log('Nft mint complete', mintResult);
-      setMintResult(mintResult);
+      console.log('Nft mint complete', nftMintResult);
+      setMintResult(nftMintResult);
       setLoading(false);
     } catch (e) {
       console.log('Error creating NFT', e);
@@ -189,10 +188,10 @@ export default function MintForm() {
         pauseOnHover
         theme="dark"
       />
-      <p className="dark:text-white">Mint an NFT on Solana.</p>
+      <p className="text-2xl dark:text-white">Mint an NFT on Solana.</p>
       <br />
-      <p className="dark:text-white">1. Upload metadata (image uri, name, description)</p>
-      <p className="dark:text-white">2. Create the NFT mint</p>
+      <p className="text-lg dark:text-white">1. Upload metadata (image uri, name, description)</p>
+      <p className="text-lg dark:text-white">2. Create the NFT mint</p>
       <div className="mt-6 relative">
         <FileUpload 
           file={file}
@@ -241,7 +240,7 @@ export default function MintForm() {
         />
       </div>
       <div className="w-full mt-6 relative">
-        <label name="nft-seller-fee">Seller Fee (ex. 10000 = 10%)</label>
+        <label name="nft-seller-fee">Seller Fee (ex. 1000 = 10%)</label>
         <input
           type="number"
           name="nft-seller-fee"
