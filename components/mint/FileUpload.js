@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import {useDropzone} from 'react-dropzone';
-import { create, CID } from 'ipfs-http-client';
+import { create } from 'ipfs-http-client';
 import Image from 'next/image';
 
 const creds = `${process.env.NEXT_PUBLIC_INFURA_PROJECT_ID}:${process.env.NEXT_PUBLIC_INFURA_PROJECT_SECRET}`;
@@ -10,7 +10,7 @@ const authorization = `Basic ${credsBased}`;
 let ipfs;
 try {
   ipfs = create({
-    url: 'https://ipfs.infura.io:5001/api/v0',
+    url: `${process.env.NEXT_PUBLIC_INFURA_IPFS_API}/api/v0`,
     headers: {
       authorization,
     }
@@ -41,19 +41,21 @@ export default function FileUpload({ setFile }) {
             reader.onerror = () => console.log('file reading has failed')
             reader.onload = async () => {
               try {
-                const binaryStr = reader.result;
-                const result = await ipfs.add(Buffer.from(binaryStr));
-                console.log('infura upload result:', result);
-                setImage({ infura: result, name: file.name });
-                setFile(true);
+                const result = await ipfs.add(Buffer.from(reader.result));
+                const imageDetails = { 
+                  href: `${process.env.NEXT_PUBLIC_INFURA_DEDICATED_GATEWAY}/ipfs/${result.path}`, 
+                  name: file.name 
+                };
+                setImage(imageDetails);
+                setFile(imageDetails);
               } catch (e) {
-                console.log('error reading the onload buffer');
+                console.log('Error reading the onload buffer.', e);
               }
             }
             reader.readAsArrayBuffer(file); 
           })
       }, [setFile]);
-      const {getRootProps, getInputProps, isDragActive} = useDropzone({
+      const {getRootProps, getInputProps } = useDropzone({
         onDrop,
         accept: {
           'image/*': ['.jpg', '.jpeg', '.png'],
@@ -77,7 +79,7 @@ export default function FileUpload({ setFile }) {
             alt={image.name} 
             width={400} 
             height={400} 
-            src={`https://solprint.infura-ipfs.io/ipfs/${image.infura.path}`} />
+            src={image.href} />
           }
           <input {...getInputProps()} />
           {
@@ -85,10 +87,6 @@ export default function FileUpload({ setFile }) {
               <p>Drag and drop some files here, or click to select files</p> :
               null
           }
-
-          {/* {
-            image ? <span style={{ position: 'relative', top: 0, right: 0 }}>X</span> : null
-          } */}
         </div>
       )
 };

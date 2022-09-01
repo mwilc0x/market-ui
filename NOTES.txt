@@ -1,0 +1,170 @@
+/*
+
+LIST
+
+ export type CreateListingInput = {
+  auctionHouse: AuctionHouse;
+  seller?: PublicKey | Signer; // Default: identity
+  authority?: PublicKey | Signer; // Default: auctionHouse.authority
+  auctioneerAuthority?: Signer; // Use Auctioneer ix when provided
+  mintAccount: PublicKey; // Required for checking Metadata
+  tokenAccount?: PublicKey; // Default: ATA
+  price?: SolAmount | SplTokenAmount; // Default: 0 SOLs or tokens, ignored in Auctioneer.
+  tokens?: SplTokenAmount; // Default: token(1)
+  bookkeeper?: Signer; // Default: identity
+  printReceipt?: boolean; // Default: true
+
+  confirmOptions?: ConfirmOptions;
+};
+
+BID
+
+export declare type CreateBidInput = {
+    auctionHouse: AuctionHouse;
+    buyer?: PublicKey | Signer;
+    authority?: PublicKey | Signer;
+    auctioneerAuthority?: Signer;
+    mintAccount: PublicKey;
+    seller?: Option<PublicKey>;
+    tokenAccount?: Option<PublicKey>;
+    price?: SolAmount | SplTokenAmount;
+    tokens?: SplTokenAmount;
+    bookkeeper?: Signer;
+    printReceipt?: boolean;
+    confirmOptions?: ConfirmOptions;
+};
+
+EXECUTE SALE
+
+export declare type ExecuteSaleInput = {
+    auctionHouse: AuctionHouse;
+    auctioneerAuthority?: Signer;
+    listing: Listing;
+    bid: Bid;
+    bookkeeper?: Signer;
+    printReceipt?: boolean;
+    confirmOptions?: ConfirmOptions;
+};
+
+EXAMPLE:
+
+mx.auctions().builders().list({ auctionHouse, mintAccount, price })
+mx.auctions().builders().executeSale({ });
+mx.auctions().builders().bid({ });
+
+*/
+
+
+
+
+{
+    "uri": "https://arweave.net/TZgENyFuWDiAfH-JpGpqjG5aAxQGmgaCRPF14L_Py-o",
+    "metadata": {
+        "name": "SOL Surfer",
+        "description": "Riding the waves of Solana",
+        "image": "https://devnet-solprint.infura-ipfs.io/ipfs/QmPnQ9z7Un8ML9D4XiVyZ9Y12oDaUbjiYqB2aK3i42iVRc"
+    },
+    "assetUris": []
+}
+
+{
+    "response": {
+        "signature": "fJRnwAaKHnZWhs9QxqjHp6cR277xNq2Lnx4NLj1VsyDhsPMtuaUS1UQiVk6B1geS3vpuphgq8H5wLbqUgZutfYr",
+        "confirmResponse": {
+            "context": {
+                "slot": 159111094
+            },
+            "value": {
+                "err": null
+            }
+        }
+    },
+    "mintAddress": "J3EHJkhoaF6Mrd8KribqZB45uNaUHv3XG6GFtn1QVXhA",
+    "metadataAddress": "3CNRxxSYNt6F37ayzL6cTEDov8u3x733YVTfLeqxNKze",
+    "masterEditionAddress": "Z6JbXFELNkdb8pEMbAxLSaWbeHQUW1zbk1pdHmuiFt3",
+    "tokenAddress": "DPLmnXeqsxjesQfGqFmrVehvR8Q2yrixcJrNUScc25Md",
+    "nft": {
+        "model": "nft",
+        "updateAuthorityAddress": "361oQ1Rz5ybJe5E4XRmksABSSRgNUX2JDsrWGSymC4Bo",
+        "json": {
+            "name": "SOL Surfer",
+            "description": "Ride the waves of Solana",
+            "image": "https://devnet-solprint.infura-ipfs.io/ipfs/QmPnQ9z7Un8ML9D4XiVyZ9Y12oDaUbjiYqB2aK3i42iVRc"
+        },
+        "jsonLoaded": true,
+        "name": "SOL Surfer",
+        "symbol": "SURF",
+        "uri": "https://arweave.net/lF0ZNHD84fWIFfE01oVjnxnCtrETRsIil1KT0n-xY_Y",
+        "isMutable": true,
+        "primarySaleHappened": false,
+        "sellerFeeBasisPoints": 7000,
+        "editionNonce": 253,
+        "creators": [
+            {
+                "address": "361oQ1Rz5ybJe5E4XRmksABSSRgNUX2JDsrWGSymC4Bo",
+                "verified": true,
+                "share": 100
+            }
+        ],
+        "tokenStandard": 0,
+        "collection": null,
+        "collectionDetails": null,
+        "uses": null,
+        "address": "J3EHJkhoaF6Mrd8KribqZB45uNaUHv3XG6GFtn1QVXhA",
+        "metadataAddress": "3CNRxxSYNt6F37ayzL6cTEDov8u3x733YVTfLeqxNKze",
+        "mint": {
+            "model": "mint",
+            "address": "J3EHJkhoaF6Mrd8KribqZB45uNaUHv3XG6GFtn1QVXhA",
+            "mintAuthorityAddress": "Z6JbXFELNkdb8pEMbAxLSaWbeHQUW1zbk1pdHmuiFt3",
+            "freezeAuthorityAddress": "Z6JbXFELNkdb8pEMbAxLSaWbeHQUW1zbk1pdHmuiFt3",
+            "decimals": 0,
+            "supply": {
+                "basisPoints": "01",
+                "currency": {
+                    "symbol": "SURF",
+                    "decimals": 0,
+                    "namespace": "spl-token"
+                }
+            },
+            "isWrappedSol": false,
+            "currency": {
+                "symbol": "SURF",
+                "decimals": 0,
+                "namespace": "spl-token"
+            }
+        },
+        "token": {
+            "model": "token",
+            "address": "DPLmnXeqsxjesQfGqFmrVehvR8Q2yrixcJrNUScc25Md",
+            "isAssociatedToken": true,
+            "mintAddress": "J3EHJkhoaF6Mrd8KribqZB45uNaUHv3XG6GFtn1QVXhA",
+            "ownerAddress": "361oQ1Rz5ybJe5E4XRmksABSSRgNUX2JDsrWGSymC4Bo",
+            "amount": {
+                "basisPoints": "01",
+                "currency": {
+                    "symbol": "SURF",
+                    "decimals": 0,
+                    "namespace": "spl-token"
+                }
+            },
+            "closeAuthorityAddress": null,
+            "delegateAddress": null,
+            "delegateAmount": {
+                "basisPoints": "00",
+                "currency": {
+                    "symbol": "SURF",
+                    "decimals": 0,
+                    "namespace": "spl-token"
+                }
+            },
+            "state": 1
+        },
+        "edition": {
+            "model": "nftEdition",
+            "isOriginal": true,
+            "address": "Z6JbXFELNkdb8pEMbAxLSaWbeHQUW1zbk1pdHmuiFt3",
+            "supply": "00",
+            "maxSupply": "00"
+        }
+    }
+}

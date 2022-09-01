@@ -7,6 +7,11 @@ const nextConfig = {
       remotePatterns: [
         {
           protocol: 'https',
+          hostname: 'devnet-solprint.infura-ipfs.io',
+          pathname: '/ipfs/**'
+        },
+        {
+          protocol: 'https',
           hostname: 'solprint.infura-ipfs.io',
           pathname: '/ipfs/**'
         },
