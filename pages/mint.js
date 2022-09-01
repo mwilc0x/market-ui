@@ -15,7 +15,7 @@ export default function Mint() {
       </Head>
       <div className="p-4 w-full xl:w-[1024px] mx-auto">
         <Navbar />
-        <div className="flex flex-col-reverse">
+        <div className="flex lg:flex-row flex-col-reverse">
           <MintForm mintResult={mintResult} setMintResult={setMintResult} />
           <MintComplete nftMint={mintResult} />
         </div>
