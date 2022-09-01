@@ -11,6 +11,7 @@ export default function MintCompletion({ mintResult }) {
                     width={width}
                     height={height}
                     recycle={false}
+                    numberOfPieces={800}
                 /> : null
             }
         </>
