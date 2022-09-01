@@ -31,10 +31,12 @@ function fileSizeValidator(file) {
   return null
 }
 
-export default function FileUpload({ setFile }) {
-    const [image, setImage] = useState(null);
-
+export default function FileUpload({ file, setFile, uploadedMetadata }) {
     const onDrop = useCallback(acceptedFiles => {
+        if (!!uploadedMetadata) {
+          return;
+        }
+
         acceptedFiles.forEach((file) => {
             const reader = new FileReader()
             reader.onabort = () => console.log('file reading was aborted')
@@ -46,7 +48,6 @@ export default function FileUpload({ setFile }) {
                   href: `${process.env.NEXT_PUBLIC_INFURA_DEDICATED_GATEWAY}/ipfs/${result.path}`, 
                   name: file.name 
                 };
-                setImage(imageDetails);
                 setFile(imageDetails);
               } catch (e) {
                 console.log('Error reading the onload buffer.', e);
@@ -54,7 +55,7 @@ export default function FileUpload({ setFile }) {
             }
             reader.readAsArrayBuffer(file); 
           })
-      }, [setFile]);
+      }, []);
       const {getRootProps, getInputProps } = useDropzone({
         onDrop,
         accept: {
@@ -75,15 +76,15 @@ export default function FileUpload({ setFile }) {
             outlineColor: '#3498db',
             cursor: 'pointer'
           }}>
-          { image && <Image 
-            alt={image.name} 
+          { file && <Image 
+            alt={file.name} 
             width={400} 
             height={400} 
-            src={image.href} />
+            src={file.href} />
           }
           <input {...getInputProps()} />
           {
-            !image ?
+            !file ?
               <p>Drag and drop some files here, or click to select files</p> :
               null
           }

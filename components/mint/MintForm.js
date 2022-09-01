@@ -12,6 +12,7 @@ const StepButton = ({
   mintSteps,
   disabled,
   loading,
+  mintResult,
   handleCreateNft,
   handleMetadataUpload,
 }) => {
@@ -28,7 +29,7 @@ const StepButton = ({
   return (
     <button
       className="w-full mt-6 rounded-lg bg-blue-500 px-4 py-2 text-white hover:bg-blue-600 disabled:bg-gray-300"
-      disabled={disabled}
+      disabled={disabled || !!mintResult}
       onClick={handleClick}
     >
       {loading ? (
@@ -58,8 +59,8 @@ export default function MintForm() {
   const [sellerFee, setSellerFee] = useState(0);
   const [disabled, setDisabled] = useState(true);
   const [loading, setLoading] = useState(false);
-  const [uploadedMetadata, setUploadedMetadata] = useState({});
-  const [mintResult, setMintResult] = useState({});
+  const [uploadedMetadata, setUploadedMetadata] = useState(null);
+  const [mintResult, setMintResult] = useState(null);
 
   const { mxCtx } = useContext(MetaplexContext);
 
@@ -93,6 +94,17 @@ export default function MintForm() {
     setSellerFee(sellerFee);
   };
 
+  const handleMintAnotherNft = () => {
+    setMintResult(null);
+    setFile(null);
+    setSymbol('');
+    setName('');
+    setDescription('');
+    setSellerFee(0);
+    setUploadedMetadata({});
+    setDisabled(false); 
+  }
+
   const handleCreateNft = async () => {
     try {
       setDisabled(true);
@@ -120,7 +132,6 @@ export default function MintForm() {
       
       console.log('Nft mint complete', mintResult);
       setMintResult(mintResult);
-      setDisabled(false);
       setLoading(false);
     } catch (e) {
       console.log('Error creating NFT', e);
@@ -180,7 +191,11 @@ export default function MintForm() {
       <p className="dark:text-white">1. Upload metadata (image uri, name, description)</p>
       <p className="dark:text-white">2. Create the NFT mint</p>
       <div className="mt-6 relative">
-        <FileUpload setFile={setFile} />
+        <FileUpload 
+          file={file}
+          setFile={setFile}
+          uploadedMetadata={uploadedMetadata}
+        />
       </div>
       <div className="w-full mt-6 relative">
         <label name="nft-symbol">Symbol</label>
@@ -190,7 +205,8 @@ export default function MintForm() {
           id="nft-symbol"
           className="w-full rounded-lg px-4 py-2 border border-gray-200 dark:border-gray-600"
           placeholder="* Required"
-          defaultValue={symbol}
+          value={symbol}
+          disabled={!!mintResult}
           onChange={(e) => updateSymbol(e.target.value)}
         />
       </div>
@@ -202,7 +218,8 @@ export default function MintForm() {
           id="nft-name"
           className="w-full rounded-lg px-4 py-2 border border-gray-200 dark:border-gray-600"
           placeholder="* Required"
-          defaultValue={name}
+          value={name}
+          disabled={!!mintResult}
           onChange={(e) => updateName(e.target.value)}
         />
       </div>
@@ -214,7 +231,8 @@ export default function MintForm() {
           id="nft-description"
           className="w-full rounded-lg px-4 py-2 border border-gray-200 dark:border-gray-600"
           placeholder="* Required"
-          defaultValue={description}
+          value={description}
+          disabled={!!mintResult}
           onChange={(e) => updateDescription(e.target.value)}
         />
       </div>
@@ -225,7 +243,8 @@ export default function MintForm() {
           name="nft-seller-fee"
           id="nft-seller-fee"
           className="w-full rounded-lg px-4 py-2 border border-gray-200 dark:border-gray-600"
-          defaultValue={sellerFee}
+          value={sellerFee}
+          disabled={!!mintResult}
           onChange={(e) => updateSellerFee(e.target.value)}
         />
       </div>
@@ -233,9 +252,20 @@ export default function MintForm() {
         disabled={disabled}
         loading={loading}
         mintSteps={mintSteps}
+        mintResult={mintResult}
         handleCreateNft={handleCreateNft}
         handleMetadataUpload={handleMetadataUpload}
       />
+
+      { !!mintResult ? (
+          <button
+            className="w-full mt-6 rounded-lg bg-blue-500 px-4 py-2 text-white hover:bg-blue-600 disabled:bg-gray-300"
+            onClick={handleMintAnotherNft}
+          >
+            <span>Mint Another NFT</span>
+          </button>
+        ) : null 
+      }
     </div>
   );
 }
