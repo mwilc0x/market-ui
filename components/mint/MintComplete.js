@@ -23,7 +23,7 @@ function MintDetails({ nftMint }) {
             <br />
             <h3 className="text-xl">Transaction</h3>
             <a 
-                class="text-blue-400" 
+                className="text-blue-400" 
                 href={txUrl}
                 target="_blank"
                 rel="noopener noreferrer"
