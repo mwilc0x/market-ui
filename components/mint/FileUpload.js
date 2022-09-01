@@ -20,7 +20,18 @@ try {
   ipfs = null;
 }
 
-export default function FileUpload(props) {
+function fileSizeValidator(file) {
+  if (file.size > 10000000) {
+    return {
+      code: 'size-too-large',
+      message: 'Size is larger than 10mb.'
+    };
+  }
+
+  return null
+}
+
+export default function FileUpload({ setFile }) {
     const [image, setImage] = useState(null);
 
     const onDrop = useCallback(acceptedFiles => {
@@ -34,15 +45,21 @@ export default function FileUpload(props) {
                 const result = await ipfs.add(Buffer.from(binaryStr));
                 console.log('infura upload result:', result);
                 setImage({ infura: result, name: file.name });
-                props.setFile(true);
+                setFile(true);
               } catch (e) {
                 console.log('error reading the onload buffer');
               }
             }
             reader.readAsArrayBuffer(file); 
           })
-      }, [])
-      const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
+      }, [setFile]);
+      const {getRootProps, getInputProps, isDragActive} = useDropzone({
+        onDrop,
+        accept: {
+          'image/*': ['.jpg', '.jpeg', '.png'],
+        },
+        validator: fileSizeValidator
+      })
     
       return (
         <div {...getRootProps()} style={{

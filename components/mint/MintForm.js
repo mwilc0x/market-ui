@@ -14,6 +14,10 @@ export default function MintForm() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    if (loading) {
+      return;
+    }
+
     if (!file || !name || !wallet || !description) {
       setDisabled(true);
     } else {
@@ -21,7 +25,7 @@ export default function MintForm() {
         setDisabled(false);
       }
     }
-  }, [file, name, description, wallet]);
+  }, [loading, disabled, file, name, description, wallet]);
 
   const updateName = (name) => {
     setName(name);
