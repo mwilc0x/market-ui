@@ -70,7 +70,7 @@ export default function MintForm({ mintResult, setMintResult }) {
       return;
     }
 
-    if (!file || !name || !wallet || !description) {
+    if (!file || !name || !wallet.wallet || !description) {
       setDisabled(true);
     } else {
       if (disabled) {
