@@ -10,6 +10,7 @@ export default function MintCompletion({ mintResult }) {
                 <Confetti
                     width={width}
                     height={height}
+                    recycle={false}
                 /> : null
             }
         </>
