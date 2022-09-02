@@ -1,14 +1,7 @@
 import React from 'react';
 import CreateListing from './CreateListing';
+import { getTransaction, getAddress } from '../../utils/explorer';
 import cx from 'classnames';
-
-function getTransaction(signature) {
-    return `${process.env.NEXT_PUBLIC_SOLANA_EXPLORER_TX}/${signature}?cluster=devnet`;
-}
-
-function getAddress(address) {
-    return `${process.env.NEXT_PUBLIC_SOLANA_EXPLORER_ADDRESS}/${address}?cluster=devnet`;
-}
 
 function MintDetails({ nftMint }) {
     const txUrl = getTransaction(nftMint?.response?.signature);
