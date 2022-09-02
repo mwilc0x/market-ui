@@ -191,7 +191,7 @@ export default function MintForm({ mintResult, setMintResult }) {
       <br />
       <p className="text-lg dark:text-white">1. Upload metadata (image uri, name, description)</p>
       <p className="text-lg dark:text-white">2. Create the NFT mint</p>
-      <div className="mt-6 relative">
+      <div className="mt-6 relative ml-auto mr-auto">
         <FileUpload 
           file={file}
           setFile={setFile}

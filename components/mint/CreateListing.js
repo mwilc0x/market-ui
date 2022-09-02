@@ -56,14 +56,22 @@ export default function CreateListing({ nftMint }) {
 
             { listingResult && (
                 <div className="mt-6">
-                    <h3 className="text-xl mb-2.5">Listing Transaction</h3>
-                    <a className="text-blue-400" 
-                        href={listingTxnUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    <button className="w-full rounded-lg bg-blue-500 px-4 py-2 text-white hover:bg-blue-600 disabled:bg-gray-300"
+                        onClick={() => {}}
                     >
-                        {listingResult?.signature}
-                    </a>
+                        View Listing
+                    </button>
+                    
+                    <div className="mt-6">
+                        <h3 className="text-xl mb-2.5">Listing Transaction</h3>
+                        <a className="text-blue-400" 
+                            href={listingTxnUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            {listingResult?.signature}
+                        </a>
+                    </div>
                 </div>
             )}
         </div>
