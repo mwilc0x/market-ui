@@ -2,11 +2,13 @@ import { useContext, useState } from 'react';
 import MetaplexContext from '../../contexts/metaplex';
 import { getTransaction, getAddress } from '../../utils/explorer';
 import { sol, TransactionBuilder } from '@metaplex-foundation/js';
+import { Grid } from "react-loader-spinner";
 
 export default function CreateListing({ nftMint }) {
     const [price, setPrice] = useState(0);
     const [listingResult, setListing] = useState(false);
     const [listingTxnUrl, setListingTxnUrl] = useState('');
+    const [creatingNft, setCreatingNft] = useState(false);
 
     const { mxCtx: { auctionHouse, mx } } = useContext(MetaplexContext);
 
@@ -15,6 +17,7 @@ export default function CreateListing({ nftMint }) {
     }
 
     const createListing = async () => {
+        setCreatingNft(true);
         const instruction = await mx
             .auctions()
             .builders()
@@ -27,9 +30,14 @@ export default function CreateListing({ nftMint }) {
         const tx = TransactionBuilder.make().add(instruction);
         const result = await mx.rpc().sendAndConfirmTransaction(tx);
         setListing(result);
+        setCreatingNft(false);
 
         const txnUrl = getTransaction(result.signature);
         setListingTxnUrl(txnUrl);
+    }
+
+    const handleViewListing = () => {
+        window.open(`${document.location.origin}/nft/${nftMint.mintAddress}`);
     }
 
     return (
@@ -49,15 +57,25 @@ export default function CreateListing({ nftMint }) {
                 />
             </div>
 
-            <button className="w-full mt-6 rounded-lg bg-blue-500 px-4 py-2 text-white hover:bg-blue-600 disabled:bg-gray-300"
+            <button
+                className="w-full mt-6 rounded-lg bg-blue-500 px-4 py-2 text-white hover:bg-blue-600 disabled:bg-gray-300"
                 onClick={createListing}
-                disabled={!!listingResult}
-            >List NFT</button>
+                disabled={!!listingResult || !!creatingNft}
+            >
+                
+                {creatingNft ? (
+                    <div className="w-[17px] mx-auto">
+                        <Grid color="#3B82F6" height={17} width={17} />
+                    </div>
+                ) : (
+                    <span>List NFT</span>
+                )}
+            </button>
 
             { listingResult && (
                 <div className="mt-6">
                     <button className="w-full rounded-lg bg-blue-500 px-4 py-2 text-white hover:bg-blue-600 disabled:bg-gray-300"
-                        onClick={() => {}}
+                        onClick={handleViewListing}
                     >
                         View Listing
                     </button>
