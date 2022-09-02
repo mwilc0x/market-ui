@@ -4,7 +4,7 @@ import { useWallet } from "@solana/wallet-adapter-react";
 import ConnectedWallet from "/components/wallet/ConnectedWallet";
 
 export default function Wallet() {
-  const { publicKey, wallet } = useWallet();
+  const { publicKey } = useWallet();
 
   return (
     <div className="dark:bg-black">

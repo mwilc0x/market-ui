@@ -34,7 +34,7 @@ export default function GridView({ nfts, searchBy }) {
               <div className="mt-4">
                 <span className="mr-2 dark:text-gray-300">owner</span>
                 <a
-                  href={`https://solscan.io/account/${nft.owner.address}`}
+                  href={`${process.env.NEXT_PUBLIC_SOLSCAN_ACCOUNT}/${nft.owner.address}`}
                   target="_blank"
                   rel="noreferrer"
                   title="Owner Address"

@@ -1,12 +1,13 @@
 import React from 'react';
+import CreateListing from './CreateListing';
 import cx from 'classnames';
 
 function getTransaction(signature) {
-    return `https://explorer.solana.com/tx/${signature}?cluster=devnet`;
+    return `${process.env.NEXT_PUBLIC_SOLANA_EXPLORER_TX}/${signature}?cluster=devnet`;
 }
 
 function getAddress(address) {
-    return `https://explorer.solana.com/address/${address}?cluster=devnet`;
+    return `${process.env.NEXT_PUBLIC_SOLANA_EXPLORER_ADDRESS}/${address}?cluster=devnet`;
 }
 
 function MintDetails({ nftMint }) {
@@ -18,33 +19,43 @@ function MintDetails({ nftMint }) {
     const metadataAddress = nftMint?.nft?.metadataAddress.toString();
     const metadataUrl = getAddress(metadataAddress);
     return (
-        <>
-            <h1 className="text-2xl">Mint Details</h1>
-            <br />
-            <h3 className="text-xl">Transaction</h3>
-            <a 
-                className="text-blue-400" 
-                href={txUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-            >{nftMint?.response?.signature}</a>
-            <br />
-            <h3 className="text-xl">Mint Address</h3>
-            <a 
-                className="text-blue-400" 
-                href={mintUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-            >{mintAddress}</a>
-            <br />
-            <h3 className="text-xl">Metadata Address</h3>
-            <a 
-                className="text-blue-400" 
-                href={metadataUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-            >{metadataAddress}</a>
-        </>
+        <div>
+            <h1 className="text-2xl mb-5">Mint Details</h1>
+
+            <div className="mb-5">
+                <h3 className="text-xl mb-2.5">Transaction</h3>
+                <a className="text-blue-400" 
+                    href={txUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    {nftMint?.response?.signature}
+                </a>
+            </div>
+
+            <div className="mb-5">
+                <h3 className="text-xl mb-2.5">Mint Address</h3>
+                <a className="text-blue-400" 
+                    href={mintUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    {mintAddress}
+                </a>
+            </div>
+
+            <div className="mb-5">
+                <h3 className="text-xl mb-2.5">Metadata Address</h3>
+                <a className="text-blue-400" 
+                    href={metadataUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    {metadataAddress}
+                </a>
+            </div>
+
+        </div>
     );
 }
 
@@ -58,6 +69,7 @@ export default function MintComplete({ nftMint }) {
     return (
         <div className={classes}>
             { !!nftMint && <MintDetails nftMint={nftMint} /> }
+            { !!nftMint && <CreateListing nftMint={nftMint} /> }
         </div>
   );
 }

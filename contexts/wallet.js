@@ -15,45 +15,16 @@ import {
 import { clusterApiUrl } from "@solana/web3.js";
 import { useCallback, useMemo } from "react";
 
-/*
-import { Metaplex } from '@/Metaplex';
-import { MetaplexPlugin } from '@/types';
-import {
-  WalletAdapterIdentityDriver,
-  WalletAdapter,
-} from './WalletAdapterIdentityDriver';
-
-export const walletAdapterIdentity = (
-  walletAdapter: WalletAdapter
-): MetaplexPlugin => ({
-  install(metaplex: Metaplex) {
-    metaplex
-      .identity()
-      .setDriver(new WalletAdapterIdentityDriver(walletAdapter));
-  },
-});
-*/
-
 require("@solana/wallet-adapter-react-ui/styles.css");
 
 export const WalletContextProvider = ({ children }) => {
-  // Can be set to 'devnet', 'testnet', or 'mainnet-beta'
   const network = WalletAdapterNetwork.Devnet;
 
-  // You can also provide a custom RPC endpoint
   const endpoint = useMemo(() => clusterApiUrl(network), [network]);
 
-  // @solana/wallet-adapter-wallets includes all the adapters but supports tree shaking and lazy loading --
-  // Only the wallets you configure here will be compiled into your application, and only the dependencies
-  // of wallets that your users connect to will be loaded
   const wallets = useMemo(
     () => [
-      new GlowWalletAdapter(),
       new PhantomWalletAdapter(),
-      new SlopeWalletAdapter(),
-      new SolflareWalletAdapter({ network }),
-      new SolletWalletAdapter({ network }),
-      new SolletExtensionWalletAdapter({ network }),
     ],
     [network]
   );

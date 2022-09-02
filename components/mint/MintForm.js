@@ -9,7 +9,6 @@ import MintCompletion from './MintCompletion';
 import { bundlrStorage, walletAdapterIdentity } from '@metaplex-foundation/js';
 import { asSigner } from '../../utils/wallet';
 
-
 const StepButton = ({ 
   mintSteps,
   disabled,
@@ -151,8 +150,8 @@ export default function MintForm({ mintResult, setMintResult }) {
       const uploadResult = await mx
         .use(
           bundlrStorage({
-            address: 'https://devnet.bundlr.network',
-            providerUrl: 'https://api.devnet.solana.com',
+            address: process.env.NEXT_PUBLIC_BUNDLR_DEVNET,
+            providerUrl: process.env.NEXT_PUBLIC_SOLANA_API_DEVNET,
             timeout: 60000,
           })
         )

@@ -5,7 +5,7 @@ import { MetaplexProvider } from "/contexts/metaplex";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 
 const client = new ApolloClient({
-  uri: "https://graph.holaplex.com/v1",
+  uri: process.env.NEXT_PUBLIC_HOLAPLEX_GRAPH_PROD,
   cache: new InMemoryCache(),
 });
 

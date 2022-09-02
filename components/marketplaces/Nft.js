@@ -44,7 +44,6 @@ export default function Nft({ nft, listing, subdomain, refetch }) {
   }
 
   const buyNft = async (nft, listing) => {
-    console.log('yo', nft, listing, publicKey);
     if (!publicKey) {
       setVisible(true);
       return;

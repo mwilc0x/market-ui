@@ -11,7 +11,6 @@ const MetaplexProvider = props => {
   let [mxCtx, setMxCtx] = useState({});
 
   const wallet = useWallet();
-  // console.log('Metaplex provider wallet check.', wallet.connected);
 
   useEffect(() => {
     (async () => {
@@ -19,12 +18,6 @@ const MetaplexProvider = props => {
         const connection = new Connection(clusterApiUrl("devnet")); // TODO: check environment
         const mx = Metaplex.make(connection).use(walletAdapterIdentity(wallet));
         const auctionHouse = await mx.auctions().findAuctionHouseByAddress(new PublicKey(process.env.NEXT_PUBLIC_AUCTIONHOUSE)).run();
-
-        // if (wallet.connected === true) {
-        //   console.log('Metaplex wallet connected.', wallet);
-        // } else {
-        //   console.log('Metaplex wallet not connected.', wallet);
-        // }
 
         setMxCtx({ mx, auctionHouse });
         return;
