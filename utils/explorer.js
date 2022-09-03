@@ -5,3 +5,7 @@ export function getTransaction(signature) {
 export function getAddress(address) {
     return `${process.env.NEXT_PUBLIC_SOLANA_EXPLORER_ADDRESS}/${address}?cluster=devnet`;
 }
+
+export function getSellerFeeString(sellerFeeBasisPoints) {
+    return `${sellerFeeBasisPoints/100} %`;
+}

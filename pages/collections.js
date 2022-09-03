@@ -6,7 +6,7 @@ export default function Collections() {
   return (
     <div className="dark:bg-black">
       <Head>
-        <title>SolPrint</title>
+        <title>{process.env.NEXT_PUBLIC_APP_NAME}</title>
         <meta name="description" content="Provable" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

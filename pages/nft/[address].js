@@ -5,17 +5,18 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import MetaplexContext from '../../contexts/metaplex';
 import { PublicKey } from "@solana/web3.js";
-import { getAddress } from '../../utils/explorer';
+import { getAddress, getSellerFeeString } from '../../utils/explorer';
 
 export default function Mint() {
     const [nftDetails, setNftDetails] = useState(null);
-    const { mxCtx: { mx } } = useContext(MetaplexContext);
+    const { loading: mxLoading, mxCtx: { mx } } = useContext(MetaplexContext);
     const router = useRouter();
     const address = router?.query?.address;
 
     useEffect(() => {
         try {
-            if (!!address && !!mx) {
+            if (!!address) {
+                console.log('get nft details');
                 const getNftDetails = async () => {
                     const mintAddress = new PublicKey(address);
     
@@ -32,7 +33,7 @@ export default function Mint() {
         } catch (e) {
             console.log('Error initializing NFT data', e);
         }
-    }, [address, mx]);
+    }, [address, mxLoading]);
 
     if (!nftDetails) {
         return null;
@@ -44,13 +45,15 @@ export default function Mint() {
         address: mintAddress,
         metadataAddress,
         updateAuthorityAddress,
-        json: { image, name, description }
+        json: { image, name, description },
+        sellerFeeBasisPoints,
+        isMutable
     } = nftDetails;
 
     return (
         <div className="dark:bg-black">
             <Head>
-            <title>SolPrint</title>
+            <title>{process.env.NEXT_PUBLIC_APP_NAME}</title>
             <meta name="description" content="SolPrint" />
             <link rel="icon" href="/favicon.ico" />
             </Head>
@@ -102,6 +105,16 @@ export default function Mint() {
                         >
                             {updateAuthorityAddress.toString()}
                         </a>
+                    </div>
+
+                    <div className="mb-5">
+                        <p className="text-xl mb-0.5">Seller Fee</p>
+                        <p className="text-md mb-0.5">{getSellerFeeString(sellerFeeBasisPoints)}</p>
+                    </div>
+
+                    <div className="mb-5">
+                        <p className="text-xl mb-0.5">Is Mutable</p>
+                        <p className="text-md mb-0.5">{`${isMutable}`}</p>
                     </div>
 
                 </div>

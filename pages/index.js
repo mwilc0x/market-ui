@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div className="dark:bg-black">
       <Head>
-        <title>solprint</title>
+        <title>{process.env.NEXT_PUBLIC_APP_NAME}</title>
         <meta name="description" content="solprint" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

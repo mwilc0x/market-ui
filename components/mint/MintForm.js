@@ -160,6 +160,7 @@ export default function MintForm({ mintResult, setMintResult }) {
             timeout: 60000,
           })
         )
+        .use(walletAdapterIdentity(wallet))
         .nfts()
         .uploadMetadata({
           name, 

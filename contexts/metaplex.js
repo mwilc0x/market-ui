@@ -8,6 +8,7 @@ import { Metaplex, walletAdapterIdentity } from "@metaplex-foundation/js";
 const MetaplexContext = createContext();
 
 const MetaplexProvider = props => {
+  let [loading, setLoading] = useState(true);
   let [mxCtx, setMxCtx] = useState({});
 
   const wallet = useWallet();
@@ -16,10 +17,13 @@ const MetaplexProvider = props => {
     (async () => {
       try {
         const connection = new Connection(clusterApiUrl("devnet")); // TODO: check environment
-        const mx = Metaplex.make(connection).use(walletAdapterIdentity(wallet));
+        // default guest identity
+        // connect wallet for each specific call
+        const mx = Metaplex.make(connection); 
         const auctionHouse = await mx.auctions().findAuctionHouseByAddress(new PublicKey(process.env.NEXT_PUBLIC_AUCTIONHOUSE)).run();
 
         setMxCtx({ mx, auctionHouse });
+        setLoading(false);
         return;
       } catch (e) {
         console.log('error initializing metaplex', e);
@@ -30,7 +34,7 @@ const MetaplexProvider = props => {
   }, [wallet])
 
   return (
-    <MetaplexContext.Provider value={{ mxCtx }}>
+    <MetaplexContext.Provider value={{ loading, mxCtx }}>
       {props.children}
     </MetaplexContext.Provider>
   );
