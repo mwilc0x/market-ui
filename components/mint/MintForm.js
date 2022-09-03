@@ -135,6 +135,11 @@ export default function MintForm({ mintResult, setMintResult }) {
       setLoading(false);
     } catch (e) {
       console.log('Error creating NFT', e);
+      setDisabled(false);
+      setLoading(false);
+      updateMintSteps(prevState => {
+        return {...prevState, currentStep: 1 };
+      });
     }
   }
 
@@ -169,6 +174,11 @@ export default function MintForm({ mintResult, setMintResult }) {
       setLoading(false);
     } catch (e) {
       console.log('Error handling metadata upload', e);
+      setDisabled(false);
+      setLoading(false);
+      updateMintSteps(prevState => {
+        return {...prevState, currentStep: 0 };
+      });
     }
   };
 

@@ -37,15 +37,15 @@ export default function Mint() {
     if (!nftDetails) {
         return null;
     } else {
-        // console.log('NFT details', nftDetails);
+        console.log('NFT details', nftDetails);
     }
 
     const { 
         address: mintAddress,
         metadataAddress,
         updateAuthorityAddress,
-        json: { image, name, description 
-    }} = nftDetails;
+        json: { image, name, description }
+    } = nftDetails;
 
     return (
         <div className="dark:bg-black">

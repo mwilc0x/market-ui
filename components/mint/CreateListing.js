@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import MetaplexContext from '../../contexts/metaplex';
-import { getTransaction, getAddress } from '../../utils/explorer';
+import { getTransaction } from '../../utils/explorer';
 import { sol, TransactionBuilder } from '@metaplex-foundation/js';
 import { Grid } from "react-loader-spinner";
 
@@ -17,23 +17,28 @@ export default function CreateListing({ nftMint }) {
     }
 
     const createListing = async () => {
-        setCreatingNft(true);
-        const instruction = await mx
-            .auctions()
-            .builders()
-            .list({
-                auctionHouse,
-                mintAccount: nftMint.mintAddress,
-                price: sol(price)
-            });
-        
-        const tx = TransactionBuilder.make().add(instruction);
-        const result = await mx.rpc().sendAndConfirmTransaction(tx);
-        setListing(result);
-        setCreatingNft(false);
-
-        const txnUrl = getTransaction(result.signature);
-        setListingTxnUrl(txnUrl);
+        try {
+            setCreatingNft(true);
+            const instruction = await mx
+                .auctions()
+                .builders()
+                .list({
+                    auctionHouse,
+                    mintAccount: nftMint.mintAddress,
+                    price: sol(price)
+                });
+            
+            const tx = TransactionBuilder.make().add(instruction);
+            const result = await mx.rpc().sendAndConfirmTransaction(tx);
+            setListing(result);
+            setCreatingNft(false);
+    
+            const txnUrl = getTransaction(result.signature);
+            setListingTxnUrl(txnUrl);
+        } catch (e) {
+            console.log('Error creating listing.', e);
+            setCreatingNft(false);
+        }
     }
 
     const handleViewListing = () => {
