@@ -13,6 +13,10 @@ export default function ConnectedWallet() {
   const { loading: mxLoading, mxCtx: { mx } } = useContext(MetaplexContext);
   
   useEffect(() => {
+    if (mxLoading === true) {
+      return;
+    }
+
     try {
       const getAllOwnerNfts = async () => {
         const ownerNfts = await mx
