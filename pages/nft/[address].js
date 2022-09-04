@@ -14,6 +14,10 @@ export default function Mint() {
     const address = router?.query?.address;
 
     useEffect(() => {
+        if (mxLoading === true) {
+            return;
+        }
+
         try {
             if (!!address) {
                 console.log('get nft details');
