@@ -35,7 +35,7 @@ export default function Navbar() {
           id="menu"
           className="w-full lg:w-auto self-end sm:self-center lg:flex flex-col lg:flex-row items-center h-fit py-1 pb-4 lg:py-0 lg:pb-0 hidden top-[40px] bg-white dark:bg-black"
         >
-          <div className="mr-6 mb-6 lg:mb-0 inline">
+          {/* <div className="mr-6 mb-6 lg:mb-0 inline">
             <Link href="/creator">
               <a className="text-blue-500 hover:text-blue-600">[Creator]</a>
             </Link>
@@ -44,7 +44,7 @@ export default function Navbar() {
             <Link href="/owner">
               <a className="text-blue-500 hover:text-blue-600">[Owner]</a>
             </Link>
-          </div>
+          </div> */}
           <div className="mr-6 mb-6 lg:mb-0 inline">
             <Link href="/mint">
               <a className="text-blue-500 hover:text-blue-600">[Mint]</a>

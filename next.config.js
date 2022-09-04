@@ -7,6 +7,11 @@ const nextConfig = {
       remotePatterns: [
         {
           protocol: 'https',
+          hostname: 'shdw-drive.genesysgo.net',
+          pathname: '/**'
+        },
+        {
+          protocol: 'https',
           hostname: 'devnet-solprint.infura-ipfs.io',
           pathname: '/ipfs/**'
         },
