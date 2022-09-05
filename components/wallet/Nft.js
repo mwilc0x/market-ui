@@ -33,6 +33,14 @@ export default function Nft({ nft, refetch }) {
     loadNftMetadata();
   }, [nft]);
 
+  const handleImageClick = () => {
+    if (!metadata) {
+      return;
+    }
+
+    window.open(`${document.location.origin}/nft/${metadata?.address.toString()}`);
+  }
+
   const cancelNftListing = async (nft, listing) => {
     if (!publicKey) {
       setVisible(true);
@@ -56,9 +64,10 @@ export default function Nft({ nft, refetch }) {
       <Image 
         alt="nft image"
         src={metadata.json.image}
-        className="object-center object-cover rounded-lg"
+        className="object-center object-cover rounded-lg cursor-pointer"
         height="400"
         width="400"
+        onClick={handleImageClick}
       />
       {listing ? (
         <>
