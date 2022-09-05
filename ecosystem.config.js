@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: "solprint",
+      name: `${process.env.NEXT_PUBLIC_APP_NAME}`,
       script: "./pages/_app.js",
       instances: 1,
       autorestart: true,

@@ -14,7 +14,7 @@ const MetaplexProvider = props => {
   useEffect(() => {
     (async () => {
       try {
-        const connection = new Connection(clusterApiUrl("devnet")); // TODO: check environment
+        const connection = new Connection(clusterApiUrl(process.env.NEXT_PUBLIC_SOLANA_ENV));
         // default guest identity
         // connect wallet for each specific call
         const mx = Metaplex.make(connection); 

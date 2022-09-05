@@ -7,7 +7,7 @@ export default function Home() {
     <div className="dark:bg-black">
       <Head>
         <title>{process.env.NEXT_PUBLIC_APP_NAME}</title>
-        <meta name="description" content="solprint" />
+        <meta name="description" content={process.env.NEXT_PUBLIC_APP_NAME} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="p-4 w-full xl:w-[1024px] mx-auto">
@@ -66,9 +66,9 @@ export default function Home() {
           </Link>
         </p>
         <p className="mt-6">
-          Listing from multiple AuctionHouse&apos;s by collection. Includes
-          listings from Holaplex, Holaplex Marketplaces, SolPrint and MagicEden.
-          OpenSea hopefully coming soon.
+          {`Listing from multiple AuctionHouse&apos;s by collection. Includes
+          listings from Holaplex, Holaplex Marketplaces, ${process.env.NEXT_PUBLIC_APP_NAME} and MagicEden.
+          OpenSea hopefully coming soon.`}
         </p>
         {/* <p className="mt-12">
           <Link href="/listings">

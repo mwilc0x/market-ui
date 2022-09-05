@@ -18,7 +18,7 @@ export default function Navbar() {
         <div className="w-full lg:w-auto self-start lg:self-center flex flex-row lg:flex-none flex-no-wrap justify-between items-center">
           <h1 className="text-blue-500 hover:text-blue-600 text-xl font-bold inline">
             <Link href="/">
-              <a>solprint</a>
+              <a>{process.env.NEXT_PUBLIC_APP_NAME.toLowerCase()}</a>
             </Link>
           </h1>
           <button

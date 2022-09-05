@@ -7,7 +7,7 @@ export default function Collections() {
     <div className="dark:bg-black">
       <Head>
         <title>{process.env.NEXT_PUBLIC_APP_NAME}</title>
-        <meta name="description" content="Provable" />
+        <meta name="description" content={process.env.NEXT_PUBLIC_APP_NAME} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="p-4 w-full xl:w-[1024px] mx-auto">
