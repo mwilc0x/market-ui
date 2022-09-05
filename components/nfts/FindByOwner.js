@@ -1,22 +1,6 @@
 import React, { useState } from "react";
-import { gql } from "@apollo/client";
 import Search from "/components/nfts/Search";
-
-const query = gql`
-  query GetNft($address: [PublicKey!]) {
-    nfts(owners: $address, offset: 0, limit: 100000) {
-      name
-      address
-      image(width: 1400)
-      sellerFeeBasisPoints
-      mintAddress
-      description
-      owner {
-        address
-      }
-    }
-  }
-`;
+import { getOwnerNftsQuery } from '../../utils/graphql';
 
 export default function FindByWallet() {
   const [address, setAddress] = useState();
@@ -41,7 +25,7 @@ export default function FindByWallet() {
           Search
         </button>
       </article>
-      <Search address={address} query={query} searchBy="wallet" />
+      <Search address={address} query={getOwnerNftsQuery} searchBy="wallet" />
     </>
   );
 }

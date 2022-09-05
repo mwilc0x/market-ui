@@ -1,18 +1,12 @@
 import { Fragment, useState } from "react";
 import Image from "next/image";
 import { Dialog, Transition } from "@headlessui/react";
-import sellNftTransaction from "/utils/auctionhouse/SellNft";
-import { useWallet } from "@solana/wallet-adapter-react";
 
-export default function SellModal({ open, nft, closeModal, refetch }) {
-  const { publicKey, signTransaction } = useWallet();
+export default function SellModal({ open, nft, closeModal }) {
   const [processing, setProcessing] = useState(false);
 
   const listNow = async () => {
-    const amount = document.getElementById("amount").value;
     setProcessing(true);
-    await sellNftTransaction(amount, nft, publicKey, signTransaction, refetch);
-    setProcessing(false);
     closeModal();
   };
 

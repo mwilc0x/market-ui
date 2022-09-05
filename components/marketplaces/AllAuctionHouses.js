@@ -1,60 +1,7 @@
 import React, { useState } from "react";
-import { gql } from "@apollo/client";
 import ListingsContainer from "/components/marketplaces/ListingsContainer";
-import { collections } from "/utils/marketplaceHelpers";
-
-const query = gql`
-  query GetNfts($creators: [PublicKey!]) {
-    nfts(creators: $creators, offset: 0, limit: 10000, listed: true) {
-      name
-      address
-      image(width: 1400)
-      sellerFeeBasisPoints
-      mintAddress
-      description
-      activities {
-        metadata
-        auctionHouse {
-          address
-        }
-        price
-        createdAt
-        activityType
-      }
-      listings {
-        auctionHouse {
-          address
-        }
-        seller
-        metadata
-        price
-        tokenSize
-        tradeState
-        tradeStateBump
-        createdAt
-        canceledAt
-      }
-      offers {
-        tradeState
-        price
-        buyer
-        createdAt
-        tradeState
-      }
-      purchases {
-        price
-        createdAt
-      }
-      owner {
-        associatedTokenAccountAddress
-        address
-      }
-      creators {
-        address
-      }
-    }
-  }
-`;
+import { collections } from "/utils/accounts";
+import { getAuctionhouseNftsQuery } from '../../utils/graphql';
 
 export default function AllAuctionHouses() {
   const [selectedCollection, setSelectedCollection] = useState();
@@ -85,7 +32,7 @@ export default function AllAuctionHouses() {
         {selectedCollection && (
           <ListingsContainer
             creatorPublicKey={creatorPublicKey}
-            query={query}
+            query={getAuctionhouseNftsQuery}
           />
         )}
       </div>

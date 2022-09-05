@@ -1,7 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
-import {
-  useWallet
-} from "@solana/wallet-adapter-react";
+import { useWallet } from "@solana/wallet-adapter-react";
 import { Connection, clusterApiUrl, PublicKey } from "@solana/web3.js";
 import { Metaplex } from "@metaplex-foundation/js";
 
@@ -12,7 +10,6 @@ const MetaplexProvider = props => {
   let [mxCtx, setMxCtx] = useState({});
 
   const wallet = useWallet();
-  console.log('wallet from metaplex', wallet?.publicKey?.toString());
 
   useEffect(() => {
     (async () => {

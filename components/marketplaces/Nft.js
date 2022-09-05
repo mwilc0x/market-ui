@@ -4,8 +4,7 @@ import { useState } from "react";
 import { roundToTwo } from "/utils/roundToTwo";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { useWalletModal } from "@solana/wallet-adapter-react-ui";
-import buyNftTransaction from "/utils/auctionhouse/BuyNft";
-import { marketplaces } from "/utils/marketplaceHelpers";
+import { marketplaces } from "/utils/accounts";
 
 export default function Nft({ nft, listing, subdomain, refetch }) {
   const { publicKey, signTransaction } = useWallet();
@@ -49,15 +48,6 @@ export default function Nft({ nft, listing, subdomain, refetch }) {
       return;
     }
     setProcessing(true);
-    await buyNftTransaction(
-      nft,
-      listing,
-      publicKey,
-      signTransaction,
-      ah,
-      refetch
-    );
-    setProcessing(false);
   };
 
   return (

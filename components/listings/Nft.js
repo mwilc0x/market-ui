@@ -3,16 +3,11 @@ import Image from "next/image";
 import { roundToTwo } from "/utils/roundToTwo";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { useWalletModal } from "@solana/wallet-adapter-react-ui";
-import cancelListingTransaction from "/utils/auctionhouse/CancelListing";
-import buyNftTransaction from "/utils/auctionhouse/BuyNft";
-import { marketplaces } from "/utils/marketplaceHelpers";
 
 export default function Nft({ nft, listing, refetch }) {
   const { publicKey, signTransaction } = useWallet();
   const [processing, setProcessing] = useState(false);
   const { setVisible } = useWalletModal();
-
-  const ah = marketplaces.find((m) => m.auctionhouse === listing.auctionHouse);
 
   const cancelNftListing = async (nft, listing) => {
     if (!publicKey) {
@@ -20,14 +15,6 @@ export default function Nft({ nft, listing, refetch }) {
       return;
     }
     setProcessing(true);
-    await cancelListingTransaction(
-      nft,
-      listing,
-      publicKey,
-      signTransaction,
-      refetch
-    );
-    setProcessing(false);
   };
 
   const buyNft = async (nft, listing) => {
@@ -36,15 +23,6 @@ export default function Nft({ nft, listing, refetch }) {
       return;
     }
     setProcessing(true);
-    await buyNftTransaction(
-      nft,
-      listing,
-      publicKey,
-      signTransaction,
-      ah,
-      refetch
-    );
-    setProcessing(false);
   };
 
   return (

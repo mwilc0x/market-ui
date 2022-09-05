@@ -3,7 +3,6 @@ import Image from "next/image";
 import { roundToTwo } from "/utils/roundToTwo";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { useWalletModal } from "@solana/wallet-adapter-react-ui";
-import cancelListingTransaction from "/utils/auctionhouse/CancelListing";
 import SellModal from "/components/wallet/SellModal";
 import MetaplexContext from '../../contexts/metaplex';
 import { walletAdapterIdentity } from '@metaplex-foundation/js';
@@ -40,14 +39,6 @@ export default function Nft({ nft, refetch }) {
       return;
     }
     setProcessing(true);
-    await cancelListingTransaction(
-      nft,
-      listing,
-      publicKey,
-      signTransaction,
-      refetch
-    );
-    setProcessing(false);
   };
 
   function handleCloseModal() {
