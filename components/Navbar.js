@@ -1,8 +1,12 @@
 import Link from "next/link";
 import DarkMode from "/components/DarkMode";
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
+import { useWallet } from "@solana/wallet-adapter-react";
+import { Jazzicon } from '@ukstv/jazzicon-react';
 
 export default function Navbar() {
+  const { publicKey } = useWallet();
+
   function navToggle() {
     var btn = document.getElementById("menuBtn");
     var nav = document.getElementById("menu");
@@ -10,6 +14,12 @@ export default function Navbar() {
     btn.classList.toggle("open");
     nav.classList.toggle("flex");
     nav.classList.toggle("hidden");
+  }
+
+  let pubKeyStr;
+  if (publicKey) {
+    pubKeyStr = publicKey && publicKey.toString();
+    console.log('NavBar Public Key:', pubKeyStr);
   }
 
   return (
@@ -77,6 +87,8 @@ export default function Navbar() {
           <div className="mr-6 mb-6 lg:mb-0 inline wallet-btn">
             <WalletMultiButton />
           </div>
+
+          { pubKeyStr && <div style={{ height: 35, width: 35 }}><Jazzicon address={pubKeyStr} /></div>}
         </div>
       </nav>
     </header>
