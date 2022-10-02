@@ -34,7 +34,7 @@ export default function ConnectedWallet() {
       console.log('Error loading NFTs', e);
       setError(error);
     }
-  }, [mxLoading])
+  }, [mxLoading, error, mx, wallet])
 
   return <WalletContents
     error={error}

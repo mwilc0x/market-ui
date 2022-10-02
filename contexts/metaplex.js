@@ -18,7 +18,12 @@ const MetaplexProvider = props => {
         // default guest identity
         // connect wallet for each specific call
         const mx = Metaplex.make(connection); 
-        const auctionHouse = await mx.auctions().findAuctionHouseByAddress(new PublicKey(process.env.NEXT_PUBLIC_AUCTIONHOUSE)).run();
+
+        const auctionHouse = await mx.auctionHouse().findByAddress({
+          address: new PublicKey(process.env.NEXT_PUBLIC_AUCTIONHOUSE)
+        }).run();
+
+        console.log('hey', auctionHouse);
 
         setMxCtx({ mx, auctionHouse });
         setLoading(false);

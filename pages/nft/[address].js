@@ -37,7 +37,7 @@ export default function Mint() {
         } catch (e) {
             console.log('Error initializing NFT data', e);
         }
-    }, [address, mxLoading]);
+    }, [address, mxLoading, mx]);
 
     if (!nftDetails) {
         return null;

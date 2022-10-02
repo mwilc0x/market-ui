@@ -55,7 +55,7 @@ export default function FileUpload({ file, setFile, uploadedMetadata }) {
             }
             reader.readAsArrayBuffer(file); 
           })
-      }, []);
+      }, [setFile, uploadedMetadata]);
       const {getRootProps, getInputProps } = useDropzone({
         onDrop,
         accept: {

@@ -31,7 +31,7 @@ export default function Nft({ nft, refetch }) {
     }
 
     loadNftMetadata();
-  }, [nft]);
+  }, [nft, mx, wallet]);
 
   const handleImageClick = () => {
     if (!metadata) {
