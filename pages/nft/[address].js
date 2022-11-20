@@ -26,8 +26,7 @@ export default function Mint() {
     
                     const nftResult = await mx
                         .nfts()
-                        .findByMint({ mintAddress })
-                        .run();
+                        .findByMint({ mintAddress });
                     
                     setNftDetails(nftResult);
                 }
