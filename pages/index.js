@@ -15,9 +15,7 @@ export default function Home() {
         <p>Tools for Solana NFT&apos;s.</p>
         <p className="mt-12">
           <Link href="/creator">
-            <a>
               <strong>NFTs by Creator</strong>
-            </a>
           </Link>
         </p>
         <p className="mt-6">
@@ -27,9 +25,7 @@ export default function Home() {
         </p>
         <p className="mt-12">
           <Link href="/owner">
-            <a>
               <strong>NFTs by Owner</strong>
-            </a>
           </Link>
         </p>
         <p className="mt-6">
@@ -39,9 +35,7 @@ export default function Home() {
         </p>
         <p className="mt-12">
           <Link href="/mint">
-            <a>
               <strong>Mint an NFT</strong>
-            </a>
           </Link>
         </p>
         <p className="mt-6">
@@ -49,9 +43,7 @@ export default function Home() {
         </p>
         <p className="mt-12">
           <Link href="/marketplaces">
-            <a>
               <strong>Marketplaces</strong>
-            </a>
           </Link>
         </p>
         <p className="mt-6">
@@ -60,9 +52,7 @@ export default function Home() {
         </p>
         <p className="mt-12">
           <Link href="/collections">
-            <a>
               <strong>Collections</strong>
-            </a>
           </Link>
         </p>
         <p className="mt-6">
@@ -80,9 +70,7 @@ export default function Home() {
         <p className="mt-6">All listings from the SolPrint AuctionHouse.</p> */}
         <p className="mt-12">
           <Link href="/wallet">
-            <a>
               <strong>Wallet</strong>
-            </a>
           </Link>
         </p>
         <p className="mt-6">View the contents of your wallet.</p>

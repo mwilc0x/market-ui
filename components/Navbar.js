@@ -28,7 +28,7 @@ export default function Navbar() {
         <div className="w-full lg:w-auto self-start lg:self-center flex flex-row lg:flex-none flex-no-wrap justify-between items-center">
           <h1 className="text-blue-500 hover:text-blue-600 text-xl font-bold inline">
             <Link href="/">
-              <a>{process.env.NEXT_PUBLIC_APP_NAME.toLowerCase()}</a>
+              {process.env.NEXT_PUBLIC_APP_NAME.toLowerCase()}
             </Link>
           </h1>
           <button
@@ -56,20 +56,24 @@ export default function Navbar() {
             </Link>
           </div> */}
           <div className="mr-6 mb-6 lg:mb-0 inline">
-            <Link href="/mint">
-              <a className="text-blue-500 hover:text-blue-600">[Mint]</a>
+            <Link href="/mint" className="text-blue-500 hover:text-blue-600">
+              [Mint]
             </Link>
           </div>
           <div className="mr-6 mb-6 lg:mb-0 inline">
-            <Link href="/marketplaces">
-              <a className="text-blue-500 hover:text-blue-600">
-                [Marketplaces]
-              </a>
+            <Link
+              href="/marketplaces"
+              className="text-blue-500 hover:text-blue-600"
+            >
+              [Marketplaces]
             </Link>
           </div>
           <div className="mr-6 mb-6 lg:mb-0 inline">
-            <Link href="/collections">
-              <a className="text-blue-500 hover:text-blue-600">[Collections]</a>
+            <Link
+              href="/collections"
+              className="text-blue-500 hover:text-blue-600"
+            >
+              [Collections]
             </Link>
           </div>
           {/* <div className="mr-6 mb-6 lg:mb-0 inline">
@@ -78,8 +82,8 @@ export default function Navbar() {
             </Link>
           </div> */}
           <div className="mr-6 mb-6 lg:mb-0 inline">
-            <Link href="/wallet">
-              <a className="text-blue-500 hover:text-blue-600">[Wallet]</a>
+            <Link href="/wallet" className="text-blue-500 hover:text-blue-600">
+              [Wallet]
             </Link>
           </div>
           <DarkMode classname={["mb-6 lg:mb-0 inline"]} />
@@ -88,7 +92,11 @@ export default function Navbar() {
             <WalletMultiButton />
           </div>
 
-          { pubKeyStr && <div style={{ height: 35, width: 35 }}><Jazzicon address={pubKeyStr} /></div>}
+          {pubKeyStr && (
+            <div style={{ height: 35, width: 35 }}>
+              <Jazzicon address={pubKeyStr} />
+            </div>
+          )}
         </div>
       </nav>
     </header>
