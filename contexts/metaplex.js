@@ -8,22 +8,31 @@ const MetaplexContext = createContext();
 const MetaplexProvider = props => {
   let [loading, setLoading] = useState(true);
   let [mxCtx, setMxCtx] = useState({});
+  let [wallet, setWallet] = useState(null);
 
-  const wallet = useWallet();
+  const walletCtx = useWallet();
+
+  if (!wallet && walletCtx.connected) {
+    console.log('set wallet', walletCtx);
+    setWallet(walletCtx);
+  }
 
   useEffect(() => {
+    console.log('metaplex useEffect running', wallet);
+    if (!wallet) {
+      return;
+    }
+
     (async () => {
       try {
         const connection = new Connection(clusterApiUrl(process.env.NEXT_PUBLIC_SOLANA_ENV));
-        // default guest identity
-        // connect wallet for each specific call
         const mx = Metaplex.make(connection); 
 
-        const auctionHouse = await mx.auctionHouse().findByAddress({
-          address: new PublicKey(process.env.NEXT_PUBLIC_AUCTIONHOUSE)
-        }).run();
-
-        console.log('hey', auctionHouse);
+        const auctionHouse = await mx
+          .auctionHouse()
+          .findByAddress({
+            address: new PublicKey(process.env.NEXT_PUBLIC_AUCTIONHOUSE),
+          });
 
         setMxCtx({ mx, auctionHouse });
         setLoading(false);

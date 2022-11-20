@@ -9,17 +9,17 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, ...rest }) {
   return (
-    <ApolloProvider client={client}>
-      <ThemeProvider enableSystem={true} attribute="class">
-        <WalletContextProvider>
-          <MetaplexProvider>
+    <WalletContextProvider>
+      <MetaplexProvider stuff={{ pageProps, rest }}>
+        <ApolloProvider client={client}>
+          <ThemeProvider enableSystem={true} attribute="class">
             <Component {...pageProps} />
-          </MetaplexProvider>
-        </WalletContextProvider>
-      </ThemeProvider>
-    </ApolloProvider>
+          </ThemeProvider>
+        </ApolloProvider>
+      </MetaplexProvider>
+    </WalletContextProvider>
   );
 }
 

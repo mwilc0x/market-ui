@@ -5,28 +5,27 @@ import { useWallet } from "@solana/wallet-adapter-react";
 import { useWalletModal } from "@solana/wallet-adapter-react-ui";
 import SellModal from "/components/wallet/SellModal";
 import MetaplexContext from '../../contexts/metaplex';
-import { walletAdapterIdentity } from '@metaplex-foundation/js';
+import { sol, walletAdapterIdentity } from '@metaplex-foundation/js';
 
 export default function Nft({ nft, refetch }) {
   const [metadata, setMetadata] = useState(null);
   const [listingModal, setListingModal] = useState(false);
-  const auctionHouse = process.env.NEXT_PUBLIC_AUCTIONHOUSE;
-  const listing = nft?.listings?.find((l) => l.auctionHouse === auctionHouse);
+  const auctionHouseAddress = process.env.NEXT_PUBLIC_AUCTIONHOUSE;
+  const listing = nft?.listings?.find((l) => l.auctionHouse === auctionHouseAddress);
   const wallet = useWallet();
   const [processing, setProcessing] = useState(false);
   const { setVisible } = useWalletModal();
 
-  const { publicKey, signTransaction } = wallet;
+  const { publicKey } = wallet;
 
-  const { mxCtx: { mx } } = useContext(MetaplexContext); 
+  const { mxCtx: { auctionHouse, mx } } = useContext(MetaplexContext); 
 
   useEffect(() => {
     const loadNftMetadata = async () => {
       const metadata = await mx
         .use(walletAdapterIdentity(wallet))
         .nfts()
-        .load({ metadata: nft })
-        .run();
+        .findByMetadata({ metadata: nft.address });
       setMetadata(metadata);
     }
 
@@ -48,6 +47,34 @@ export default function Nft({ nft, refetch }) {
     }
     setProcessing(true);
   };
+
+  const handleListNft = async (price) => {
+    if (!price) {
+      return false;
+    }
+
+    try {
+      const listingResult = await mx
+        .use(walletAdapterIdentity(wallet))
+        .auctionHouse()
+        .list({
+          auctionHouse,
+          mintAccount: nft.mintAddress,
+          price: sol(price)
+        })
+        .run();
+      console.log('NFT listed!', listingResult);
+      return true;
+    } catch (e) {
+      console.log('error listing nft', e);
+      return false;
+    }
+  }
+
+  const openSellModal = () => {
+    console.log('listing nft', nft.mintAddress.toString());
+    setListingModal(!listingModal);
+  }
 
   function handleCloseModal() {
     setListingModal(false);
@@ -96,7 +123,7 @@ export default function Nft({ nft, refetch }) {
           <div className="mt-3 dark:text-gray-400">
             <div
               className="rounded-[100px] cursor-pointer hover:scale-105 backdrop-blur-lg bg-black/10 dark:bg-black/60 px-4 py-2 font-semibold text-neutral-500 dark:text-white w-fit float-left"
-              onClick={(e) => setListingModal(!listingModal)}
+              onClick={openSellModal}
             >
               List Now
             </div>
@@ -107,6 +134,7 @@ export default function Nft({ nft, refetch }) {
       <SellModal
         open={listingModal}
         nft={metadata}
+        listItem={handleListNft}
         closeModal={handleCloseModal}
         refetch={refetch}
       />

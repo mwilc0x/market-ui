@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Navbar from "/components/Navbar";
-import { useWallet } from "@solana/wallet-adapter-react";
 import ConnectedWallet from "/components/wallet/ConnectedWallet";
+import { useWallet } from "@solana/wallet-adapter-react";
 
 export default function Wallet() {
   const { publicKey } = useWallet();

@@ -2,13 +2,31 @@ import { Fragment, useState } from "react";
 import Image from "next/image";
 import { Dialog, Transition } from "@headlessui/react";
 
-export default function SellModal({ open, nft, closeModal }) {
+export default function SellModal({ open, nft, closeModal, listItem }) {
+  const [price, setPrice] = useState(0);
   const [processing, setProcessing] = useState(false);
+  const [error, setError] = useState(null);
 
   const listNow = async () => {
+    if (price == null || price < 0) {
+      setError(true);
+      return;
+    }
+
     setProcessing(true);
-    closeModal();
+
+    await listItem(price);
+
+    setTimeout(() => {
+      closeModal();
+      setProcessing(false);
+    }, 500);
   };
+
+  const handlePriceChange = (e) => {
+    e.preventDefault();
+    setPrice(e.target.value);
+  }
 
   return (
     <Transition.Root show={open} as={Fragment}>
@@ -72,6 +90,8 @@ export default function SellModal({ open, nft, closeModal }) {
                         type="number"
                         step="0.0001"
                         min="0.0000"
+                        value={price}
+                        onChange={handlePriceChange}
                         name="amount"
                         id="amount"
                         className="w-full rounded-lg px-4 py-3 bg-gray-50 border border-gray-400 text-black"
